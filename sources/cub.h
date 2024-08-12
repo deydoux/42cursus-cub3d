@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub.c                                              :+:      :+:    :+:   */
+/*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 13:09:12 by deydoux           #+#    #+#             */
-/*   Updated: 2024/08/12 18:02:39 by deydoux          ###   ########.fr       */
+/*   Created: 2024/08/12 14:00:13 by deydoux           #+#    #+#             */
+/*   Updated: 2024/08/12 15:06:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#ifndef CUB_H
+# define CUB_H
+# include "cub_common.h"
 
-int	main(int argc, char **argv)
-{
-	t_cub	cub;
+void	cub_destroy(t_cub cub);
+bool	cub_init(t_cub *cub);
 
-	cub_init(&cub);
-	cub_destroy(cub);
-	(void)argc;
-	(void)argv;
-}
+#endif
