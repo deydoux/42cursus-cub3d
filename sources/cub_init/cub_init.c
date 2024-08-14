@@ -6,21 +6,24 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:43:04 by deydoux           #+#    #+#             */
-/*   Updated: 2024/08/12 18:46:56 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/08/14 13:14:51 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub_init.h"
 
-static bool	placeholder_map(char ***map)
+static bool	placeholder_parsing(t_cub *cub)
 {
-	*map = malloc(sizeof(**map) * 6);
-	(*map)[0] = ft_strdup("111111\n");
-	(*map)[1] = ft_strdup("100101\n");
-	(*map)[2] = ft_strdup("101001\n");
-	(*map)[3] = ft_strdup("1100N1\n");
-	(*map)[4] = ft_strdup("111111\n");
-	(*map)[5] = NULL;
+	cub->map = malloc(sizeof(*cub->map) * 6);
+	cub->map[0] = ft_strdup("111111\n");
+	cub->map[1] = ft_strdup("100101\n");
+	cub->map[2] = ft_strdup("101001\n");
+	cub->map[3] = ft_strdup("1100N1\n");
+	cub->map[4] = ft_strdup("111111\n");
+	cub->map[5] = NULL;
+	cub->dir = 90;
+	cub->x = 4;
+	cub->y = 3;
 	return (false);
 }
 
@@ -50,7 +53,7 @@ static bool	cub_win_init(void *mlx, void **win)
 bool	cub_init(t_cub *cub)
 {
 	ft_bzero(cub, sizeof(*cub));
-	return (placeholder_map(&cub->map) || cub_mlx_init(&cub->mlx)
+	return (placeholder_parsing(cub) || cub_mlx_init(&cub->mlx)
 		|| cub_new_img(CUB_WINDOW_HEIGH, CUB_WINDOW_WIDTH, cub->mlx,
 			&cub->frame) || cub_win_init(cub->mlx, &cub->win));
 }
