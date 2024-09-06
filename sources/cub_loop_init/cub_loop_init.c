@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:54:40 by deydoux           #+#    #+#             */
-/*   Updated: 2024/08/21 16:54:23 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/07 00:27:59 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ static int	cub_quit(t_cub *cub)
 static int	cub_key_release(int key, t_cub *cub)
 {
 	if (key == CUB_KEY_LEFT)
-		cub->dir += 5 * DEG_RAD;
+		cub->a += 5 * DEG_RAD;
 	else if (key == CUB_KEY_RIGHT)
-		cub->dir -= 5 * DEG_RAD;
+		cub->a -= 5 * DEG_RAD;
 	else if (key == mlx_esc_key)
 		cub_quit(cub);
 	else
 		return (EXIT_FAILURE);
-	printf("dir = %f;\ndir_deg = %f;\ndir_x = %f;\ndir_y = %f;\n\n", cub->dir,
-		cub->dir / DEG_RAD, sin(cub->dir), cos(cub->dir));
+	printf("dir = %f;\ndir_deg = %f;\ndir_x = %f;\ndir_y = %f;\n\n", cub->a,
+		cub->a / DEG_RAD, sin(cub->a), cos(cub->a));
 	return (EXIT_SUCCESS);
 }
 
