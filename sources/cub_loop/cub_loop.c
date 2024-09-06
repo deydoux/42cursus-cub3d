@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/08/21 16:30:54 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/07 00:23:09 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	cub_loop(t_cub *cub)
 {
-	usleep(1000);
 	return (EXIT_SUCCESS);
 	(void)cub;
 }
