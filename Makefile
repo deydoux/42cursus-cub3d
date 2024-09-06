@@ -4,6 +4,8 @@ SOURCES = \
 cub.c \
 cub_destroy.c \
 cub_init/cub_init.c \
+cub_loop/cub_loop.c \
+cub_loop_init/cub_loop_init.c \
 cub_init/cub_new_img.c
 
 LIBFT_DIR = libft

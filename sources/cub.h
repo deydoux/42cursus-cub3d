@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:00:13 by deydoux           #+#    #+#             */
-/*   Updated: 2024/08/12 15:06:17 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/08/21 16:15:58 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CUB_H
 # include "cub_common.h"
 
-void	cub_destroy(t_cub cub);
 bool	cub_init(t_cub *cub);
+void	cub_loop_init(t_cub *cub);
 
 #endif

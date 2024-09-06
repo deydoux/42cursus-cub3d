@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/08/14 12:38:22 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/08/21 16:47:06 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,7 @@
 # include "mlx.h"
 # include <math.h>
 # include <stdio.h>
+
+void	cub_destroy(t_cub cub);
+
 #endif
