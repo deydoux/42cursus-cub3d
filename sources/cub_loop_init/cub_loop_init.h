@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:23 by deydoux           #+#    #+#             */
-/*   Updated: 2024/08/21 16:29:54 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/07 00:44:55 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef enum e_mlx_event
 
 typedef enum e_mlx_key
 {
-	mlx_esc_key = 65307
+	mlx_key_esc = 65307
 }	t_mlx_key;
 
 typedef enum e_mlx_mask

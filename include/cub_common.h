@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/07 00:27:07 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/07 00:52:43 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@
 # include <stdio.h>
 
 # define CUB_ERR		"\e[31mError\e[0m\n"
-# define CUB_KEY_DOWN	's'
-# define CUB_KEY_LEFT	'a'
-# define CUB_KEY_RIGHT	'd'
-# define CUB_KEY_UP		'w'
+# define CUB_KEY_BIND	"zqsd"
+# define CUB_KEY_N		4
 # define CUB_PH			"CUB PLACE HOLDER:"
 # define CUB_SIZE		64
 # define CUB_WIN_H		720
@@ -49,6 +47,7 @@ typedef struct s_cub_map
 
 typedef struct s_cub
 {
+	bool		press[CUB_KEY_N];
 	double		a;
 	double		dx;
 	double		dy;
