@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:43:04 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/07 00:27:32 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/07 01:08:42 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@ static bool	placeholder_parsing(t_cub *cub)
 	cub->map.buf[0] = ft_strdup("111111\n");
 	cub->map.buf[1] = ft_strdup("100001\n");
 	cub->map.buf[2] = ft_strdup("101001\n");
-	cub->map.buf[3] = ft_strdup("1010N1\n");
+	cub->map.buf[3] = ft_strdup("1010E1\n");
 	cub->map.buf[4] = ft_strdup("111111\n");
 	cub->map.buf[5] = NULL;
 	cub->map.h = 5;
 	cub->map.w= 6;
-	cub->a = -M_PI_2;
+	cub->a = 0;
+	cub->dx = 1;
 	cub->x = 4;
 	cub->y = 3;
 	return (false);
