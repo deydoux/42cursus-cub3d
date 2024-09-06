@@ -2,7 +2,7 @@ NAME = cub3D
 
 SOURCES = \
 cub.c \
-cub_destroy.c \
+cub_common/cub_destroy.c \
 cub_init/cub_init.c \
 cub_loop/cub_loop.c \
 cub_loop_init/cub_loop_init.c \
