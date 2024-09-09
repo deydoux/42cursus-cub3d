@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:43:04 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/07 01:08:42 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/09 13:44:28 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ static bool	placeholder_parsing(t_cub *cub)
 	cub->map.buf[4] = ft_strdup("111111\n");
 	cub->map.buf[5] = NULL;
 	cub->map.h = 5;
-	cub->map.w= 6;
+	cub->map.w = 6;
 	cub->a = 0;
 	cub->dx = 1;
+	cub->dx_move = cub->dx / CUB_SIZE;
 	cub->x = 4;
 	cub->y = 3;
 	return (false);
