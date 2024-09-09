@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_minimap_init.c                                 :+:      :+:    :+:   */
+/*   cub_map_img_init.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:17:01 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/06 21:55:53 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/09 14:11:31 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	minimap_draw_wall(size_t x, size_t y, t_cub_img img)
 	}
 }
 
-bool	cub_minimap_init(t_cub *cub)
+bool	cub_map_img_init(t_cub *cub)
 {
 	size_t	x;
 	size_t	y;

@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:43:04 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/09 13:44:28 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/09 14:17:45 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ bool	cub_init(t_cub *cub)
 	ft_bzero(cub, sizeof(*cub));
 	return (placeholder_parsing(cub) || cub_mlx_init(&cub->mlx)
 		|| cub_new_img(CUB_WIN_H, CUB_WIN_W, cub->mlx, &cub->frame)
-		|| cub_win_init(cub->mlx, &cub->win));
+		|| cub_map_img_init(cub) || cub_win_init(cub->mlx, &cub->win));
 }
