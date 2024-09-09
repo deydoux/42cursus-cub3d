@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/07 00:54:57 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/09 13:11:26 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_cub_map
 
 typedef struct s_cub
 {
-	bool		key_press[CUB_KEY_N];
+	bool		keys[CUB_KEY_N];
 	double		a;
 	double		dx;
 	double		dy;

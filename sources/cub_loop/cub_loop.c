@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/07 01:09:16 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/09 13:11:25 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static bool	handle_key_press_angle(t_cub *cub)
 {
-	if (cub->key_press[cub_key_left])
+	if (cub->keys[cub_key_left])
 	{
-		if (cub->key_press[cub_key_right])
+		if (cub->keys[cub_key_right])
 			return (false);
 		cub->a -= DEG_RAD;
 	}
-	else if (cub->key_press[cub_key_right])
+	else if (cub->keys[cub_key_right])
 		cub->a += DEG_RAD;
 	else
 		return (false);
@@ -34,14 +34,14 @@ static void	handle_key_press(t_cub *cub)
 	bool	angle_move;
 
 	angle_move = handle_key_press_angle(cub);
-	if (cub->key_press[cub_key_up])
+	if (cub->keys[cub_key_up])
 	{
-		if (cub->key_press[cub_key_down])
+		if (cub->keys[cub_key_down])
 			return ;
 		cub->x += cub->dx;
 		cub->y += cub->dy;
 	}
-	else if (cub->key_press[cub_key_down])
+	else if (cub->keys[cub_key_down])
 	{
 		cub->x -= cub->dx;
 		cub->y -= cub->dy;

@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:54:40 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/07 00:55:03 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/09 13:11:25 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	cub_key_press(int key, t_cub *cub)
 	{
 		if (key == CUB_KEY_BIND[i])
 		{
-			cub->key_press[i] = true;
+			cub->keys[i] = true;
 			return (EXIT_SUCCESS);
 		}
 		i++;
@@ -48,7 +48,7 @@ static int	cub_key_release(int key, t_cub *cub)
 	{
 		if (key == CUB_KEY_BIND[i])
 		{
-			cub->key_press[i] = false;
+			cub->keys[i] = false;
 			return (EXIT_SUCCESS);
 		}
 		i++;
