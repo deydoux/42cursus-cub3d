@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:54:40 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/09 15:25:52 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/09 22:47:24 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static int	cub_key_release(int key, t_cub *cub)
 
 void	cub_loop_init(t_cub *cub)
 {
-	mlx_put_image_to_window(cub->mlx, cub->win, cub->map.img.ptr, 0, 0);
 	mlx_hook(cub->win, mlx_destroy_notify_event, mlx_structure_notify_mask,
 		cub_quit, cub);
 	mlx_hook(cub->win, mlx_key_press_event, mlx_key_press_mask, cub_key_press,

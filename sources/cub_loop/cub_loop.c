@@ -6,11 +6,35 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/09 15:51:36 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/09 23:38:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub_loop.h"
+
+void cub_draw_line(int x0, int y0, int x1, int y1, t_cub cub)
+{
+	float	x_inc;
+	float	x;
+	float	y_inc;
+	float	y;
+	int		dx;
+	int		dy;
+	int		steps;
+
+	dx = x1 - x0;
+	dy = y1 - y0;
+	steps = ft_abs(dx) > ft_abs(dy) ? ft_abs(dx) : ft_abs(dy);
+	x_inc = dx / (float)steps;
+	y_inc = dy / (float)steps;
+	x = x0;
+	y = y0;
+	for (int i = 0; i <= steps; i++) {
+		mlx_pixel_put(cub.mlx, cub.win, x, y, 0xff);
+		x += x_inc;
+		y += y_inc;
+	}
+}
 
 static bool	handle_key_press_angle(t_cub *cub)
 {
@@ -54,7 +78,9 @@ static void	handle_key_press(t_cub *cub)
 	}
 	else if (!angle_move)
 		return ;
+	mlx_put_image_to_window(cub->mlx, cub->win, cub->map.img.ptr, 0, 0);
 	mlx_pixel_put(cub->mlx, cub->win, (int)(cub->x * CUB_SIZE / 2), (int)(cub->y * CUB_SIZE / 2), 0xff0000);
+	cub_draw_line(150, 300, (int)(cub->x * CUB_SIZE / 2), (int)(cub->y * CUB_SIZE / 2), *cub);
 }
 
 int	cub_loop(t_cub *cub)
