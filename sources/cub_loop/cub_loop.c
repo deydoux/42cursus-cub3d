@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/09 14:34:55 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/09 15:51:36 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,7 @@ static void	handle_key_press(t_cub *cub)
 	}
 	else if (!angle_move)
 		return ;
-	mlx_put_image_to_window(cub->mlx, cub->win, cub->map.img.ptr, 0, 0);
-	mlx_pixel_put(cub->mlx, cub->win, (int)(cub->x * CUB_SIZE), (int)(cub->y * CUB_SIZE), 0xff0000);
+	mlx_pixel_put(cub->mlx, cub->win, (int)(cub->x * CUB_SIZE / 2), (int)(cub->y * CUB_SIZE / 2), 0xff0000);
 }
 
 int	cub_loop(t_cub *cub)

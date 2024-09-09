@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:17:01 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/09 14:11:31 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/09 15:16:13 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static void	minimap_draw_wall(size_t x, size_t y, t_cub_img img)
 	size_t	j;
 
 	j = 0;
-	while (j < CUB_SIZE)
+	while (j < CUB_SIZE / 2)
 	{
 		i = 0;
-		while (i < CUB_SIZE)
+		while (i < CUB_SIZE / 2)
 			img.buf[(y + j) * img.w_size + x + i++] = 0xffffffff;
 		j++;
 	}
@@ -42,7 +42,7 @@ bool	cub_map_img_init(t_cub *cub)
 		while (x < cub->map.w)
 		{
 			if (cub->map.buf[y][x] == '1')
-				minimap_draw_wall(x * CUB_SIZE, y * CUB_SIZE, cub->map.img);
+				minimap_draw_wall(x * CUB_SIZE / 2, y * CUB_SIZE / 2, cub->map.img);
 			x++;
 		}
 		y++;

@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:43:04 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/09 14:17:45 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/09 15:24:22 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,29 @@
 
 static bool	placeholder_parsing(t_cub *cub)
 {
-	cub->map.buf = malloc(sizeof(*cub->map.buf) * 6);
-	cub->map.buf[0] = ft_strdup("111111\n");
-	cub->map.buf[1] = ft_strdup("100001\n");
-	cub->map.buf[2] = ft_strdup("101001\n");
-	cub->map.buf[3] = ft_strdup("1010E1\n");
-	cub->map.buf[4] = ft_strdup("111111\n");
-	cub->map.buf[5] = NULL;
-	cub->map.h = 5;
-	cub->map.w = 6;
-	cub->a = 0;
-	cub->dx = 1;
-	cub->dx_move = cub->dx / CUB_SIZE;
-	cub->x = 4;
-	cub->y = 3;
+	cub->map.buf = malloc(sizeof(*cub->map.buf) * 15);
+	cub->map.buf[0] = ft_strdup("000000001111111111111111111111111\n");
+	cub->map.buf[1] = ft_strdup("000000001000000000110000000000001\n");
+	cub->map.buf[2] = ft_strdup("000000001011000001110000000000001\n");
+	cub->map.buf[3] = ft_strdup("000000001001000000000000000000001\n");
+	cub->map.buf[4] = ft_strdup("111111111011000001110000000000001\n");
+	cub->map.buf[5] = ft_strdup("100000000011000001110111110111111\n");
+	cub->map.buf[6] = ft_strdup("111101111111110111000000100010000\n");
+	cub->map.buf[7] = ft_strdup("111101111111110111010100100010000\n");
+	cub->map.buf[8] = ft_strdup("110000001101010111000000100010000\n");
+	cub->map.buf[9] = ft_strdup("100000000000000011000000100010000\n");
+	cub->map.buf[10] = ft_strdup("10000000000000001101010010001000\n");
+	cub->map.buf[11] = ft_strdup("11000001110101011111011110N01110\n");
+	cub->map.buf[12] = ft_strdup("11110111011101010101111010001000\n");
+	cub->map.buf[13] = ft_strdup("11111111011111110111111111111000\n");
+	cub->map.buf[14] = NULL;
+	cub->map.h = 14;
+	cub->map.w = 33;
+	cub->a = -M_PI_2;
+	cub->dy = -1;
+	cub->dy_move = cub->dy / CUB_SIZE;
+	cub->x = 26.5;
+	cub->y = 11.5;
 	return (false);
 }
 
