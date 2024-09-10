@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/10 16:15:57 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/10 17:07:46 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,12 @@ static void	raycast_ph(t_cub cub)
 		rd = rdx;
 	else
 		rd = rdy;
-	cub_draw_line((int)(cub.x * CUB_SIZE / 2), (int)(cub.y * CUB_SIZE / 2), (int)((cub.x + cub.dx * rd) * CUB_SIZE / 2), (int)((cub.y + cub.dy * rd) * CUB_SIZE / 2), 0xff0000, cub);
+	cub_draw_line(
+		cub.x * CUB_SIZE / 2,
+		cub.y * CUB_SIZE / 2,
+		(cub.x + cub.dx * rd) * CUB_SIZE / 2 - 1 * (cub.dx < 0),
+		(cub.y + cub.dy * rd) * CUB_SIZE / 2 - 1 * (cub.dy < 0),
+		0xff0000, cub);
 }
 
 static void	handle_key_press(t_cub *cub)
