@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/10 20:12:06 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/10 20:17:59 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,40 +57,36 @@ static bool	handle_key_press_angle(t_cub *cub)
 
 static void	raycast_ph(t_cub cub)
 {
-	double	rd;
-	double	rx;
-	double	ry;
-	double	rdx;
-	double	rdy;
+	t_cub_ray	ray;
 
-	rx = cub.x;
-	ry = cub.y;
-	while (cub.map.buf[(int)ry][(int)rx] != '1')
+	ray.x = cub.x;
+	ray.y = cub.y;
+	while (cub.map.buf[(int)ray.y][(int)ray.x] != '1')
 	{
 		if (cub.dx > 0)
-			rdx = ((int)rx + 1 - rx) / cub.dx;
+			ray.dx = ((int)ray.x + 1 - ray.x) / cub.dx;
 		else if (!cub.dx)
-			rdx = 2;
+			ray.dx = 2;
 		else
-			rdx = (rx - (int)rx) / (cub.dx * -1);
+			ray.dx = (ray.x - (int)ray.x) / (cub.dx * -1);
 		if (cub.dy > 0)
-			rdy = ((int)ry + 1 - ry) / cub.dy;
+			ray.dy = ((int)ray.y + 1 - ray.y) / cub.dy;
 		else if (!cub.dy)
-			rdy = 2;
+			ray.dy = 2;
 		else
-			rdy = (ry - (int)ry) / (cub.dy * -1);
-		if (rdx < rdy)
-			rd = rdx;
+			ray.dy = (ray.y - (int)ray.y) / (cub.dy * -1);
+		if (ray.dx < ray.dy)
+			ray.a = ray.dx;
 		else
-			rd = rdy;
-		rx += cub.dx * rd - CUB_1_SIZE * (cub.dx < 0);
-		ry += cub.dy * rd - CUB_1_SIZE * (cub.dy < 0);
+			ray.a = ray.dy;
+		ray.x += cub.dx * ray.a - CUB_1_SIZE * (cub.dx < 0);
+		ray.y += cub.dy * ray.a - CUB_1_SIZE * (cub.dy < 0);
 	}
 	cub_draw_line(
 		cub.x * CUB_SIZE / 2,
 		cub.y * CUB_SIZE / 2,
-		rx * CUB_SIZE / 2,
-		ry * CUB_SIZE / 2,
+		ray.x * CUB_SIZE / 2,
+		ray.y * CUB_SIZE / 2,
 		0xff0000, cub);
 }
 

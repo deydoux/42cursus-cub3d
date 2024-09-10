@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/10 20:10:49 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/10 20:13:06 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdint.h>
 # include <stdio.h>
 
-# define CUB_1_SIZE		(1. / CUB_SIZE)
 # define CUB_ERR		"\e[31mError\e[0m\n"
 # define CUB_KEY_BIND	"zqsd"
 # define CUB_KEY_N		4
