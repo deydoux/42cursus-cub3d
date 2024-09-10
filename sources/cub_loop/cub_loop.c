@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/10 19:19:36 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/10 20:05:32 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,20 @@ static void	raycast_ph(t_cub cub)
 		0xff0000, cub);
 }
 
+static void	raycast_ph_70(t_cub cub)
+{
+	cub.a -= 35 * DEG_RAD;
+	cub.dx = cos(cub.a);
+	cub.dy = sin(cub.a);
+	for (size_t i = 0; i < 70; i++)
+	{
+		raycast_ph(cub);
+		cub.a += DEG_RAD;
+		cub.dx = cos(cub.a);
+		cub.dy = sin(cub.a);
+	}
+}
+
 static void	handle_key_press(t_cub *cub)
 {
 	bool	angle_move;
@@ -118,7 +132,7 @@ static void	handle_key_press(t_cub *cub)
 	else if (angle_move)
 		return ;
 	mlx_put_image_to_window(cub->mlx, cub->win, cub->map.img.ptr, 0, 0);
-	raycast_ph(*cub);
+	raycast_ph_70(*cub);
 	mlx_pixel_put(cub->mlx, cub->win, (int)(cub->x * CUB_SIZE / 2), (int)(cub->y * CUB_SIZE / 2), 0xffffff);
 }
 
