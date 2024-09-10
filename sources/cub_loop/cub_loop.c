@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/10 17:07:46 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/10 17:12:19 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void cub_draw_line(int x0, int y0, int x1, int y1, int color, t_cub cub)
 {
-	float	x_inc;
-	float	x;
-	float	y_inc;
-	float	y;
+	double	x_inc;
+	double	x;
+	double	y_inc;
+	double	y;
 	int		dx;
 	int		dy;
 	int		steps;
@@ -25,8 +25,8 @@ void cub_draw_line(int x0, int y0, int x1, int y1, int color, t_cub cub)
 	dx = x1 - x0;
 	dy = y1 - y0;
 	steps = ft_abs(dx) > ft_abs(dy) ? ft_abs(dx) : ft_abs(dy);
-	x_inc = dx / (float)steps;
-	y_inc = dy / (float)steps;
+	x_inc = dx / (double)steps;
+	y_inc = dy / (double)steps;
 	x = x0;
 	y = y0;
 	for (int i = 0; i <= steps; i++) {
