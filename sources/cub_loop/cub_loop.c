@@ -6,13 +6,13 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/09 23:47:58 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/10 16:15:57 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub_loop.h"
 
-void cub_draw_line(int x0, int y0, int x1, int y1, t_cub cub)
+void cub_draw_line(int x0, int y0, int x1, int y1, int color, t_cub cub)
 {
 	float	x_inc;
 	float	x;
@@ -30,7 +30,7 @@ void cub_draw_line(int x0, int y0, int x1, int y1, t_cub cub)
 	x = x0;
 	y = y0;
 	for (int i = 0; i <= steps; i++) {
-		mlx_pixel_put(cub.mlx, cub.win, x, y, 0xff);
+		mlx_pixel_put(cub.mlx, cub.win, x, y, color);
 		x += x_inc;
 		y += y_inc;
 	}
@@ -53,6 +53,27 @@ static bool	handle_key_press_angle(t_cub *cub)
 	cub->dy = sin(cub->a);
 	cub->dy_move = cub->dy / CUB_SIZE;
 	return (false);
+}
+
+static void	raycast_ph(t_cub cub)
+{
+	double	rd;
+	double	rdx;
+	double	rdy;
+
+	if (cub.dx < 0)
+		rdx = (cub.x - (int)cub.x) / (cub.dx * -1);
+	else
+		rdx = ((int)cub.x + 1 - cub.x) / cub.dx;
+	if (cub.dy < 0)
+		rdy = (cub.y - (int)cub.y) / (cub.dy * -1);
+	else
+		rdy = ((int)cub.y + 1 - cub.y) / cub.dy;
+	if (rdx < rdy)
+		rd = rdx;
+	else
+		rd = rdy;
+	cub_draw_line((int)(cub.x * CUB_SIZE / 2), (int)(cub.y * CUB_SIZE / 2), (int)((cub.x + cub.dx * rd) * CUB_SIZE / 2), (int)((cub.y + cub.dy * rd) * CUB_SIZE / 2), 0xff0000, cub);
 }
 
 static void	handle_key_press(t_cub *cub)
@@ -79,8 +100,8 @@ static void	handle_key_press(t_cub *cub)
 	else if (angle_move)
 		return ;
 	mlx_put_image_to_window(cub->mlx, cub->win, cub->map.img.ptr, 0, 0);
-	mlx_pixel_put(cub->mlx, cub->win, (int)(cub->x * CUB_SIZE / 2), (int)(cub->y * CUB_SIZE / 2), 0xff0000);
-	cub_draw_line(150, 300, (int)(cub->x * CUB_SIZE / 2), (int)(cub->y * CUB_SIZE / 2), *cub);
+	raycast_ph(*cub);
+	mlx_pixel_put(cub->mlx, cub->win, (int)(cub->x * CUB_SIZE / 2), (int)(cub->y * CUB_SIZE / 2), 0xffffff);
 }
 
 int	cub_loop(t_cub *cub)
