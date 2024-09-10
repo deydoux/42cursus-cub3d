@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/10 20:05:32 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/10 20:12:06 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ static void	raycast_ph(t_cub cub)
 			rd = rdx;
 		else
 			rd = rdy;
-		rx += cub.dx * rd - (1. / CUB_SIZE) * (cub.dx < 0);
-		ry += cub.dy * rd - (1. / CUB_SIZE) * (cub.dy < 0);
+		rx += cub.dx * rd - CUB_1_SIZE * (cub.dx < 0);
+		ry += cub.dy * rd - CUB_1_SIZE * (cub.dy < 0);
 	}
 	cub_draw_line(
 		cub.x * CUB_SIZE / 2,
