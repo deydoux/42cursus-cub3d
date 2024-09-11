@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/10 20:17:59 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/11 15:34:13 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,14 @@ static void	raycast_ph(t_cub cub)
 	ray.y = cub.y;
 	while (cub.map.buf[(int)ray.y][(int)ray.x] != '1')
 	{
-		if (cub.dx > 0)
-			ray.dx = ((int)ray.x + 1 - ray.x) / cub.dx;
-		else if (!cub.dx)
-			ray.dx = 2;
-		else
+		if (cub.dx < 0)
 			ray.dx = (ray.x - (int)ray.x) / (cub.dx * -1);
-		if (cub.dy > 0)
-			ray.dy = ((int)ray.y + 1 - ray.y) / cub.dy;
-		else if (!cub.dy)
-			ray.dy = 2;
 		else
+			ray.dx = ((int)ray.x - ray.x + 1) / cub.dx;
+		if (cub.dy < 0)
 			ray.dy = (ray.y - (int)ray.y) / (cub.dy * -1);
+		else
+			ray.dy = ((int)ray.y - ray.y + 1) / cub.dy;
 		if (ray.dx < ray.dy)
 			ray.a = ray.dx;
 		else
@@ -82,26 +78,21 @@ static void	raycast_ph(t_cub cub)
 		ray.x += cub.dx * ray.a - CUB_1_SIZE * (cub.dx < 0);
 		ray.y += cub.dy * ray.a - CUB_1_SIZE * (cub.dy < 0);
 	}
-	cub_draw_line(
-		cub.x * CUB_SIZE / 2,
-		cub.y * CUB_SIZE / 2,
-		ray.x * CUB_SIZE / 2,
-		ray.y * CUB_SIZE / 2,
-		0xff0000, cub);
+	cub_draw_line(cub.x * CUB_SIZE / 2, cub.y * CUB_SIZE / 2, ray.x * CUB_SIZE / 2, ray.y * CUB_SIZE / 2, 0xff0000, cub);
 }
 
 static void	raycast_ph_70(t_cub cub)
 {
-	cub.a -= 35 * DEG_RAD;
-	cub.dx = cos(cub.a);
-	cub.dy = sin(cub.a);
-	for (size_t i = 0; i < 70; i++)
-	{
+	// cub.a -= 35 * DEG_RAD;
+	// cub.dx = cos(cub.a);
+	// cub.dy = sin(cub.a);
+	// for (size_t i = 0; i < 70; i++)
+	// {
 		raycast_ph(cub);
-		cub.a += DEG_RAD;
-		cub.dx = cos(cub.a);
-		cub.dy = sin(cub.a);
-	}
+	// 	cub.a += DEG_RAD;
+	// 	cub.dx = cos(cub.a);
+	// 	cub.dy = sin(cub.a);
+	// }
 }
 
 static void	handle_key_press(t_cub *cub)
