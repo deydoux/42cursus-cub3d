@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/10 20:14:20 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/11 17:07:33 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ typedef struct s_cub_ray
 	double	y;
 }	t_cub_ray;
 
+void	cub_draw_line(int x0, int y0, int x1, int y1, int color, t_cub cub);
+void	cub_raycast(t_cub cub);
 
 #endif
