@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/10 20:13:06 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/12 20:36:40 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 # define CUB_KEY_N		4
 # define CUB_PH			"CUB PLACE HOLDER:"
 # define CUB_SIZE		64
-# define CUB_WIN_H		720
-# define CUB_WIN_W		1280
+# define CUB_WIN_H		1080
+# define CUB_WIN_W		1920
 # define DEG_RAD		(M_PI / 180)
 
 typedef struct s_cub_img
