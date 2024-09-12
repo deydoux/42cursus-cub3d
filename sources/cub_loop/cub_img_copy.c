@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:55:42 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/12 14:04:18 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/12 20:27:53 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	cub_img_copy(t_cub_img src, t_cub_img dst, int x, int y)
 {
-	int	min_src_x;
-	int	src_x;
-	int	src_y;
+	const int	min_src_x = x * -1 * (x < 0);
+	int			src_x;
+	int			src_y;
 
-	min_src_x = x * -1 * (x < 0);
 	src_y = y * -1 * (y < 0);
 	while (src_y < src.h && y + src_y < dst.h)
 	{
