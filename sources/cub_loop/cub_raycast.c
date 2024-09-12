@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/11 17:06:22 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/12 13:51:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ void	cub_raycast(t_cub cub)
 		ray.x += cub.dx * ray.a - CUB_1_SIZE * (cub.dx < 0);
 		ray.y += cub.dy * ray.a - CUB_1_SIZE * (cub.dy < 0);
 	}
-	cub_draw_line(cub.x * CUB_SIZE / 2, cub.y * CUB_SIZE / 2, ray.x * CUB_SIZE / 2, ray.y * CUB_SIZE / 2, 0xff0000, cub);
+	cub_draw_line(cub.x * CUB_SIZE / 2, cub.y * CUB_SIZE / 2, ray.x * CUB_SIZE / 2, ray.y * CUB_SIZE / 2, 0xff0000, cub.frame);
 }
