@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:08:35 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/12 13:51:00 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/12 20:26:28 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	cub_draw_line(int x0, int y0, int x1, int y1, int color, t_cub_img img)
 	x = x0;
 	y = y0;
 	for (int i = 0; i <= steps; i++) {
-		img.buf[(int)y * img.w_size + (int)x] = color;
+		img.buf[(int)round(y) * img.w_size + (int)round(x)] = color;
 		x += x_inc;
 		y += y_inc;
 	}
