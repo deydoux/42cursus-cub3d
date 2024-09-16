@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:08:35 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/12 20:26:28 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/16 13:56:06 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	cub_draw_line(int x0, int y0, int x1, int y1, int color, t_cub_img img)
 
 	dx = x1 - x0;
 	dy = y1 - y0;
-	steps = ft_abs(dx) > ft_abs(dy) ? ft_abs(dx) : ft_abs(dy);
+	steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
 	x_inc = dx / (double)steps;
 	y_inc = dy / (double)steps;
 	x = x0;
