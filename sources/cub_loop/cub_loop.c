@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/16 14:43:21 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/17 12:11:21 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,7 @@ static void	handle_key_press(t_cub *cub)
 	}
 	else if (angle_move)
 		return ;
-	for (size_t i = 0; i <= (size_t)(cub->frame.h * cub->frame.w_size); i++)
-		cub->frame.buf[i] = 0;
+	cub_img_clear(cub->frame);
 	cub_img_copy(cub->map.img, cub->frame, 0, 0);
 	cub_raycast(*cub);
 	cub->frame.buf[(int)(cub->y * CUB_SIZE / 2) * cub->frame.w_size + (int)(cub->x * CUB_SIZE / 2)] = 0xffffff;

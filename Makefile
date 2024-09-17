@@ -6,6 +6,7 @@ cub_common/cub_destroy.c \
 cub_init/cub_init.c \
 cub_init/cub_map_img_init.c \
 cub_loop/cub_draw_line.c \
+cub_loop/cub_img_clear.c \
 cub_loop/cub_img_copy.c \
 cub_loop/cub_loop.c \
 cub_loop/cub_raycast.c \
