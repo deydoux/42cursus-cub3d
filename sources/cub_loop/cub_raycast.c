@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/24 13:57:10 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/25 13:34:35 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	cub_raycast(t_cub cub)
 	int		y1;
 	size_t	x;
 
-	cub.a -= (60 / 2) * DEG_RAD;
+	cub.a -= (90.0 / 2) * DEG_RAD;
 	x = 0;
 	while (x < CUB_WIN_W)
 	{
@@ -60,7 +60,7 @@ void	cub_raycast(t_cub cub)
 		if (y1 > CUB_WIN_H)
 			y1 = CUB_WIN_H;
 		cub_draw_line(x, y0, x, y1, 0xff, cub.frame);
-		cub.a += DEG_RAD / (CUB_WIN_W / 60.0);
+		cub.a += DEG_RAD / (CUB_WIN_W / 90.0);
 		x++;
 	}
 }
