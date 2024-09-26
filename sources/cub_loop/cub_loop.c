@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/17 12:11:21 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/09/26 17:37:26 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static bool	handle_key_press_angle(t_cub *cub)
 	else
 		return (true);
 	cub->dx = cos(cub->a);
-	cub->dx_move = cub->dx / CUB_SIZE;
+	cub->dx_move = cub->dx / CUB_SIZE * 2;
 	cub->dy = sin(cub->a);
-	cub->dy_move = cub->dy / CUB_SIZE;
+	cub->dy_move = cub->dy / CUB_SIZE * 2;
 	return (false);
 }
 
