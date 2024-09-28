@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:17:36 by mapale            #+#    #+#             */
-/*   Updated: 2024/09/24 16:47:55 by mapale           ###   ########.fr       */
+/*   Updated: 2024/09/28 14:52:48 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <fcntl.h>
+
+# define ERR_TEXTURES "Error\nWrong Texture given\n"
 
 typedef	enum e_textures
 {
@@ -46,8 +48,10 @@ typedef struct s_map
 	char		**map;
 	char		*path;
 	int			map_h;
+	int			map_w;
+	int			map_start;
+	char		player_spawn; /* initialized value is '.' */
 	t_texture	textures_paths;
-	
 } t_map;
 
 #endif
