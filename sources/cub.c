@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:09:12 by deydoux           #+#    #+#             */
-/*   Updated: 2024/08/21 16:15:43 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/01 14:37:38 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	main(int argc, char **argv)
 	bool	status;
 	t_cub	cub;
 
-	status = cub_init(&cub);
+	status = init(&cub);
 	if (!status)
-		cub_loop_init(&cub);
-	cub_destroy(cub);
+		init_loop(&cub);
+	destroy(cub);
 	return (status);
 	(void)argc;
 	(void)argv;

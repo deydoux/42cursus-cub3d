@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_draw_line.c                                    :+:      :+:    :+:   */
+/*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:08:35 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/16 13:56:06 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/01 14:36:34 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub_loop.h"
+#include "loop.h"
 
-void	cub_draw_line(int x0, int y0, int x1, int y1, int color, t_cub_img img)
+void	draw_line(int x0, int y0, int x1, int y1, int color, t_img img)
 {
 	double	x_inc;
 	double	x;

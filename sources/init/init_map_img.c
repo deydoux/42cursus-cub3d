@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_map_img_init.c                                 :+:      :+:    :+:   */
+/*   init_map_img.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:17:01 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/09 15:16:13 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/01 14:36:34 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub_init.h"
+#include "init.h"
 
-static void	minimap_draw_wall(size_t x, size_t y, t_cub_img img)
+static void	minimap_draw_wall(size_t x, size_t y, t_img img)
 {
 	size_t	i;
 	size_t	j;
@@ -27,12 +27,12 @@ static void	minimap_draw_wall(size_t x, size_t y, t_cub_img img)
 	}
 }
 
-bool	cub_map_img_init(t_cub *cub)
+bool	init_map_img(t_cub *cub)
 {
 	size_t	x;
 	size_t	y;
 
-	if (cub_new_img(CUB_SIZE * cub->map.h, CUB_SIZE * cub->map.w, cub->mlx,
+	if (new_img(CUB_SIZE * cub->map.h, CUB_SIZE * cub->map.w, cub->mlx,
 		&cub->map.img))
 		return (true);
 	y = 0;

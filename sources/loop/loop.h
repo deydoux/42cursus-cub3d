@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_loop.h                                         :+:      :+:    :+:   */
+/*   loop.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/17 12:04:36 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/01 14:36:34 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ typedef struct s_cub_ray
 	double	y;
 }	t_cub_ray;
 
-void	cub_draw_line(int x0, int y0, int x1, int y1, int color, t_cub_img img);
-void	cub_img_clear(t_cub_img img);
-void	cub_img_copy(t_cub_img src, t_cub_img dst, int x, int y);
-void	cub_raycast(t_cub cub);
+void	draw_line(int x0, int y0, int x1, int y1, int color, t_img img);
+void	clear_img(t_img img);
+void	copy_img(t_img src, t_img dst, int x, int y);
+void	raycast(t_cub cub);
 
 #endif

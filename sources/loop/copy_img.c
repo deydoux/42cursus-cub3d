@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_img_copy.c                                     :+:      :+:    :+:   */
+/*   copy_img.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:55:42 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/12 20:27:53 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/01 14:36:34 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub_loop.h"
+#include "loop.h"
 
-void	cub_img_copy(t_cub_img src, t_cub_img dst, int x, int y)
+void	copy_img(t_img src, t_img dst, int x, int y)
 {
 	const int	min_src_x = x * -1 * (x < 0);
 	int			src_x;

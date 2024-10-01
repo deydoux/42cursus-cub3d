@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_loop.c                                         :+:      :+:    :+:   */
+/*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/26 17:37:26 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/01 14:26:44 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub_loop.h"
+#include "loop.h"
 
 static bool	handle_key_press_angle(t_cub *cub)
 {
@@ -54,14 +54,14 @@ static void	handle_key_press(t_cub *cub)
 	}
 	else if (angle_move)
 		return ;
-	cub_img_clear(cub->frame);
-	cub_img_copy(cub->map.img, cub->frame, 0, 0);
-	cub_raycast(*cub);
+	clear_img(cub->frame);
+	copy_img(cub->map.img, cub->frame, 0, 0);
+	raycast(*cub);
 	cub->frame.buf[(int)(cub->y * CUB_SIZE / 2) * cub->frame.w_size + (int)(cub->x * CUB_SIZE / 2)] = 0xffffff;
 	mlx_put_image_to_window(cub->mlx, cub->win, cub->frame.ptr, 0, 0);
 }
 
-int	cub_loop(t_cub *cub)
+int	loop(t_cub *cub)
 {
 	handle_key_press(cub);
 	usleep(1000);

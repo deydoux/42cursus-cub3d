@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_destroy.c                                      :+:      :+:    :+:   */
+/*   clear_img.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/12 14:47:56 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/09 14:20:42 by deydoux          ###   ########.fr       */
+/*   Created: 2024/09/17 12:02:11 by deydoux           #+#    #+#             */
+/*   Updated: 2024/10/01 14:36:34 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub_common.h"
+#include "loop.h"
 
-void	cub_destroy(t_cub cub)
+void	clear_img(t_img img)
 {
-	if (!cub.mlx)
-		return ;
-	if (cub.frame.ptr)
-		mlx_destroy_image(cub.mlx, cub.frame.ptr);
-	if (cub.map.img.ptr)
-		mlx_destroy_image(cub.mlx, cub.map.img.ptr);
-	mlx_destroy_display(cub.mlx);
-	free(cub.mlx);
+	size_t	i;
+	size_t	size;
+
+	i = 0;
+	size = img.h * img.w_size;
+	while (i < size)
+		img.buf[i++] = 0;
 }

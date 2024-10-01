@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/16 13:40:06 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/01 14:48:58 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,39 +28,39 @@
 # define CUB_WIN_W		1920
 # define DEG_RAD		(M_PI / 180)
 
-typedef struct s_cub_img
+typedef struct s_img
 {
 	int			h;
 	int			w_size;
 	int			w;
 	uint32_t	*buf;
 	void		*ptr;
-}	t_cub_img;
+}	t_img;
 
-typedef struct s_cub_map
+typedef struct s_map
 {
-	char		**buf;
-	size_t		h;
-	size_t		w;
-	t_cub_img	img;
-}	t_cub_map;
+	char	**buf;
+	size_t	h;
+	size_t	w;
+	t_img	img;
+}	t_map;
 
 typedef struct s_cub
 {
-	bool		keys[CUB_KEY_N];
-	double		a;
-	double		dx_move;
-	double		dx;
-	double		dy_move;
-	double		dy;
-	double		x;
-	double		y;
-	t_cub_img	frame;
-	t_cub_map	map;
-	void		*mlx;
-	void		*win;
+	bool	keys[CUB_KEY_N];
+	double	a;
+	double	dx_move;
+	double	dx;
+	double	dy_move;
+	double	dy;
+	double	x;
+	double	y;
+	t_img	frame;
+	t_map	map;
+	void	*mlx;
+	void	*win;
 }	t_cub;
 
-void	cub_destroy(t_cub cub);
+void	destroy(t_cub cub);
 
 #endif

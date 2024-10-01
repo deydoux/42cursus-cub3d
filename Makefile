@@ -1,17 +1,17 @@
 NAME = cub3D
 
 SOURCES = \
+common/destroy.c \
 cub.c \
-cub_common/cub_destroy.c \
-cub_init/cub_init.c \
-cub_init/cub_map_img_init.c \
-cub_loop/cub_draw_line.c \
-cub_loop/cub_img_clear.c \
-cub_loop/cub_img_copy.c \
-cub_loop/cub_loop.c \
-cub_loop/cub_raycast.c \
-cub_loop_init/cub_loop_init.c \
-cub_init/cub_new_img.c
+init_loop/init_loop.c \
+init/init_map_img.c \
+init/init.c \
+init/new_img.c \
+loop/clear_img.c \
+loop/copy_img.c \
+loop/draw_line.c \
+loop/loop.c \
+loop/raycast.c \
 
 LIBFT_DIR = libft
 MLX_DIR = minilibx-linux

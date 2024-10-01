@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_raycast.c                                      :+:      :+:    :+:   */
+/*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/26 17:39:10 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/01 14:30:38 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub_loop.h"
+#include "loop.h"
 
 double	cub_raycast_dist(t_cub cub)
 {
@@ -36,11 +36,11 @@ double	cub_raycast_dist(t_cub cub)
 		ray.x += cub.dx * ray.a;
 		ray.y += cub.dy * ray.a;
 	}
-	cub_draw_line(cub.x * CUB_SIZE / 2, cub.y * CUB_SIZE / 2, ray.x * CUB_SIZE / 2, ray.y * CUB_SIZE / 2, 0xff0000, cub.frame);
+	draw_line(cub.x * CUB_SIZE / 2, cub.y * CUB_SIZE / 2, ray.x * CUB_SIZE / 2, ray.y * CUB_SIZE / 2, 0xff0000, cub.frame);
 	return (sqrt(pow(cub.x - ray.x, 2) + pow(cub.y - ray.y, 2)));
 }
 
-void	cub_raycast(t_cub cub)
+void	raycast(t_cub cub)
 {
 	double	d;
 	int		y0;
@@ -62,7 +62,7 @@ void	cub_raycast(t_cub cub)
 			y0 = 0;
 		if (y1 > CUB_WIN_H)
 			y1 = CUB_WIN_H;
-		cub_draw_line(x, y0, x, y1, 0xff, cub.frame);
+		draw_line(x, y0, x, y1, 0xff, cub.frame);
 		cub.a += DEG_RAD / (CUB_WIN_W / 66.0);
 		x++;
 	}

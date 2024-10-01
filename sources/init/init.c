@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_init.c                                         :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:43:04 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/09 15:24:22 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/01 14:37:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub_init.h"
+#include "init.h"
 
 static bool	placeholder_parsing(t_cub *cub)
 {
@@ -51,7 +51,7 @@ static bool	cub_mlx_init(void **mlx)
 	return (false);
 }
 
-static bool	cub_win_init(void *mlx, void **win)
+static bool	init_win(void *mlx, void **win)
 {
 	*win = mlx_new_window(mlx, CUB_WIN_W, CUB_WIN_H, CUB_PH "map file");
 	if (!*win)
@@ -62,10 +62,10 @@ static bool	cub_win_init(void *mlx, void **win)
 	return (false);
 }
 
-bool	cub_init(t_cub *cub)
+bool	init(t_cub *cub)
 {
 	ft_bzero(cub, sizeof(*cub));
 	return (placeholder_parsing(cub) || cub_mlx_init(&cub->mlx)
-		|| cub_new_img(CUB_WIN_H, CUB_WIN_W, cub->mlx, &cub->frame)
-		|| cub_map_img_init(cub) || cub_win_init(cub->mlx, &cub->win));
+		|| new_img(CUB_WIN_H, CUB_WIN_W, cub->mlx, &cub->frame)
+		|| init_map_img(cub) || init_win(cub->mlx, &cub->win));
 }

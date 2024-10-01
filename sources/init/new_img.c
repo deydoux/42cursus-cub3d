@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_new_img.c                                      :+:      :+:    :+:   */
+/*   new_img.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:58:12 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/07 00:25:15 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/01 14:36:34 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub_init.h"
+#include "init.h"
 
-bool	cub_new_img(int height, int width, void *mlx, t_cub_img *img)
+bool	new_img(int height, int width, void *mlx, t_img *img)
 {
 	int	ign[1];
 

@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_loop_init.h                                    :+:      :+:    :+:   */
+/*   init.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 14:39:23 by deydoux           #+#    #+#             */
-/*   Updated: 2024/09/07 00:44:55 by deydoux          ###   ########.fr       */
+/*   Created: 2024/08/11 15:43:21 by deydoux           #+#    #+#             */
+/*   Updated: 2024/10/01 14:36:34 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB_LOOP_INIT_H
-# define CUB_LOOP_INIT_H
+#ifndef CUB_INIT_H
+# define CUB_INIT_H
 # include "cub_common.h"
+# define CUB_MAX_IMG_DIM	32767
+# define CUB_MAX_IMG_PIXEL	536107716
+# define CUB_MLX_INIT_ERR	"Failed to initialize MLX\n"
+# define CUB_WIN_INIT_ERR	"Failed to initialize window\n"
 
-typedef enum e_mlx_event
-{
-	mlx_key_press_event = 2,
-	mlx_key_release_event = 3,
-	mlx_destroy_notify_event = 17
-}	t_mlx_event;
-
-typedef enum e_mlx_key
-{
-	mlx_key_esc = 65307
-}	t_mlx_key;
-
-typedef enum e_mlx_mask
-{
-	mlx_key_press_mask = (1L<<0),
-	mlx_key_release_mask = (1L<<1),
-	mlx_structure_notify_mask = (1L<<17)
-}	t_mlx_mask;
-
-int	cub_loop(t_cub *cub);
+bool	init_map_img(t_cub *cub);
+bool	new_img(int height, int width, void *mlx, t_img *img);
 
 #endif
