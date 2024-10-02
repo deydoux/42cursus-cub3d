@@ -6,23 +6,24 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/01 14:36:34 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/02 15:28:18 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_LOOP_H
 # define CUB_LOOP_H
+
 # include "cub_common.h"
 
-# define CUB_1_SIZE	(1. / CUB_SIZE)
+# define CUB_1_SIZE	(1.0 / CUB_SIZE)
 
-typedef enum e_cub_key
+enum e_cub_key
 {
 	cub_key_up,
 	cub_key_left,
 	cub_key_down,
 	cub_key_right
-}	t_cub_key;
+};
 
 typedef struct s_cub_ray
 {

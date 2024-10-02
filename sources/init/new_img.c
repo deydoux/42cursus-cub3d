@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:58:12 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/01 14:36:34 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/02 15:22:21 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ bool	new_img(int height, int width, void *mlx, t_img *img)
 {
 	int	ign[1];
 
-	if (height > CUB_MAX_IMG_DIM || width > CUB_MAX_IMG_DIM
-		|| height * width > CUB_MAX_IMG_PIXEL)
+	if (height > MAX_IMG_DIM || width > MAX_IMG_DIM
+		|| height * width > MAX_IMG_PIXEL)
 	{
 		img->ptr = NULL;
 		return (true);

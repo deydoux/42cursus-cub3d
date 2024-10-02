@@ -6,12 +6,13 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/01 14:48:58 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/02 15:26:55 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_COMMON_H
 # define CUB_COMMON_H
+
 # define _GNU_SOURCE
 # include "libft.h"
 # include "mlx.h"
@@ -19,14 +20,13 @@
 # include <stdint.h>
 # include <stdio.h>
 
-# define CUB_ERR		"\e[31mError\e[0m\n"
 # define CUB_KEY_BIND	"wasd"
 # define CUB_KEY_N		4
-# define CUB_PH			"CUB PLACE HOLDER:"
 # define CUB_SIZE		64
-# define CUB_WIN_H		1080
-# define CUB_WIN_W		1920
 # define DEG_RAD		(M_PI / 180)
+# define ERR			"\e[31mError\e[0m\n"
+# define WIN_H			1080
+# define WIN_W			1920
 
 typedef struct s_img
 {

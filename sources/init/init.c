@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:43:04 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/01 14:37:17 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/02 15:22:29 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static bool	cub_mlx_init(void **mlx)
 	*mlx = mlx_init();
 	if (!*mlx)
 	{
-		ft_putstr_fd(CUB_ERR CUB_MLX_INIT_ERR, STDERR_FILENO);
+		ft_putstr_fd(MLX_INIT_ERR, STDERR_FILENO);
 		return (true);
 	}
 	return (false);
@@ -53,10 +53,10 @@ static bool	cub_mlx_init(void **mlx)
 
 static bool	init_win(void *mlx, void **win)
 {
-	*win = mlx_new_window(mlx, CUB_WIN_W, CUB_WIN_H, CUB_PH "map file");
+	*win = mlx_new_window(mlx, WIN_W, WIN_H, "placeholder: map file");
 	if (!*win)
 	{
-		ft_putstr_fd(CUB_ERR CUB_WIN_INIT_ERR, STDERR_FILENO);
+		ft_putstr_fd(WIN_INIT_ERR, STDERR_FILENO);
 		return (true);
 	}
 	return (false);
@@ -66,6 +66,6 @@ bool	init(t_cub *cub)
 {
 	ft_bzero(cub, sizeof(*cub));
 	return (placeholder_parsing(cub) || cub_mlx_init(&cub->mlx)
-		|| new_img(CUB_WIN_H, CUB_WIN_W, cub->mlx, &cub->frame)
+		|| new_img(WIN_H, WIN_W, cub->mlx, &cub->frame)
 		|| init_map_img(cub) || init_win(cub->mlx, &cub->win));
 }
