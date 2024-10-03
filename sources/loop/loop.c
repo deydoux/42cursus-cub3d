@@ -6,13 +6,13 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/03 12:00:19 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/03 14:46:01 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "loop.h"
 
-static bool	handle_key_press_angle(t_cub *cub)
+static bool	rotate(t_cub *cub)
 {
 	if (cub->key.rot_left)
 	{
@@ -31,11 +31,11 @@ static bool	handle_key_press_angle(t_cub *cub)
 	return (true);
 }
 
-static void	handle_key_press(t_cub *cub)
+static void	move(t_cub *cub)
 {
 	bool	angle_move;
 
-	angle_move = handle_key_press_angle(cub);
+	angle_move = rotate(cub);
 	if (cub->key.up)
 	{
 		if (cub->key.down)
@@ -63,7 +63,7 @@ static void	handle_key_press(t_cub *cub)
 
 int	loop(t_cub *cub)
 {
-	handle_key_press(cub);
+	move(cub);
 	usleep(1000);
 	return (EXIT_SUCCESS);
 	(void)cub;
