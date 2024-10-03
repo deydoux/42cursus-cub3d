@@ -6,14 +6,14 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/02 15:28:18 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/02 15:43:15 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_LOOP_H
 # define CUB_LOOP_H
 
-# include "cub_common.h"
+# include "common.h"
 
 # define CUB_1_SIZE	(1.0 / CUB_SIZE)
 

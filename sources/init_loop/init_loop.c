@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:54:40 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/01 14:30:49 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/03 12:08:21 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,38 +22,38 @@ static int	quit(t_cub *cub)
 
 static int	handle_key_press(int key, t_cub *cub)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < CUB_KEY_N)
-	{
-		if (key == CUB_KEY_BIND[i])
-		{
-			cub->keys[i] = true;
-			return (EXIT_SUCCESS);
-		}
-		i++;
-	}
-	return (EXIT_FAILURE);
+	if (key == KEY_UP)
+		cub->key.up = true;
+	else if (key == KEY_LEFT)
+		cub->key.left = true;
+	else if (key == KEY_DOWN)
+		cub->key.down = true;
+	else if (key == KEY_RIGHT)
+		cub->key.right = true;
+	else if (key == KEY_ROT_LEFT)
+		cub->key.rot_left = true;
+	else if (key == KEY_ROT_RIGHT)
+		cub->key.rot_right = true;
+	return (EXIT_SUCCESS);
 }
 
 static int	handle_key_release(int key, t_cub *cub)
 {
-	size_t	i;
-
-	if (key == key_esc)
+	if (key == KEY_UP)
+		cub->key.up = false;
+	else if (key == KEY_LEFT)
+		cub->key.left = false;
+	else if (key == KEY_DOWN)
+		cub->key.down = false;
+	else if (key == KEY_RIGHT)
+		cub->key.right = false;
+	else if (key == KEY_ROT_LEFT)
+		cub->key.rot_left = false;
+	else if (key == KEY_ROT_RIGHT)
+		cub->key.rot_right = false;
+	else if (key == KEY_QUIT)
 		quit(cub);
-	i = 0;
-	while (i < CUB_KEY_N)
-	{
-		if (key == CUB_KEY_BIND[i])
-		{
-			cub->keys[i] = false;
-			return (EXIT_SUCCESS);
-		}
-		i++;
-	}
-	return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
 
 void	init_loop(t_cub *cub)

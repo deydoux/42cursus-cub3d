@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/01 14:26:44 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/03 12:00:19 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 static bool	handle_key_press_angle(t_cub *cub)
 {
-	if (cub->keys[cub_key_left])
+	if (cub->key.rot_left)
 	{
-		if (cub->keys[cub_key_right])
-			return (true);
+		if (cub->key.rot_right)
+			return (false);
 		cub->a -= DEG_RAD;
 	}
-	else if (cub->keys[cub_key_right])
+	else if (cub->key.rot_right)
 		cub->a += DEG_RAD;
 	else
-		return (true);
+		return (false);
 	cub->dx = cos(cub->a);
 	cub->dx_move = cub->dx / CUB_SIZE * 2;
 	cub->dy = sin(cub->a);
 	cub->dy_move = cub->dy / CUB_SIZE * 2;
-	return (false);
+	return (true);
 }
 
 static void	handle_key_press(t_cub *cub)
@@ -36,23 +36,23 @@ static void	handle_key_press(t_cub *cub)
 	bool	angle_move;
 
 	angle_move = handle_key_press_angle(cub);
-	if (cub->keys[cub_key_up])
+	if (cub->key.up)
 	{
-		if (cub->keys[cub_key_down])
+		if (cub->key.down)
 			return ;
 		if (cub->map.buf[(int)cub->y][(int)(cub->x + cub->dx_move)] != '1')
 			cub->x += cub->dx_move;
 		if (cub->map.buf[(int)(cub->y + cub->dy_move)][(int)cub->x] != '1')
 			cub->y += cub->dy_move;
 	}
-	else if (cub->keys[cub_key_down])
+	else if (cub->key.down)
 	{
 		if (cub->map.buf[(int)cub->y][(int)(cub->x - cub->dx_move)] != '1')
 			cub->x -= cub->dx_move;
 		if (cub->map.buf[(int)(cub->y - cub->dy_move)][(int)cub->x] != '1')
 			cub->y -= cub->dy_move;
 	}
-	else if (angle_move)
+	else if (!angle_move)
 		return ;
 	clear_img(cub->frame);
 	copy_img(cub->map.img, cub->frame, 0, 0);

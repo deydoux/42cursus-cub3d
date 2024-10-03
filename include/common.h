@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_common.h                                       :+:      :+:    :+:   */
+/*   common.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/02 15:26:55 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/03 12:07:46 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,14 @@
 # define _GNU_SOURCE
 # include "libft.h"
 # include "mlx.h"
+# include "config.h"
 # include <math.h>
 # include <stdint.h>
 # include <stdio.h>
 
-# define CUB_KEY_BIND	"wasd"
-# define CUB_KEY_N		4
-# define CUB_SIZE		64
-# define DEG_RAD		(M_PI / 180)
-# define ERR			"\e[31mError\e[0m\n"
-# define WIN_H			1080
-# define WIN_W			1920
+# define CUB_SIZE	64
+# define DEG_RAD	(M_PI / 180)
+# define ERR		"\e[31mError\e[0m\n"
 
 typedef struct s_img
 {
@@ -36,6 +33,16 @@ typedef struct s_img
 	uint32_t	*buf;
 	void		*ptr;
 }	t_img;
+
+typedef struct s_key
+{
+	bool	up;
+	bool	left;
+	bool	down;
+	bool	right;
+	bool	rot_left;
+	bool	rot_right;
+}	t_key;
 
 typedef struct s_map
 {
@@ -47,7 +54,6 @@ typedef struct s_map
 
 typedef struct s_cub
 {
-	bool	keys[CUB_KEY_N];
 	double	a;
 	double	dx_move;
 	double	dx;
@@ -55,6 +61,7 @@ typedef struct s_cub
 	double	dy;
 	double	x;
 	double	y;
+	t_key	key;
 	t_img	frame;
 	t_map	map;
 	void	*mlx;

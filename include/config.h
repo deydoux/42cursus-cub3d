@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.h                                             :+:      :+:    :+:   */
+/*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 15:43:21 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/02 15:43:15 by deydoux          ###   ########.fr       */
+/*   Created: 2024/10/02 15:43:48 by deydoux           #+#    #+#             */
+/*   Updated: 2024/10/02 17:56:52 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB_INIT_H
-# define CUB_INIT_H
+#ifndef CONFIG_H
+# define CONFIG_H
 
-# include "common.h"
-
-# define MAX_IMG_DIM	32767
-# define MAX_IMG_PIXEL	536107716
-# define MLX_INIT_ERR	ERR "Failed to initialize MLX\n"
-# define WIN_INIT_ERR	ERR "Failed to initialize window\n"
-
-bool	init_map_img(t_cub *cub);
-bool	new_img(int height, int width, void *mlx, t_img *img);
+# define KEY_UP			'w'
+# define KEY_LEFT		'a'
+# define KEY_DOWN		's'
+# define KEY_RIGHT		'd'
+# define KEY_ROT_LEFT	'q'
+# define KEY_ROT_RIGHT	'e'
+# define KEY_QUIT		65307
+# define WIN_H			1080
+# define WIN_W			1920
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:47:56 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/01 14:22:59 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/02 15:43:15 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub_common.h"
+#include "common.h"
 
 void	destroy(t_cub cub)
 {
