@@ -6,12 +6,12 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:23 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/02 17:19:03 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/03 12:13:11 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB_LOOP_INIT_H
-# define CUB_LOOP_INIT_H
+#ifndef INIT_LOOP_H
+# define INIT_LOOP_H
 
 # include "common.h"
 
