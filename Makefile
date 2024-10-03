@@ -11,6 +11,9 @@ loop/clear_img.c \
 loop/copy_img.c \
 loop/draw_line.c \
 loop/loop.c \
+loop/move.c \
+loop/null_pol_vec.c \
+loop/pol_vec.c \
 loop/raycast.c \
 
 LIBFT_DIR = libft

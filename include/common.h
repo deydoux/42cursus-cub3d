@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/03 13:00:13 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/03 18:15:14 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,7 @@ typedef struct s_map
 typedef struct s_cub
 {
 	double	a;
-	double	dx_move;
 	double	dx;
-	double	dy_move;
 	double	dy;
 	double	x;
 	double	y;
