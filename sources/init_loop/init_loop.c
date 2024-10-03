@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:54:40 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/03 12:08:21 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/03 14:55:49 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	quit(t_cub *cub)
 	exit(EXIT_SUCCESS);
 }
 
-static int	handle_key_press(int key, t_cub *cub)
+static int	key_press(int key, t_cub *cub)
 {
 	if (key == KEY_UP)
 		cub->key.up = true;
@@ -37,7 +37,7 @@ static int	handle_key_press(int key, t_cub *cub)
 	return (EXIT_SUCCESS);
 }
 
-static int	handle_key_release(int key, t_cub *cub)
+static int	key_release(int key, t_cub *cub)
 {
 	if (key == KEY_UP)
 		cub->key.up = false;
@@ -59,9 +59,8 @@ static int	handle_key_release(int key, t_cub *cub)
 void	init_loop(t_cub *cub)
 {
 	mlx_hook(cub->win, destroy_notify_event, structure_notify_mask, quit, cub);
-	mlx_hook(cub->win, key_press_event, key_press_mask, handle_key_press, cub);
-	mlx_hook(cub->win, key_release_event, key_release_mask, handle_key_release,
-		cub);
+	mlx_hook(cub->win, key_press_event, key_press_mask, key_press, cub);
+	mlx_hook(cub->win, key_release_event, key_release_mask, key_release, cub);
 	mlx_loop_hook(cub->mlx, loop, cub);
 	mlx_loop(cub->mlx);
 }
