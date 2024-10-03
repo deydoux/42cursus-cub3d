@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/03 18:15:14 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/03 18:32:56 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <stdint.h>
 # include <stdio.h>
 
-# define CUB_SIZE	64
 # define DEG_RAD	0.017453292519943295
 # define ERR		"\e[31mError\e[0m\n"
 

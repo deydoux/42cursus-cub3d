@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 14:58:29 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/03 18:23:00 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/03 18:36:45 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,13 @@ static t_pol_vec	move_vec(t_key key, double a)
 
 void	move(t_cub *cub)
 {
+	static	int	i = 0;
 	t_pol_vec	vec;
 
 	vec = move_vec(cub->key, cub->a);
-	vec.dx /= CUB_SIZE;
-	vec.dy /= CUB_SIZE;
+	vec.dx = vec.dx / CUB_SIZE * VELOCITY;
+	vec.dy = vec.dy / CUB_SIZE * VELOCITY;
+	printf("%f %f %d\n", vec.dx, vec.dy, i++);
 	if (cub->map.buf[(int)cub->y][(int)(cub->x + vec.dx)] != '1')
 		cub->x += vec.dx;
 	if (cub->map.buf[(int)(cub->y + vec.dy)][(int)cub->x] != '1')
