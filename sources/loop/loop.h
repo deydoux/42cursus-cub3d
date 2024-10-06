@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/03 18:22:34 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/04 00:28:53 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 # define CUB_1_SIZE	(1.0 / CUB_SIZE)
 
-typedef struct s_cub_ray
+typedef struct s_ray
 {
 	double	a;
 	double	dx;
 	double	dy;
 	double	x;
 	double	y;
-}	t_cub_ray;
+}	t_ray;
 
 typedef struct s_pol_vec
 {

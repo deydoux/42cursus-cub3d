@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/03 18:32:56 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/04 00:36:46 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,19 @@ typedef struct s_map
 	t_img	img;
 }	t_map;
 
+typedef struct s_pos
+{
+	double	x;
+	double	y;
+}	t_pos;
+
 typedef struct s_cub
 {
 	double	a;
-	double	dx;
-	double	dy;
-	double	x;
-	double	y;
-	t_key	key;
 	t_img	frame;
+	t_key	key;
 	t_map	map;
+	t_pos	pos;
 	void	*mlx;
 	void	*win;
 }	t_cub;

@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 15:43:48 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/03 18:34:18 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/07 01:01:01 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONFIG_H
 
 # define CUB_SIZE		64
+# define FOV			M_PI_2
 # define KEY_UP			'w'
 # define KEY_LEFT		'a'
 # define KEY_DOWN		's'

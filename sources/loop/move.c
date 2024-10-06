@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 14:58:29 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/04 00:05:57 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/04 00:32:11 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,12 @@ void	move(t_cub *cub)
 {
 	t_pol_vec	vec;
 
+	cub->a += move_key(cub->key.rot_right, cub->key.rot_left) * DEG_RAD;
 	vec = move_vec(cub->key, cub->a);
 	vec.dx = vec.dx / CUB_SIZE * VELOCITY;
 	vec.dy = vec.dy / CUB_SIZE * VELOCITY;
-	if (cub->map.buf[(int)cub->y][(int)(cub->x + vec.dx)] != '1')
-		cub->x += vec.dx;
-	if (cub->map.buf[(int)(cub->y + vec.dy)][(int)cub->x] != '1')
-		cub->y += vec.dy;
+	if (cub->map.buf[(int)cub->pos.y][(int)(cub->pos.x + vec.dx)] != '1')
+		cub->pos.x += vec.dx;
+	if (cub->map.buf[(int)(cub->pos.y + vec.dy)][(int)cub->pos.x] != '1')
+		cub->pos.y += vec.dy;
 }
