@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/04 00:28:53 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/07 01:37:40 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ typedef struct s_ray
 	double	a;
 	double	dx;
 	double	dy;
-	double	x;
-	double	y;
+	t_pos	pos;
 }	t_ray;
 
 typedef struct s_pol_vec
