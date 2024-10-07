@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/07 17:41:08 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/08 01:32:34 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static t_ray	init_ray(t_pol_vec vec, t_cub cub)
 	return (ray);
 }
 
-static double	raycast(t_pol_vec vec, t_cub cub)
+static t_ray	raycast(t_pol_vec vec, t_cub cub)
 {
 	t_ray	ray;
 
@@ -80,37 +80,49 @@ static double	raycast(t_pol_vec vec, t_cub cub)
 	else
 		ray.pos.y = (int)(ray.pos.y + ray.fix.y);
 	draw_line(cub.pos.x * CUB_SIZE / 2, cub.pos.y * CUB_SIZE / 2, (ray.pos.x * CUB_SIZE / 2), (ray.pos.y * CUB_SIZE / 2), 0xff0000, cub.frame);
-	return (dist(cub.pos, ray.pos));
+	return (ray);
+}
+
+static void	draw_wall(int x, int h, t_ray ray, t_cub cub)
+{
+	int	i;
+	int	w;
+	int	y;
+
+	if (ray.pos.x - (int)ray.pos.x > ray.pos.y - (int)ray.pos.y)
+		w = (ray.pos.x - (int)ray.pos.x) * cub.wall.w;
+	else
+		w = (ray.pos.y - (int)ray.pos.y) * cub.wall.w;
+	y = (WIN_H - h) / 2;
+	i = 0;
+	while (i < h)
+	{
+		cub.frame.buf[x + (i + y) * cub.frame.w_size] = cub.wall.buf[w + (int)((double)i / h * cub.wall.h )* cub.wall.w_size];
+		i++;
+	}
 }
 
 void	raycasts(t_cub cub)
 {
-	double	d;
-	int		y0;
-	int		y1;
-	size_t	x;
 	double	a;
+	double	d;
+	int		h;
+	size_t	x;
+	t_ray	ray;
 
 	a = cub.a - FOV / 2;
 	x = 0;
 	while (x < WIN_W)
 	{
-		d = raycast(pol_vec(a), cub) * cos(cub.a - a);
+		ray = raycast(pol_vec(a), cub);
+		d = dist(cub.pos, ray.pos) * cos(cub.a - a);
 		if (!d)
-		{
-			y0 = 0;
-			y1 = WIN_H;
-		}
+			h = WIN_H;
 		else
-		{
-			y0 = WIN_H / 2 - WIN_H / 2 / d;
-			y1 = WIN_H / 2 + WIN_H / 2 / d;
-		}
-		if (y0 < 0)
-			y0 = 0;
-		if (y1 > WIN_H)
-			y1 = WIN_H;
-		draw_line(x, y0, x, y1, 0xff, cub.frame);
+			h = WIN_H / d;
+		if (h > WIN_H)
+			h = WIN_H;
+		draw_wall(x, h, ray, cub);
 		a += FOV / WIN_W;
 		x++;
 	}
