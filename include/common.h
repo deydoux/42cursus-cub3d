@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/04 00:36:46 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/07 18:22:59 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_cub
 {
 	double	a;
 	t_img	frame;
+	t_img	wall;
 	t_key	key;
 	t_map	map;
 	t_pos	pos;

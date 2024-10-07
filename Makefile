@@ -7,6 +7,7 @@ init_loop/init_loop.c \
 init/init_map_img.c \
 init/init.c \
 init/new_img.c \
+init/open_img.c \
 loop/clear_img.c \
 loop/copy_img.c \
 loop/draw_line.c \

@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:43:21 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/03 12:46:10 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/07 18:22:16 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@
 
 bool	init_map_img(t_cub *cub);
 bool	new_img(int height, int width, void *mlx, t_img *img);
+bool	open_img(char *path, void *mlx, t_img *img);
 
 #endif

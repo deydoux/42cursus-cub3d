@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_img.c                                          :+:      :+:    :+:   */
+/*   open_img.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/12 14:58:12 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/07 18:20:06 by deydoux          ###   ########.fr       */
+/*   Created: 2024/10/07 18:16:49 by deydoux           #+#    #+#             */
+/*   Updated: 2024/10/07 18:20:40 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 
-bool	new_img(int height, int width, void *mlx, t_img *img)
+bool	open_img(char *path, void *mlx, t_img *img)
 {
 	int	ign;
 
-	if (height > MAX_IMG_DIM || width > MAX_IMG_DIM
-		|| height * width > MAX_IMG_PIXEL)
-	{
-		img->ptr = NULL;
-		return (true);
-	}
-	img->h = height;
-	img->w = width;
-	img->ptr = mlx_new_image(mlx, width, height);
+	img->ptr = mlx_xpm_file_to_image(mlx, path, &img->w, &img->h);
 	if (!img->ptr)
 		return (true);
 	img->buf = (uint32_t *)mlx_get_data_addr(img->ptr, &ign, &img->w_size,
