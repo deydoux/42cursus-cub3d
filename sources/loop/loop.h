@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/07 15:58:36 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/07 17:32:42 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "common.h"
 
 # define CUB_1_SIZE	(1.0 / CUB_SIZE)
+# define EPSILON	1e-8
 
 typedef double	(*t_ray_calc)(double pos, double d);
 
@@ -24,6 +25,7 @@ typedef struct s_ray
 	double		d;
 	double		dx;
 	double		dy;
+	t_pos		fix;
 	t_pos		pos;
 	t_ray_calc	dx_calc;
 	t_ray_calc	dy_calc;

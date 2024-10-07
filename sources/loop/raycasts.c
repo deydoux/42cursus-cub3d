@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/07 15:58:48 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/07 17:35:48 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,41 @@ static double	dist(t_pos pos0, t_pos pos1)
 	return (sqrt(pow(pos0.x - pos1.x, 2) + pow(pos0.y - pos1.y, 2)));
 }
 
-static double	raycast(t_pol_vec vec, t_cub cub)
+static t_ray	init_ray(t_pol_vec vec, t_cub cub)
 {
 	t_ray	ray;
 
 	ft_memcpy(&ray.pos, &cub.pos, sizeof(ray.pos));
 	if (vec.dx < 0)
+	{
 		ray.dx_calc = calc_neg;
+		ray.fix.x = -EPSILON;
+	}
 	else
+	{
 		ray.dx_calc = calc_pos;
+		ray.fix.x = 0;
+	}
 	if (vec.dy < 0)
+	{
 		ray.dy_calc = calc_neg;
+		ray.fix.y = -EPSILON;
+	}
 	else
+	{
 		ray.dy_calc = calc_pos;
-	while (cub.map.buf[(int)ray.pos.y][(int)ray.pos.x] != '1')
+		ray.fix.y = 0;
+	}
+	return (ray);
+}
+
+static double	raycast(t_pol_vec vec, t_cub cub)
+{
+	t_ray	ray;
+
+	ray = init_ray(vec, cub);
+	while (cub.map.buf[(int)(ray.pos.y + ray.fix.y)]
+		[(int)(ray.pos.x + ray.fix.x)] != '1')
 	{
 		ray.dx = ray.dx_calc(ray.pos.x, vec.dx);
 		ray.dy = ray.dy_calc(ray.pos.y, vec.dy);
@@ -51,10 +72,13 @@ static double	raycast(t_pol_vec vec, t_cub cub)
 			ray.d = ray.dx;
 		else
 			ray.d = ray.dy;
-		ray.d += 1e-8;
 		ray.pos.x += vec.dx * ray.d;
 		ray.pos.y += vec.dy * ray.d;
 	}
+	if (ray.dx < ray.dy)
+		ray.pos.x = (int)(ray.pos.x + EPSILON);
+	else
+		ray.pos.y = (int)(ray.pos.y + EPSILON);
 	draw_line(cub.pos.x * CUB_SIZE / 2, cub.pos.y * CUB_SIZE / 2, (ray.pos.x * CUB_SIZE / 2), (ray.pos.y * CUB_SIZE / 2), 0xff0000, cub.frame);
 	return (dist(cub.pos, ray.pos));
 }
@@ -72,8 +96,16 @@ void	raycasts(t_cub cub)
 	while (x < WIN_W)
 	{
 		d = raycast(pol_vec(a), cub) * cos(cub.a - a);
-		y0 = WIN_H / 2 - WIN_H / 2 / d;
-		y1 = WIN_H / 2 + WIN_H / 2 / d;
+		if (!d)
+		{
+			y0 = 0;
+			y1 = WIN_H;
+		}
+		else
+		{
+			y0 = WIN_H / 2 - WIN_H / 2 / d;
+			y1 = WIN_H / 2 + WIN_H / 2 / d;
+		}
 		if (y0 < 0)
 			y0 = 0;
 		if (y1 > WIN_H)
