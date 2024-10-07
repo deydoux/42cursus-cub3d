@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/07 01:37:40 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/07 15:58:36 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@
 
 # define CUB_1_SIZE	(1.0 / CUB_SIZE)
 
+typedef double	(*t_ray_calc)(double pos, double d);
+
 typedef struct s_ray
 {
-	double	a;
-	double	dx;
-	double	dy;
-	t_pos	pos;
+	double		d;
+	double		dx;
+	double		dy;
+	t_pos		pos;
+	t_ray_calc	dx_calc;
+	t_ray_calc	dy_calc;
 }	t_ray;
 
 typedef struct s_pol_vec
@@ -38,6 +42,6 @@ void		clear_img(t_img img);
 void		copy_img(t_img src, t_img dst, int x, int y);
 void		draw_line(int x0, int y0, int x1, int y1, int color, t_img img);
 void		move(t_cub *cub);
-void		raycast(t_cub cub);
+void		raycasts(t_cub cub);
 
 #endif

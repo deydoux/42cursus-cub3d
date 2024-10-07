@@ -14,7 +14,7 @@ loop/loop.c \
 loop/move.c \
 loop/null_pol_vec.c \
 loop/pol_vec.c \
-loop/raycast.c \
+loop/raycasts.c \
 
 LIBFT_DIR = libft
 MLX_DIR = minilibx-linux
