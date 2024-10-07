@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/07 17:35:48 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/07 17:41:08 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static t_ray	init_ray(t_pol_vec vec, t_cub cub)
 	if (vec.dx < 0)
 	{
 		ray.dx_calc = calc_neg;
-		ray.fix.x = -EPSILON;
+		ray.fix.x = EPSILON;
 	}
 	else
 	{
@@ -48,7 +48,7 @@ static t_ray	init_ray(t_pol_vec vec, t_cub cub)
 	if (vec.dy < 0)
 	{
 		ray.dy_calc = calc_neg;
-		ray.fix.y = -EPSILON;
+		ray.fix.y = EPSILON;
 	}
 	else
 	{
@@ -63,8 +63,8 @@ static double	raycast(t_pol_vec vec, t_cub cub)
 	t_ray	ray;
 
 	ray = init_ray(vec, cub);
-	while (cub.map.buf[(int)(ray.pos.y + ray.fix.y)]
-		[(int)(ray.pos.x + ray.fix.x)] != '1')
+	while (cub.map.buf[(int)(ray.pos.y - ray.fix.y)]
+		[(int)(ray.pos.x - ray.fix.x)] != '1')
 	{
 		ray.dx = ray.dx_calc(ray.pos.x, vec.dx);
 		ray.dy = ray.dy_calc(ray.pos.y, vec.dy);
@@ -76,9 +76,9 @@ static double	raycast(t_pol_vec vec, t_cub cub)
 		ray.pos.y += vec.dy * ray.d;
 	}
 	if (ray.dx < ray.dy)
-		ray.pos.x = (int)(ray.pos.x + EPSILON);
+		ray.pos.x = (int)(ray.pos.x + ray.fix.x);
 	else
-		ray.pos.y = (int)(ray.pos.y + EPSILON);
+		ray.pos.y = (int)(ray.pos.y + ray.fix.y);
 	draw_line(cub.pos.x * CUB_SIZE / 2, cub.pos.y * CUB_SIZE / 2, (ray.pos.x * CUB_SIZE / 2), (ray.pos.y * CUB_SIZE / 2), 0xff0000, cub.frame);
 	return (dist(cub.pos, ray.pos));
 }
