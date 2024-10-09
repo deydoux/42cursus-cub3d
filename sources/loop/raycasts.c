@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/08 01:32:34 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/09 16:31:36 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ static t_ray	raycast(t_pol_vec vec, t_cub cub)
 		ray.pos.x = (int)(ray.pos.x + ray.fix.x);
 	else
 		ray.pos.y = (int)(ray.pos.y + ray.fix.y);
-	draw_line(cub.pos.x * CUB_SIZE / 2, cub.pos.y * CUB_SIZE / 2, (ray.pos.x * CUB_SIZE / 2), (ray.pos.y * CUB_SIZE / 2), 0xff0000, cub.frame);
 	return (ray);
 }
 

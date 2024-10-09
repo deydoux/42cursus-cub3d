@@ -10,7 +10,6 @@ init/init.c \
 init/new_img.c \
 init/open_img.c \
 loop/copy_img.c \
-loop/draw_line.c \
 loop/loop.c \
 loop/move.c \
 loop/null_pol_vec.c \
