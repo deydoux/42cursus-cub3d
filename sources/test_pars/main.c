@@ -6,12 +6,11 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:11:49 by mapale            #+#    #+#             */
-/*   Updated: 2024/09/28 19:14:41 by mapale           ###   ########.fr       */
+/*   Updated: 2024/09/30 09:39:09 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
-#include "cub.h"
+#include "../../include/parse.h"
 
 bool	is_input_valid(char *s)
 {
@@ -34,8 +33,8 @@ bool	are_values_initialized(t_map *map, char *path)
 	map->path = path;
 	map->map_h = 0;
 	map->map_w = 0;
-	get_map_height(map, path);
-	get_map_width(map, path);
+	get_map_height(map);
+	get_map_width(map);
 	printf("map->map_start = %d\nmap->map_h = %d\nmap->map_w = %d\n", map->map_start, map->map_h, map->map_w);
 	if (map->map_h <= 0 || map->map_w <= 0)
 	{
@@ -52,15 +51,16 @@ bool	are_values_initialized(t_map *map, char *path)
 			free_map_and_exit("Error\nMalloc fail : map init)\n", map);
 	}
 	map->player_spawn = '.';
+	return (true);
 }
 
 bool fill_textures(t_map *map, char **path, char *str)
 {
 	if (*path)
-		free_map_and_exit("Error\nTexture already filled\n", map, map->map_h);
+		free_map_and_exit("Error\nTexture already filled\n", map);
 	*path = ft_strtrim(str, " ");
 	if (!*path)
-		free_map_and_exit("Error\nMalloc fail (ft_strtrim)\n", map, map->map_h);
+		free_map_and_exit("Error\nMalloc fail (ft_strtrim)\n", map);
 	return (true);
 }
 
@@ -72,13 +72,13 @@ int	check_textures(t_map *map, char *line)
 	while (ft_isspace(line[i]))
 		i++;
 	if ((line[i] == 'N' && line[i + 1] == '0'))
-		fill_textures(map, *map->textures_paths.north_path, line + (i + 2));
+		fill_textures(map, &map->textures_paths.north_path, line + (i + 2));
 	if (line[i] == 'S' && line[i + 1] == '0')
-		fill_textures(map, *map->textures_paths.south_path, line + (i + 2));
+		fill_textures(map, &map->textures_paths.south_path, line + (i + 2));
 	if (line[i] == 'W' && line[i + 1] == 'E')
-		fill_textures(map, *map->textures_paths.west_path, line + (i + 2));
+		fill_textures(map, &map->textures_paths.west_path, line + (i + 2));
 	if (line[i] == 'E' && line[i + 1] == 'A')
-		fill_textures(map, *map->textures_paths.east_path, line + (i + 2));
+		fill_textures(map, &map->textures_paths.east_path, line + (i + 2));
 	return (-1);
 }
 
@@ -108,7 +108,7 @@ bool	is_line_valid(t_map *map, char *line)
 				if (!map->textures_paths.east_path || !map->textures_paths.west_path \
 					|| !map->textures_paths.north_path || !map->textures_paths.south_path)
 					return (false);//err msg
-				check_maze(map, i);
+				//check_maze(map, i);
 			}
 			return (false);//err msg
 		}
@@ -124,7 +124,7 @@ bool	is_map_valid(t_map *map)
 
 	fd = open(map->path, O_RDONLY);
 	if (fd == -1)
-		return (fd);
+		return (false);
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -135,6 +135,7 @@ bool	is_map_valid(t_map *map)
 		line = get_next_line(fd);
 	}
 	close(fd);
+	return (true);
 }
 
 int	main(int ac, char **av)
@@ -146,7 +147,7 @@ int	main(int ac, char **av)
 		return (1);//err msg type
 	if (!are_values_initialized(&map, av[1]))
 		return (1);//err msg type
-	if (!create_map())
-		return (1);
+	create_map(&map);
+	print_map(&map);
 	//free map->map;
 }

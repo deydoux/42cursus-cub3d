@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   DELETE.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 14:26:38 by mapale            #+#    #+#             */
-/*   Updated: 2024/09/30 09:29:28 by mapale           ###   ########.fr       */
+/*   Created: 2024/09/30 09:20:20 by mapale            #+#    #+#             */
+/*   Updated: 2024/09/30 09:28:02 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/parse.h"
 
-void	free_map_and_exit(char* msg, t_map *map)
+void	print_map(t_map *map)
 {
 	int	i;
 
 	i = 0;
-	while ( i < map->map_h)
+	while (i < map->map_h)
 	{
-		free(map->map[i]);
+		printf("%s\n", map->map[i]);
 		i++;
 	}
-	perror(msg);
-	exit(1);
 }

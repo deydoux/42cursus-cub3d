@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:17:36 by mapale            #+#    #+#             */
-/*   Updated: 2024/09/28 14:52:48 by mapale           ###   ########.fr       */
+/*   Updated: 2024/09/30 09:39:29 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <fcntl.h>
+#include "libft.h"
+#include <stdio.h>
 
 # define ERR_TEXTURES "Error\nWrong Texture given\n"
 
-typedef	enum e_textures
+/* typedef	enum e_textures
 {
 	NO,
 	SO,
@@ -27,7 +29,7 @@ typedef	enum e_textures
 	EA,
 	F,
 	C,
-};
+}; */
 
 typedef struct s_texture
 {
@@ -53,5 +55,16 @@ typedef struct s_map
 	char		player_spawn; /* initialized value is '.' */
 	t_texture	textures_paths;
 } t_map;
+
+/*parse_map*/
+void	create_map(t_map *map);
+int	get_map_height(t_map *map);
+int	get_map_width(t_map *map);
+
+/*error*/
+void	free_map_and_exit(char* msg, t_map *map);
+
+//TODELETE
+void	print_map(t_map *map);
 
 #endif

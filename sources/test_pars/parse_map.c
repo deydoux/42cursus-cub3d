@@ -6,11 +6,21 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 14:49:01 by mapale            #+#    #+#             */
-/*   Updated: 2024/09/28 19:14:29 by mapale           ###   ########.fr       */
+/*   Updated: 2024/09/30 09:38:39 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
+#include "../../include/parse.h"
+
+static int	_w_isspace(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (ft_isspace(s[i]))
+		i++;
+	return (i);
+}
 
 void	create_map(t_map *map)
 {
@@ -32,7 +42,8 @@ void	create_map(t_map *map)
 			free(line);
 			line = get_next_line(fd);
 		}
-		if (*line == '\0')
+		printf("w_isspace(line) %d | ft_strlen(line) %zu\n", _w_isspace(line), ft_strlen(line));
+		if (*line == '\0' || (size_t)_w_isspace(line) == ft_strlen(line))
 			free_map_and_exit("Error\nInvalid map\n", map);
 		map->map[++i] = line;
 	}
@@ -46,14 +57,14 @@ int	get_map_height(t_map *map)
 
 	fd = open(map->path, O_RDONLY);
 	if (fd == -1)
-		return ;
+		return (-1);
 	line = get_next_line(fd);
 	map->map_start = -1;
 	count = 0;
 	while (line)
 	{
 		while (ft_isspace(*line))
-			*line++;
+			line++;
 		if (*line == '1')
 		{
 			if (map->map_start == -1)
@@ -67,7 +78,7 @@ int	get_map_height(t_map *map)
 	return (free(line), close(fd));
 }
 
-void	get_map_width(t_map *map)
+int	get_map_width(t_map *map)
 {
 	int		i;
 	int		fd;
@@ -77,7 +88,7 @@ void	get_map_width(t_map *map)
 	i = -1;
 	fd = open(map->path, O_RDONLY);
 	if (fd == -1)
-		return ;
+		return (-1);
 	line = get_next_line(fd);
 	map->map_w = 0;
 	while (line)
