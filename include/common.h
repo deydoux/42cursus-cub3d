@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/09 15:15:23 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/09 15:18:10 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef union u_color
 	};
 	uint32_t	raw;
 }	t_color;
-
 
 typedef struct s_img
 {

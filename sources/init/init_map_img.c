@@ -6,13 +6,13 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:17:01 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/09 15:12:21 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/09 15:22:06 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 
-static void	minimap_draw_wall(size_t x, size_t y, t_img img)
+static void	draw_map_wall(size_t x, size_t y, t_img img)
 {
 	size_t	i;
 	size_t	j;
@@ -33,7 +33,7 @@ bool	init_map_img(t_cub *cub)
 	size_t	y;
 
 	if (new_img(CUB_SIZE * cub->map.h, CUB_SIZE * cub->map.w, cub->mlx,
-		&cub->map.img))
+			&cub->map.img))
 		return (true);
 	y = 0;
 	while (y < cub->map.h)
@@ -42,7 +42,8 @@ bool	init_map_img(t_cub *cub)
 		while (x < cub->map.w)
 		{
 			if (cub->map.buf[y][x] == '1')
-				minimap_draw_wall(x * CUB_SIZE / 2, y * CUB_SIZE / 2, cub->map.img);
+				draw_map_wall(x * CUB_SIZE / 2, y * CUB_SIZE / 2,
+					cub->map.img);
 			x++;
 		}
 		y++;
