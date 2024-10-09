@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/07 18:22:59 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/09 15:12:08 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,26 @@
 # define DEG_RAD	0.017453292519943295
 # define ERR		"\e[31mError\e[0m\n"
 
+typedef union u_color
+{
+	struct
+	{
+		uint8_t	b;
+		uint8_t	g;
+		uint8_t	r;
+		uint8_t	a;
+	};
+	uint32_t	raw;
+}	t_color;
+
+
 typedef struct s_img
 {
-	int			h;
-	int			w_size;
-	int			w;
-	uint32_t	*buf;
-	void		*ptr;
+	int		h;
+	int		w_size;
+	int		w;
+	t_color	*buf;
+	void	*ptr;
 }	t_img;
 
 typedef struct s_key

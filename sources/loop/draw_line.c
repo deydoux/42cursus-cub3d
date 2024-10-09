@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:08:35 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/01 14:36:34 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/09 15:13:59 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	draw_line(int x0, int y0, int x1, int y1, int color, t_img img)
 	x = x0;
 	y = y0;
 	for (int i = 0; i <= steps; i++) {
-		img.buf[(int)round(y) * img.w_size + (int)round(x)] = color;
+		img.buf[(int)round(y) * img.w_size + (int)round(x)].raw = color;
 		x += x_inc;
 		y += y_inc;
 	}
