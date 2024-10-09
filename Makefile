@@ -5,6 +5,7 @@ common/destroy.c \
 common/fill_img.c \
 cub.c \
 init_loop/init_loop.c \
+init/init_img.c \
 init/init_map_img.c \
 init/init.c \
 init/new_img.c \
