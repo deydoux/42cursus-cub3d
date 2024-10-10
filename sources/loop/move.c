@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 14:58:29 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/04 00:32:11 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/10 12:47:13 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static t_pol_vec	move_vec(t_key key, double a)
 	if (!vertical)
 	{
 		if (!lateral)
-			return (null_pol_vec());
+			return ((t_pol_vec){.dx = 0, .dy = 0});
 		lateral *= 2;
 	}
 	else if (vertical == -1)

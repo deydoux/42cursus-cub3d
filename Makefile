@@ -13,7 +13,6 @@ init/open_img.c \
 loop/copy_img.c \
 loop/loop.c \
 loop/move.c \
-loop/null_pol_vec.c \
 loop/pol_vec.c \
 loop/raycasts.c \
 

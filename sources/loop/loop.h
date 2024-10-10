@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/09 16:31:42 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/10 12:47:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct s_pol_vec
 	double	dy;
 }	t_pol_vec;
 
-t_pol_vec	null_pol_vec(void);
 t_pol_vec	pol_vec(double a);
 void		copy_img(t_img src, t_img dst, int x, int y);
 void		move(t_cub *cub);
