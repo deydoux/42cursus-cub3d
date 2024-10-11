@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/11 15:03:34 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/11 14:57:49 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "common.h"
 
+# define EPSILON	1e-8
+
 typedef double	(*t_ray_calc)(double pos, double d);
 
 typedef struct s_ray
@@ -22,6 +24,7 @@ typedef struct s_ray
 	double		d;
 	double		dx;
 	double		dy;
+	t_pos		fix;
 	t_pos		pos;
 	t_ray_calc	dx_calc;
 	t_ray_calc	dy_calc;
