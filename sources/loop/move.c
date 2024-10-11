@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 14:58:29 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/10 12:47:13 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/11 14:58:40 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ static int	move_key(bool pos, bool neg)
 	return (pos != 0);
 }
 
-static t_pol_vec	move_vec(t_key key, double a)
+static t_vec	move_vec(t_key key, double a)
 {
-	int			lateral;
-	int			vertical;
+	int	lateral;
+	int	vertical;
 
 	lateral = move_key(key.right, key.left);
 	vertical = move_key(key.up, key.down);
 	if (!vertical)
 	{
 		if (!lateral)
-			return ((t_pol_vec){.dx = 0, .dy = 0});
+			return ((t_vec){.dx = 0, .dy = 0});
 		lateral *= 2;
 	}
 	else if (vertical == -1)
@@ -42,7 +42,7 @@ static t_pol_vec	move_vec(t_key key, double a)
 
 void	move(t_cub *cub)
 {
-	t_pol_vec	vec;
+	t_vec	vec;
 
 	cub->a += move_key(cub->key.rot_right, cub->key.rot_left) * DEG_RAD;
 	vec = move_vec(cub->key, cub->a);

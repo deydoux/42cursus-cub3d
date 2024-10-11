@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/09 16:31:36 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/11 14:59:03 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static double	dist(t_pos pos0, t_pos pos1)
 	return (sqrt(pow(pos0.x - pos1.x, 2) + pow(pos0.y - pos1.y, 2)));
 }
 
-static t_ray	init_ray(t_pol_vec vec, t_cub cub)
+static t_ray	init_ray(t_vec vec, t_cub cub)
 {
 	t_ray	ray;
 
@@ -58,7 +58,7 @@ static t_ray	init_ray(t_pol_vec vec, t_cub cub)
 	return (ray);
 }
 
-static t_ray	raycast(t_pol_vec vec, t_cub cub)
+static t_ray	raycast(t_vec vec, t_cub cub)
 {
 	t_ray	ray;
 
