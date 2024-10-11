@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/11 14:59:03 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/11 15:04:22 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,41 +30,22 @@ static double	dist(t_pos pos0, t_pos pos1)
 	return (sqrt(pow(pos0.x - pos1.x, 2) + pow(pos0.y - pos1.y, 2)));
 }
 
-static t_ray	init_ray(t_vec vec, t_cub cub)
-{
-	t_ray	ray;
-
-	ft_memcpy(&ray.pos, &cub.pos, sizeof(ray.pos));
-	if (vec.dx < 0)
-	{
-		ray.dx_calc = calc_neg;
-		ray.fix.x = EPSILON;
-	}
-	else
-	{
-		ray.dx_calc = calc_pos;
-		ray.fix.x = 0;
-	}
-	if (vec.dy < 0)
-	{
-		ray.dy_calc = calc_neg;
-		ray.fix.y = EPSILON;
-	}
-	else
-	{
-		ray.dy_calc = calc_pos;
-		ray.fix.y = 0;
-	}
-	return (ray);
-}
-
 static t_ray	raycast(t_vec vec, t_cub cub)
 {
 	t_ray	ray;
 
-	ray = init_ray(vec, cub);
-	while (cub.map.buf[(int)(ray.pos.y - ray.fix.y)]
-		[(int)(ray.pos.x - ray.fix.x)] != '1')
+	ray.pos = cub.pos;
+	if (vec.dx < 0)
+		ray.dx_calc = calc_neg;
+	else
+		ray.dx_calc = calc_pos;
+	if (vec.dy < 0)
+		ray.dy_calc = calc_neg;
+	else
+		ray.dy_calc = calc_pos;
+	while (cub.map.buf
+		[(int)ray.pos.y - (vec.dy < 0 && ray.pos.y == (int)ray.pos.y)]
+		[(int)ray.pos.x - (vec.dx < 0 && ray.pos.x == (int)ray.pos.x)] != '1')
 	{
 		ray.dx = ray.dx_calc(ray.pos.x, vec.dx);
 		ray.dy = ray.dy_calc(ray.pos.y, vec.dy);
@@ -75,10 +56,6 @@ static t_ray	raycast(t_vec vec, t_cub cub)
 		ray.pos.x += vec.dx * ray.d;
 		ray.pos.y += vec.dy * ray.d;
 	}
-	if (ray.dx < ray.dy)
-		ray.pos.x = (int)(ray.pos.x + ray.fix.x);
-	else
-		ray.pos.y = (int)(ray.pos.y + ray.fix.y);
 	return (ray);
 }
 
