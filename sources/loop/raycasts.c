@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/11 17:05:31 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/11 18:53:30 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,6 @@ void	raycasts(t_cub cub)
 			wall_h = WIN_H;
 		else
 			wall_h = WIN_H / d;
-		if (wall_h > WIN_H)
-			wall_h = WIN_H;
 		draw_wall(x, wall_h, ray, cub);
 		a += FOV / WIN_W;
 		x++;
