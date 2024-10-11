@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/11 14:59:03 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/11 17:03:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,12 @@ static double	calc_neg(double pos, double d)
 	return (pos / d * -1);
 }
 
-static double	dist(t_pos pos0, t_pos pos1)
-{
-	return (sqrt(pow(pos0.x - pos1.x, 2) + pow(pos0.y - pos1.y, 2)));
-}
-
 static t_ray	init_ray(t_vec vec, t_cub cub)
 {
 	t_ray	ray;
 
-	ft_memcpy(&ray.pos, &cub.pos, sizeof(ray.pos));
+	ray.pos = cub.pos;
+	ray.vec = vec;
 	if (vec.dx < 0)
 	{
 		ray.dx_calc = calc_neg;
@@ -82,22 +78,24 @@ static t_ray	raycast(t_vec vec, t_cub cub)
 	return (ray);
 }
 
-static void	draw_wall(int x, int h, t_ray ray, t_cub cub)
+static void	draw_wall(int frame_x, int wall_h, t_ray ray, t_cub cub)
 {
-	int	i;
-	int	w;
-	int	y;
+	int	frame_y;
+	int	img_h;
+	int	img_x;
 
 	if (ray.pos.x - (int)ray.pos.x > ray.pos.y - (int)ray.pos.y)
-		w = (ray.pos.x - (int)ray.pos.x) * cub.wall.w;
+		img_x = (ray.pos.x - (int)ray.pos.x) * cub.wall.w;
 	else
-		w = (ray.pos.y - (int)ray.pos.y) * cub.wall.w;
-	y = (WIN_H - h) / 2;
-	i = 0;
-	while (i < h)
+		img_x = (ray.pos.y - (int)ray.pos.y) * cub.wall.w;
+	frame_y = (WIN_H - wall_h) / 2;
+	img_h = 0;
+	while (img_h < wall_h)
 	{
-		cub.frame.buf[x + (i + y) * cub.frame.w_size] = cub.wall.buf[w + (int)((double)i / h * cub.wall.h )* cub.wall.w_size];
-		i++;
+		cub.frame.buf[frame_x + (frame_y + img_h) * cub.frame.w_size]
+			= cub.wall.buf[img_x
+			+ (int)((double)img_h / wall_h * cub.wall.h) *cub.wall.w_size];
+		img_h++;
 	}
 }
 
@@ -105,7 +103,7 @@ void	raycasts(t_cub cub)
 {
 	double	a;
 	double	d;
-	int		h;
+	int		wall_h;
 	size_t	x;
 	t_ray	ray;
 
@@ -114,14 +112,16 @@ void	raycasts(t_cub cub)
 	while (x < WIN_W)
 	{
 		ray = raycast(pol_vec(a), cub);
-		d = dist(cub.pos, ray.pos) * cos(cub.a - a);
+		ray.vec.len = sqrt(pow(cub.pos.x - ray.pos.x, 2)
+			+ pow(cub.pos.y - ray.pos.y, 2));
+		d = ray.vec.len * cos(cub.a - a);
 		if (!d)
-			h = WIN_H;
+			wall_h = WIN_H;
 		else
-			h = WIN_H / d;
-		if (h > WIN_H)
-			h = WIN_H;
-		draw_wall(x, h, ray, cub);
+			wall_h = WIN_H / d;
+		if (wall_h > WIN_H)
+			wall_h = WIN_H;
+		draw_wall(x, wall_h, ray, cub);
 		a += FOV / WIN_W;
 		x++;
 	}

@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/11 14:57:49 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/11 17:01:08 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,6 @@
 
 typedef double	(*t_ray_calc)(double pos, double d);
 
-typedef struct s_ray
-{
-	double		d;
-	double		dx;
-	double		dy;
-	t_pos		fix;
-	t_pos		pos;
-	t_ray_calc	dx_calc;
-	t_ray_calc	dy_calc;
-}	t_ray;
-
 typedef struct s_vec
 {
 	double	a;
@@ -37,6 +26,18 @@ typedef struct s_vec
 	double	dy;
 	double	len;
 }	t_vec;
+
+typedef struct s_ray
+{
+	double		d;
+	double		dx;
+	double		dy;
+	t_pos		fix;
+	t_pos		pos;
+	t_vec		vec;
+	t_ray_calc	dx_calc;
+	t_ray_calc	dy_calc;
+}	t_ray;
 
 t_vec	pol_vec(double a);
 void	copy_img(t_img src, t_img dst, int x, int y);
