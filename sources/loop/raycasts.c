@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/11 17:03:17 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/11 17:05:31 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,27 +78,6 @@ static t_ray	raycast(t_vec vec, t_cub cub)
 	return (ray);
 }
 
-static void	draw_wall(int frame_x, int wall_h, t_ray ray, t_cub cub)
-{
-	int	frame_y;
-	int	img_h;
-	int	img_x;
-
-	if (ray.pos.x - (int)ray.pos.x > ray.pos.y - (int)ray.pos.y)
-		img_x = (ray.pos.x - (int)ray.pos.x) * cub.wall.w;
-	else
-		img_x = (ray.pos.y - (int)ray.pos.y) * cub.wall.w;
-	frame_y = (WIN_H - wall_h) / 2;
-	img_h = 0;
-	while (img_h < wall_h)
-	{
-		cub.frame.buf[frame_x + (frame_y + img_h) * cub.frame.w_size]
-			= cub.wall.buf[img_x
-			+ (int)((double)img_h / wall_h * cub.wall.h) *cub.wall.w_size];
-		img_h++;
-	}
-}
-
 void	raycasts(t_cub cub)
 {
 	double	a;
@@ -113,7 +92,7 @@ void	raycasts(t_cub cub)
 	{
 		ray = raycast(pol_vec(a), cub);
 		ray.vec.len = sqrt(pow(cub.pos.x - ray.pos.x, 2)
-			+ pow(cub.pos.y - ray.pos.y, 2));
+				+ pow(cub.pos.y - ray.pos.y, 2));
 		d = ray.vec.len * cos(cub.a - a);
 		if (!d)
 			wall_h = WIN_H;

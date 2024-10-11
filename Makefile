@@ -11,6 +11,7 @@ init/init.c \
 init/new_img.c \
 init/open_img.c \
 loop/copy_img.c \
+loop/draw_wall.c \
 loop/loop.c \
 loop/move.c \
 loop/pol_vec.c \
