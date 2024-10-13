@@ -6,24 +6,24 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:17:01 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 00:55:45 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 01:21:52 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 
-static void	draw_map_wall(size_t x, size_t y, t_img img)
+static void	draw_map_square(size_t x, size_t y, uint32_t raw_color, t_img img)
 {
-	size_t	i;
-	size_t	j;
+	size_t	sq_x;
+	size_t	sq_y;
 
-	j = 0;
-	while (j < MAP_CUB_SIZE)
+	sq_y = 0;
+	while (sq_y < MAP_CUB_SIZE)
 	{
-		i = 0;
-		while (i < MAP_CUB_SIZE)
-			img.buf[(y + j) * img.w_size + x + i++].raw = 0xffffffff;
-		j++;
+		sq_x = 0;
+		while (sq_x < MAP_CUB_SIZE)
+			img.buf[(y + sq_y) * img.w_size + x + sq_x++].raw = raw_color;
+		sq_y++;
 	}
 }
 
@@ -35,14 +35,16 @@ bool	init_map_img(t_cub *cub)
 	if (new_img(cub->map.h * MAP_CUB_SIZE, cub->map.w * MAP_CUB_SIZE, cub->mlx,
 			&cub->map.img))
 		return (true);
+	fill_img(MAP_COLOR_WALL, cub->map.img);
 	y = 0;
 	while (y < cub->map.h)
 	{
 		x = 0;
-		while (x < cub->map.w)
+		while (cub->map.buf[y][x])
 		{
-			if (cub->map.buf[y][x] == '1')
-				draw_map_wall(x * MAP_CUB_SIZE, y * MAP_CUB_SIZE, cub->map.img);
+			if (cub->map.buf[y][x] != ' ' && cub->map.buf[y][x] != '1')
+				draw_map_square(x * MAP_CUB_SIZE, y * MAP_CUB_SIZE,
+					MAP_COLOR_BG, cub->map.img);
 			x++;
 		}
 		y++;
