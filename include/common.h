@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 18:38:27 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 17:34:06 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ typedef struct s_cub
 	bool	focus;
 	double	angle;
 	t_img	frame;
-	t_img	ray_map;
 	t_img	minimap;
 	t_img	wall;
 	t_key	key;
