@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 15:43:48 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 16:19:42 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 16:28:46 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define MAP_COLOR_BG	0x000000
 # define MAP_COLOR_WALL	0xffffff
 # define MAP_CUB_SIZE	16
-# define MOUSE_SENSIV	0.0078125
+# define MOUSE_SENSIV	0.125
 # define VELOCITY		0.0625
 # define VELOCITY_ROT	0.03125
 # define WIN_H			1080
