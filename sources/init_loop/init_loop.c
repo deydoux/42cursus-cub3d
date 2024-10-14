@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:54:40 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 02:37:49 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 13:41:14 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static int	quit(t_cub *cub)
 {
-	mlx_destroy_window(cub->mlx, cub->win);
-	mlx_loop_end(cub->mlx);
 	destroy(*cub);
 	exit(EXIT_SUCCESS);
 }
@@ -78,6 +76,5 @@ void	init_loop(t_cub *cub)
 	mlx_hook(cub->win, focus_in_event, focus_change_mask, focus_in, cub);
 	mlx_hook(cub->win, focus_out_event, focus_change_mask, focus_out, cub);
 	mlx_loop_hook(cub->mlx, loop, cub);
-	mlx_mouse_hide(cub->mlx, cub->win);
 	mlx_loop(cub->mlx);
 }
