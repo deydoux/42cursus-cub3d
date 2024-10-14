@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 02:34:39 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 17:58:22 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ void	draw_wall(int frame_x, int wall_h, t_ray ray, t_cub cub);
 void	mouse_rot(t_cub *cub);
 void	move(t_cub *cub);
 void	raycasts(t_cub cub);
+void	render_minimap(t_cub cub);
 
 #endif
