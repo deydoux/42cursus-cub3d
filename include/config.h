@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 15:43:48 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 18:07:49 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 18:23:41 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define MAP_COLOR_BG	0x00000000
 # define MAP_COLOR_WALL	0xffffffff
 # define MAP_CUB_SIZE	32
+# define MAP_A			0.75
 # define MAP_H			256
 # define MAP_W			256
 # define MOUSE_SENSIV	0.125
