@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 14:58:29 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 00:59:19 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 02:17:20 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,9 @@ void	move(t_cub *cub)
 {
 	t_vec	vec;
 
-	cub->a += move_key(cub->key.rot_right, cub->key.rot_left) * VELOCITY_ROT;
-	vec = move_vec(cub->key, cub->a);
+	cub->angle += move_key(cub->key.rot_right, cub->key.rot_left)
+		* VELOCITY_ROT;
+	vec = move_vec(cub->key, cub->angle);
 	vec.dx *= VELOCITY;
 	vec.dy *= VELOCITY;
 	if (cub->map.buf[(int)cub->pos.y][(int)(cub->pos.x + vec.dx)] != '1')
