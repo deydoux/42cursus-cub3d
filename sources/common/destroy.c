@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:47:56 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 13:54:28 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 17:47:59 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	destroy_imgs(t_cub cub)
 {
-	const size_t	size = 3;
-	const t_img		imgs[] = {cub.frame, cub.wall, cub.map.img};
+	const size_t	size = 4;
+	const t_img		imgs[] = {cub.frame, cub.minimap, cub.wall, cub.map.img};
 	size_t	i;
 
 	i = 0;

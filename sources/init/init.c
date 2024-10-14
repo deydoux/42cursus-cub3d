@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:43:04 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 02:16:49 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 17:35:28 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ bool	init(t_cub *cub)
 	ft_bzero(cub, sizeof(*cub));
 	return (placeholder_parsing(cub) || init_mlx(&cub->mlx)
 		|| new_img(WIN_H, WIN_W, cub->mlx, &cub->frame)
+		|| new_img(MAP_H, MAP_W, cub->mlx, &cub->minimap)
 		|| open_img("assets/wall.xpm", cub->mlx, &cub->wall)
 		|| init_map_img(cub) || init_win(cub->mlx, &cub->win));
 }
