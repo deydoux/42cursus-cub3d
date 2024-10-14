@@ -6,17 +6,17 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 15:24:32 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/11 14:57:35 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 02:28:12 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "loop.h"
 
-t_vec	pol_vec(double a)
+t_vec	pol_vec(double angle)
 {
 	return ((t_vec){
-		.a = a,
-		.dx = cos(a),
-		.dy = sin(a)
+		.angle = angle,
+		.dx = cos(angle),
+		.dy = sin(angle)
 	});
 }
