@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:23 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 12:39:31 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 16:27:52 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define INIT_LOOP_H
 
 # include "common.h"
+
+# ifndef HIDE_MOUSE
+#  define HIDE_MOUSE	false
+# endif
 
 enum e_event
 {
