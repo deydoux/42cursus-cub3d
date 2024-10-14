@@ -13,6 +13,7 @@ init/open_img.c \
 loop/copy_img.c \
 loop/draw_wall.c \
 loop/loop.c \
+loop/mouse_rot.c \
 loop/move.c \
 loop/pol_vec.c \
 loop/raycasts.c \

@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:54:40 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/03 18:24:20 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 02:37:49 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ void	init_loop(t_cub *cub)
 	mlx_hook(cub->win, key_press_event, key_press_mask, key_press, cub);
 	mlx_hook(cub->win, key_release_event, key_release_mask, key_release, cub);
 	mlx_loop_hook(cub->mlx, loop, cub);
+	mlx_mouse_hide(cub->mlx, cub->win);
 	mlx_loop(cub->mlx);
 }

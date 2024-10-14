@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   loop.c                                             :+:      :+:    :+:   */
+/*   mouse_rot.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 02:35:21 by deydoux          ###   ########.fr       */
+/*   Created: 2024/10/14 02:31:55 by deydoux           #+#    #+#             */
+/*   Updated: 2024/10/14 02:43:16 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "loop.h"
 
-int	loop(t_cub *cub)
+void	mouse_rot(t_cub *cub)
 {
-	mouse_rot(cub);
-	move(cub);
-	fill_img(0, cub->frame);
-	raycasts(*cub);
-	copy_img(cub->map.img, cub->frame, 0, 0);
-	cub->frame.buf[(int)(cub->pos.y * MAP_CUB_SIZE) * cub->frame.w_size
-		+ (int)(cub->pos.x * MAP_CUB_SIZE)].raw = 0xffffff;
-	mlx_put_image_to_window(cub->mlx, cub->win, cub->frame.ptr, 0, 0);
-	return (EXIT_SUCCESS);
-	(void)cub;
+	int	x;
+	int	y;
+
+	mlx_mouse_get_pos(cub->mlx, cub->win, &x, &y);
+	cub->angle -= (WIN_W / 2 - x) * VELOCITY_ROT;
+	mlx_mouse_move(cub->mlx, cub->win, WIN_W / 2, WIN_H / 2);
 }
