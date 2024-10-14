@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 02:31:55 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 14:07:11 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 16:19:48 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,22 @@
 
 void	mouse_rot(t_cub *cub)
 {
-	int			x;
+	int			new_x;
 	int			y;
 	static bool	focus = false;
+	static int	x = 0;
 
+	mlx_mouse_get_pos(cub->mlx, cub->win, &new_x, &y);
 	if (focus)
+		cub->angle -= (x - new_x) * MOUSE_SENSIV;
+	x = new_x;
+	new_x = (new_x - 1) % (WIN_W - 2);
+	if (new_x < 0)
+		new_x += WIN_W - 2;
+	if (focus && x - 1 != new_x)
 	{
-		mlx_mouse_get_pos(cub->mlx, cub->win, &x, &y);
-		cub->angle -= (WIN_W / 2 - x) * VELOCITY_ROT / 2;
+		x = new_x + 1;
+		mlx_mouse_move(cub->mlx, cub->win, x, y);
 	}
-	if (cub->focus)
-		mlx_mouse_move(cub->mlx, cub->win, WIN_W / 2, WIN_H / 2);
 	focus = cub->focus;
 }
