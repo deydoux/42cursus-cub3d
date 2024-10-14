@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:54:40 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 13:41:14 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 14:08:31 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,12 @@ static int	key_release(int key, t_cub *cub)
 
 static int	focus_in(t_cub *cub)
 {
-	printf("in\n");
 	cub->focus = true;
 	return (EXIT_SUCCESS);
 }
 
 static int	focus_out(t_cub *cub)
 {
-	printf("out\n");
 	cub->focus = false;
 	return (EXIT_SUCCESS);
 }
