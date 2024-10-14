@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 02:16:49 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 12:44:06 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef struct s_pos
 
 typedef struct s_cub
 {
+	bool	focus;
 	double	angle;
 	t_img	frame;
 	t_img	wall;
