@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 02:09:05 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 02:14:35 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static t_ray	init_ray(t_vec vec, t_cub cub)
 	if (vec.dx < 0)
 	{
 		ray.dx_calc = calc_neg;
-		ray.fix.x = EPSILON;
+		ray.fix.x = EPSILON_RAY;
 	}
 	else
 	{
@@ -44,7 +44,7 @@ static t_ray	init_ray(t_vec vec, t_cub cub)
 	if (vec.dy < 0)
 	{
 		ray.dy_calc = calc_neg;
-		ray.fix.y = EPSILON;
+		ray.fix.y = EPSILON_RAY;
 	}
 	else
 	{
@@ -80,22 +80,22 @@ static t_ray	raycast(t_vec vec, t_cub cub)
 
 void	raycasts(t_cub cub)
 {
-	double	a;
-	double	d;
+	double	angle;
+	double	dist;
 	size_t	x;
 	t_ray	ray;
 
-	a = cub.a - FOV / 2;
+	angle = cub.a - FOV / 2;
 	x = 0;
 	while (x < WIN_W)
 	{
-		ray = raycast(pol_vec(a), cub);
+		ray = raycast(pol_vec(angle), cub);
 		ray.vec.len = sqrt(pow(cub.pos.x - ray.pos.x, 2)
 				+ pow(cub.pos.y - ray.pos.y, 2));
-		d = ray.vec.len * cos(cub.a - a);
-		d = round(d * 1e14) / 1e14;
-		draw_wall(x, WIN_H / d, ray, cub);
-		a += FOV / WIN_W;
+		dist = ray.vec.len * cos(cub.a - angle);
+		dist = round(dist * EPSILON_DIST) / EPSILON_DIST;
+		draw_wall(x, WIN_H / dist, ray, cub);
+		angle += FOV / WIN_W;
 		x++;
 	}
 }

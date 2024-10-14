@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/11 17:05:27 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/14 02:15:09 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include "common.h"
 
-# define EPSILON	1e-8
+# define EPSILON_DIST	1e14
+# define EPSILON_RAY	1e-8
 
 typedef double	(*t_ray_calc)(double pos, double d);
 
