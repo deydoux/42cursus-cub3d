@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:23 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 16:27:52 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/15 10:39:38 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ enum e_mask
 	focus_change_mask = (1L<<21)
 };
 
+int	focus_in(t_cub *cub);
+int	focus_out(t_cub *cub);
+int	key_press(int key, t_cub *cub);
+int	key_release(int key, t_cub *cub);
 int	loop(t_cub *cub);
+int	quit(t_cub *cub);
 
 #endif

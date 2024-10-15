@@ -4,7 +4,12 @@ SOURCES = \
 common/destroy.c \
 common/fill_img.c \
 cub.c \
+init_loop/focus_in.c \
+init_loop/focus_out.c \
 init_loop/init_loop.c \
+init_loop/key_press.c \
+init_loop/key_release.c \
+init_loop/quit.c \
 init/init_img.c \
 init/init_map_img.c \
 init/init.c \

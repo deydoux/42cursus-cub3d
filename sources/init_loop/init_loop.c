@@ -6,65 +6,11 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:54:40 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 16:26:32 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/15 10:39:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init_loop.h"
-
-static int	quit(t_cub *cub)
-{
-	destroy(*cub);
-	exit(EXIT_SUCCESS);
-}
-
-static int	key_press(int key, t_cub *cub)
-{
-	if (key == KEY_UP)
-		cub->key.up = true;
-	else if (key == KEY_LEFT)
-		cub->key.left = true;
-	else if (key == KEY_DOWN)
-		cub->key.down = true;
-	else if (key == KEY_RIGHT)
-		cub->key.right = true;
-	else if (key == KEY_ROT_LEFT)
-		cub->key.rot_left = true;
-	else if (key == KEY_ROT_RIGHT)
-		cub->key.rot_right = true;
-	return (EXIT_SUCCESS);
-}
-
-static int	key_release(int key, t_cub *cub)
-{
-	if (key == KEY_UP)
-		cub->key.up = false;
-	else if (key == KEY_LEFT)
-		cub->key.left = false;
-	else if (key == KEY_DOWN)
-		cub->key.down = false;
-	else if (key == KEY_RIGHT)
-		cub->key.right = false;
-	else if (key == KEY_ROT_LEFT)
-		cub->key.rot_left = false;
-	else if (key == KEY_ROT_RIGHT)
-		cub->key.rot_right = false;
-	else if (key == KEY_QUIT)
-		quit(cub);
-	return (EXIT_SUCCESS);
-}
-
-static int	focus_in(t_cub *cub)
-{
-	cub->focus = true;
-	return (EXIT_SUCCESS);
-}
-
-static int	focus_out(t_cub *cub)
-{
-	cub->focus = false;
-	return (EXIT_SUCCESS);
-}
 
 void	init_loop(t_cub *cub)
 {
