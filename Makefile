@@ -16,7 +16,6 @@ init/init_map_img.c \
 init/init.c \
 init/new_img.c \
 init/open_img.c \
-loop/clear_frame.c \
 loop/copy_img.c \
 loop/copy_minimap.c \
 loop/draw_wall.c \
