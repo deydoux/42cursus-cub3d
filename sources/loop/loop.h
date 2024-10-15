@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/15 10:34:31 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/15 10:48:21 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ void	mouse_rot(t_cub *cub);
 void	move(t_cub *cub);
 void	raycasts(t_cub cub);
 void	render_minimap(t_cub cub);
+void	render_ray(t_ray ray, t_cub cub);
 
 #endif

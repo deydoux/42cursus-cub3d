@@ -25,6 +25,7 @@ loop/move.c \
 loop/pol_vec.c \
 loop/raycasts.c \
 loop/render_minimap.c \
+loop/render_ray.c \
 
 LIBFT_DIR = libft
 MLX_DIR = minilibx-linux
