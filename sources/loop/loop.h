@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/15 10:28:08 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/15 10:34:31 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_vec
 	double	angle;
 	double	dx;
 	double	dy;
-	double	len;
 }	t_vec;
 
 typedef struct s_ray

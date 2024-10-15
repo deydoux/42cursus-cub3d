@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 02:16:49 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/15 10:41:19 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,9 @@ void	raycasts(t_cub cub)
 	while (x < WIN_W)
 	{
 		ray = raycast(pol_vec(angle), cub);
-		ray.vec.len = sqrt(pow(cub.pos.x - ray.pos.x, 2)
-				+ pow(cub.pos.y - ray.pos.y, 2));
-		dist = ray.vec.len * cos(cub.angle - angle);
-		dist = round(dist * EPSILON_DIST) / EPSILON_DIST;
+		dist = round(sqrt(pow(cub.pos.x - ray.pos.x, 2)
+					+ pow(cub.pos.y - ray.pos.y, 2)) * cos(cub.angle - angle)
+				* EPSILON_DIST) / EPSILON_DIST;
 		draw_wall(x, WIN_H / dist, ray, cub);
 		angle += FOV / WIN_W;
 		x++;
