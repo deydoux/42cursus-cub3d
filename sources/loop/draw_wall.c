@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 17:04:38 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/15 11:15:14 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/15 12:41:28 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	draw_wall(int frame_x, int wall_h, t_ray ray, t_cub cub)
 	int	img_h;
 	int	img_x;
 
+	if (wall_h < 0)
+		wall_h = INT_MAX;
 	if (ray.pos.x - (int)ray.pos.x > ray.pos.y - (int)ray.pos.y)
 		img_x = (ray.pos.x - (int)ray.pos.x) * cub.wall.w;
 	else
