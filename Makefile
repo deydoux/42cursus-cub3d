@@ -11,6 +11,7 @@ init/init.c \
 init/new_img.c \
 init/open_img.c \
 loop/copy_img.c \
+loop/copy_minimap.c \
 loop/draw_wall.c \
 loop/loop.c \
 loop/mouse_rot.c \

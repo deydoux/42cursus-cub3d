@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 18:23:14 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/15 10:29:03 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ int	loop(t_cub *cub)
 {
 	mouse_rot(cub);
 	move(cub);
+	render_minimap(*cub);
 	fill_img(0, cub->frame);
 	raycasts(*cub);
-	render_minimap(*cub);
+	copy_minimap(cub->minimap, cub->frame);
 	mlx_put_image_to_window(cub->mlx, cub->win, cub->frame.ptr, 0, 0);
 	return (EXIT_SUCCESS);
 	(void)cub;
