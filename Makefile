@@ -2,7 +2,6 @@ NAME = cub3D
 
 SOURCES = \
 common/destroy.c \
-common/fill_img.c \
 common/read_img.c \
 cub.c \
 init_loop/focus_in.c \
@@ -11,11 +10,13 @@ init_loop/init_loop.c \
 init_loop/key_press.c \
 init_loop/key_release.c \
 init_loop/quit.c \
+init/fill_img.c \
 init/init_img.c \
 init/init_map_img.c \
 init/init.c \
 init/new_img.c \
 init/open_img.c \
+loop/clear_frame.c \
 loop/copy_img.c \
 loop/copy_minimap.c \
 loop/draw_wall.c \
