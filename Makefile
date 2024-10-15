@@ -3,6 +3,7 @@ NAME = cub3D
 SOURCES = \
 common/destroy.c \
 common/fill_img.c \
+common/read_img.c \
 cub.c \
 init_loop/focus_in.c \
 init_loop/focus_out.c \

@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 17:34:06 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/15 11:09:44 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ typedef struct s_cub
 	void	*win;
 }	t_cub;
 
+t_color	*read_img(t_img img, size_t x, size_t y);
 void	destroy(t_cub cub);
 void	fill_img(uint32_t raw_color, t_img img);
 

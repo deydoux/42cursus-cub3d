@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 18:17:01 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/14 01:21:52 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/15 11:16:54 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	draw_map_square(size_t x, size_t y, uint32_t raw_color, t_img img)
 	{
 		sq_x = 0;
 		while (sq_x < MAP_CUB_SIZE)
-			img.buf[(y + sq_y) * img.w_size + x + sq_x++].raw = raw_color;
+			read_img(img, x + sq_x++, y + sq_y)->raw = raw_color;
 		sq_y++;
 	}
 }

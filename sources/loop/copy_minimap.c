@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:27:49 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/15 10:27:59 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/15 11:13:40 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ void	copy_minimap(t_img src, t_img dst)
 		x = 0;
 		while (x < MAP_W)
 		{
-			blend_map_colors(src.buf[y * src.w_size + x],
-				&dst.buf[y * dst.w_size + x]);
+			blend_map_colors(*read_img(src, x, y), read_img(dst, x, y));
 			x++;
 		}
 		y++;
