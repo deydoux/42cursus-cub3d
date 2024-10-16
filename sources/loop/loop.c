@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:53 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/15 14:47:41 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/16 12:27:20 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	loop(t_cub *cub)
 	raycasts(*cub);
 	copy_minimap(cub->minimap, cub->frame);
 	mlx_put_image_to_window(cub->mlx, cub->win, cub->frame.ptr, 0, 0);
+	cub->i++;
 	return (EXIT_SUCCESS);
-	(void)cub;
 }

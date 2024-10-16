@@ -74,6 +74,7 @@ typedef struct s_cub
 {
 	bool	focus;
 	double	angle;
+	size_t	i;
 	t_color	ceiling;
 	t_color floor;
 	t_img	frame;
