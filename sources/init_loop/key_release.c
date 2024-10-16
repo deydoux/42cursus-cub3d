@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:38:18 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/15 10:38:25 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/16 15:32:15 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	key_release(int key, t_cub *cub)
 		cub->key.down = false;
 	else if (key == KEY_RIGHT)
 		cub->key.right = false;
+	else if (key == KEY_SPRINT)
+		cub->key.sprint = false;
 	else if (key == KEY_ROT_LEFT)
 		cub->key.rot_left = false;
 	else if (key == KEY_ROT_RIGHT)

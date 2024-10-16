@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 15:43:48 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/16 15:25:40 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/16 15:33:28 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define KEY_LEFT		'a'
 # define KEY_DOWN		's'
 # define KEY_RIGHT		'd'
+# define KEY_SPRINT		65505
 # define KEY_ROT_LEFT	65361
 # define KEY_ROT_RIGHT	65363
 # define KEY_QUIT		65307

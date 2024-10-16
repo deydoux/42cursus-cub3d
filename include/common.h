@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/16 15:25:15 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/16 15:28:27 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_key
 	bool	left;
 	bool	down;
 	bool	right;
+	bool	sprint;
 	bool	rot_left;
 	bool	rot_right;
 }	t_key;
