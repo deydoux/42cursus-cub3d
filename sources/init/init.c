@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:43:04 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/15 14:50:44 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/16 11:34:59 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static bool	placeholder_parsing(t_cub *cub)
 	cub->angle = -M_PI_2;
 	cub->pos.x = 26.5;
 	cub->pos.y = 11.5;
-	cub->ceiling.raw = 0x8f2c85;
-	cub->floor.raw = 0x47432c;
+	cub->ceiling.raw = 0x59c0e3;
+	cub->floor.raw = 0x449c36;
 	return (false);
 }
 
