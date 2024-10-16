@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/15 14:26:11 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/16 12:28:37 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 # include <math.h>
 # include <stdint.h>
 # include <stdio.h>
+
+# ifndef MAX_SPR
+#  define MAX_SPR	1
+# endif
 
 # define DEG_RAD	0.017453292519943295
 # define ERR		"\e[31mError\e[0m\n"
@@ -70,6 +74,14 @@ typedef struct s_pos
 	double	y;
 }	t_pos;
 
+typedef struct s_spr
+{
+	t_img	n[MAX_SPR];
+	t_img	s[MAX_SPR];
+	t_img	w[MAX_SPR];
+	t_img	e[MAX_SPR];
+}	t_spr;
+
 typedef struct s_cub
 {
 	bool	focus;
@@ -79,10 +91,10 @@ typedef struct s_cub
 	t_color floor;
 	t_img	frame;
 	t_img	minimap;
-	t_img	wall;
 	t_key	key;
 	t_map	map;
 	t_pos	pos;
+	t_spr	spr;
 	void	*mlx;
 	void	*win;
 }	t_cub;
