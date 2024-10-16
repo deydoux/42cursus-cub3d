@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 15:43:48 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/15 10:54:30 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/16 15:08:01 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define KEY_ROT_RIGHT	65363
 # define KEY_QUIT		65307
 # define MAP_COLOR_BG	0x000000
-# define MAP_COLOR_RAY	0x424242
+# define MAP_COLOR_RAY	0x212121
 # define MAP_COLOR_WALL	0xffffff
 # define MAP_CUB_SIZE	32
 # define MAP_A			0.75
