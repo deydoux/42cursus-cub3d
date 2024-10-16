@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/16 12:28:37 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/16 15:25:15 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 # include <stdint.h>
 # include <stdio.h>
 
-# ifndef MAX_SPR
+# ifndef BONUS
+#  define BONUS		false
 #  define MAX_SPR	1
 # endif
 

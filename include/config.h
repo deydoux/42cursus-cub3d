@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 15:43:48 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/16 15:22:36 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/16 15:25:40 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define MAP_A			0.75
 # define MAP_H			256
 # define MAP_W			256
+# define MAP_SPR		32
 # define MOUSE_SENSIV	0.125
 # define VELOCITY		0.0625
 # define VELOCITY_ROT	0.03125
