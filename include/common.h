@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/16 15:28:27 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/18 16:30:07 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 # ifndef BONUS
 #  define BONUS		false
-#  define MAX_SPR	1
+#  define SPR_MAX	1
 # endif
 
 # define DEG_RAD	0.017453292519943295
@@ -78,10 +78,14 @@ typedef struct s_pos
 
 typedef struct s_spr
 {
-	t_img	n[MAX_SPR];
-	t_img	s[MAX_SPR];
-	t_img	w[MAX_SPR];
-	t_img	e[MAX_SPR];
+	size_t	n_size;
+	size_t	s_size;
+	size_t	w_size;
+	size_t	e_size;
+	t_img	n[SPR_MAX];
+	t_img	s[SPR_MAX];
+	t_img	w[SPR_MAX];
+	t_img	e[SPR_MAX];
 }	t_spr;
 
 typedef struct s_cub

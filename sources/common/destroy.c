@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:47:56 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/16 12:33:19 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/18 16:30:10 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	destroy_spr(t_cub cub)
 	size_t	i;
 
 	i = 0;
-	while (i < MAX_SPR)
+	while (i < SPR_MAX)
 	{
 		destroy_img(cub.spr.n[i], cub);
 		destroy_img(cub.spr.s[i], cub);
