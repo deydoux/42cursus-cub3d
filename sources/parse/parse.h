@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:17:36 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/21 15:04:36 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/21 15:28:45 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 # define PARSE_H
 
 # include <fcntl.h>
-# include <stdio.h>
 # include <errno.h>
-# include "libft/include/libft.h"
+# include "common.h"
 
 # define ERR_NO_INPUT "Error\nMap path expected\n"
 # define ERR_INPUT_INVALID "Error\nWrong map type\n"
@@ -32,90 +31,48 @@
 # define ERR_MAZE_OPEN "Error\nMaze isn't closed\n"
 # define ERR_PLAYER "Error\nNo player's spawning point\n"
 
-# define BONUS true
-
-typedef struct s_path
-{
-	char	paths[4];
-	int		nb_paths;
-}	t_path;
-
-typedef struct s_textures
-{
-	t_path	n_path;
-	t_path	s_path;
-	t_path	w_path;
-	t_path	ea_path;
-	char	*c_color;
-	char	*f_color;
-}	t_textures;
-
-typedef struct s_points
-{
-	int	x;
-	int	y;
-}	t_points;
-
-typedef struct s_player
-{
-	char	spawn; /* initialized value is '.' */
-	int		x	;
-	int		y;
-}	t_player;
-
-typedef struct s_map
-{
-	char		**map;
-	char		*path;
-	int			map_h;
-	int			map_w;
-	int			map_start;
-	t_player	player;
-	t_textures	txtrs_paths;
-	int			color_count;
-}	t_map;
-
 /*safe fctns*/
-int		safe_open(char *path, t_map *map, int size);
-void	*safe_malloc(size_t size, t_map *map, int h);
+int		safe_open(char *path, t_p_map *map, int size);
+void	*safe_malloc(size_t size, t_p_map *map, int h);
 
 /* parse_init */
 bool	is_input_valid(char *s);
-bool	are_values_initialized(t_map *map, char *path);
+bool	are_values_initialized(t_p_map *map, char *path);
 
 /*pase_tools*/
 int		w_isspace(char *s);
 char	*ft_strdup_range(const char *s, int start, int stop);
-bool	valid_txtrs_condition(t_map *map, char *line, int index, int condition);
-bool	is_this_texture_valid(t_path *txtr);
+bool	valid_txtrs_condition(t_p_map *map, char *line, int index,
+	int condition);
+bool	is_this_texture_valid(t_p_path *txtr);
 
 
 /*parse_tools 2*/
-bool	is_maze_open(t_map *map, char *line, int y, int x);
+bool	is_maze_open(t_p_map *map, char *line, int y, int x);
 
 /*parse_doable*/
-bool	is_it_flooded(t_map *map);
-bool	can_u_play(t_map *map, int y, int x);
+bool	is_it_flooded(t_p_map *map);
+bool	can_u_play(t_p_map *map, int y, int x);
 
 /*parse_textures*/
-bool	are_textures_valid(t_map *map);
-bool	check_textures(t_map *map, char *line);
+bool	are_textures_valid(t_p_map *map);
+bool	check_textures(t_p_map *map, char *line);
 
 /*parse_colors*/
-bool	check_color(char *color, t_map *map, size_t i);
-char	*get_color_values(t_map *map, char **path, char *s);
+bool	check_color(char *color, t_p_map *map, size_t i);
+char	*get_color_values(t_p_map *map, char **path, char *s);
 
 /*parse_map*/
-void	create_map(t_map *map);
-int		get_map_width(t_map *map);
-int		get_map_height(t_map *map);
-char	*_strdup_map(char *s, t_map *map, int h);
+void	create_map(t_p_map *map);
+int		get_map_width(t_p_map *map);
+int		get_map_height(t_p_map *map);
+char	*_strdup_map(char *s, t_p_map *map, int h);
 /*error*/
 int		err_msg(char *msg);
-void	free_map(t_map *map, int size, char *msg);
-void	free_all_and_exit(char *msg, t_map *map, int size);
+void	free_map(t_p_map *map, int size, char *msg);
+void	free_all_and_exit(char *msg, t_p_map *map, int size);
 
 //TODELETE
-void	print_map(t_map *map);
-void	print_textures(t_map *map);
+void	print_map(t_p_map *map);
+void	print_textures(t_p_map *map);
 #endif

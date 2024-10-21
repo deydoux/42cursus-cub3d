@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_and_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:26:38 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/17 17:15:10 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/21 15:35:43 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,23 @@ void	free_a_texture(char *textrs)
 		free(textrs);
 }
 
-void	free_textures(t_map *map)
+void	free_textures(t_p_map *map)
 {
+	size_t	i;
+
 	free_a_texture(map->txtrs_paths.f_color);
 	free_a_texture(map->txtrs_paths.c_color);
-	free_a_texture(map->txtrs_paths.ea_path);
-	free_a_texture(map->txtrs_paths.w_path);
-	free_a_texture(map->txtrs_paths.n_path);
-	free_a_texture(map->txtrs_paths.s_path);
+	i = 0;
+	while (i < SPR_MAX)
+	{
+		free_a_texture(map->txtrs_paths.ea_path.paths[i]);
+		free_a_texture(map->txtrs_paths.w_path.paths[i]);
+		free_a_texture(map->txtrs_paths.n_path.paths[i]);
+		free_a_texture(map->txtrs_paths.s_path.paths[i]);
+	}
 }
 
-void	free_map(t_map *map, int size, char *msg)
+void	free_map(t_p_map *map, int size, char *msg)
 {
 	int	i;
 
@@ -53,7 +59,7 @@ void	free_map(t_map *map, int size, char *msg)
 	}
 }
 
-void	free_all_and_exit(char *msg, t_map *map, int size)
+void	free_all_and_exit(char *msg, t_p_map *map, int size)
 {
 	if (size == -1)
 		size = map->map_h;

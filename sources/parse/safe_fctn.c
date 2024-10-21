@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   safe_fctn.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 12:11:01 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/17 17:14:25 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/21 15:32:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-void	*safe_malloc(size_t size, t_map *map, int i)
+void	*safe_malloc(size_t size, t_p_map *map, int i)
 {
 	void	*res;
 
@@ -22,7 +22,7 @@ void	*safe_malloc(size_t size, t_map *map, int i)
 	return (res);
 }
 
-int	safe_open(char *path, t_map *map, int size)
+int	safe_open(char *path, t_p_map *map, int size)
 {
 	int	fd;
 

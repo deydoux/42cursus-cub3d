@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_colors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:27:53 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/18 12:37:09 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/21 15:32:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	get_color_valid_arg(char *color)
 	return (count);
 }
 
-char	*get_color_values(t_map *map, char **path, char *s)
+char	*get_color_values(t_p_map *map, char **path, char *s)
 {
 	int	i;
 	int	j;
@@ -73,7 +73,7 @@ static bool	precheck(char *color)
 	return (true);
 }
 
-bool	check_color(char *color, t_map *map, size_t i)
+bool	check_color(char *color, t_p_map *map, size_t i)
 {
 	size_t	start;
 	int		tmp;

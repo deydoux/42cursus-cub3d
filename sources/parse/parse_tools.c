@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_tools.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:54:18 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/18 15:16:57 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/21 15:32:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_strdup_range(const char *s, int start, int stop)
 	return (tab);
 }
 
-bool	valid_txtrs_condition(t_map *map, char *line, int index, int condition)
+bool	valid_txtrs_condition(t_p_map *map, char *line, int index, int condition)
 {
 	if (condition == 1 && \
 		line && index < map->map_start \
@@ -56,7 +56,7 @@ bool	valid_txtrs_condition(t_map *map, char *line, int index, int condition)
 	return (false);
 }
 
-bool	is_maze_open(t_map *map, char *line, int y, int x)
+bool	is_maze_open(t_p_map *map, char *line, int y, int x)
 {
 	if (y == map->map_h - 1 || y == 0)
 	{

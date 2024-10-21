@@ -27,6 +27,15 @@ loop/pol_vec.c \
 loop/raycasts.c \
 loop/render_minimap.c \
 loop/render_ray.c \
+parse/error_and_free.c \
+parse/parse_colors.c \
+parse/parse_doable.c \
+parse/parse_initialise.c \
+parse/parse_map.c \
+parse/parse_textures.c \
+parse/parse_tools.c \
+parse/parse.c \
+parse/safe_fctn.c \
 
 LIBFT_DIR = libft
 MLX_DIR = minilibx-linux
@@ -41,7 +50,7 @@ X11_DIR = /usr/lib
 endif
 
 CC = cc
-CFLAGS = -I$(INCLUDE_DIR) -I$(MLX_DIR) -MD -Wall -Wextra -Werror -g -D HIDE_MOUSE=true -D BONUS
+CFLAGS = -I$(INCLUDE_DIR) -I$(MLX_DIR) -MD -Wall -Wextra -Werror -g
 LFLAGS = -L$(X11_DIR) -lX11 -lXext -lm
 RM = rm -rf
 MKDIR = mkdir -p

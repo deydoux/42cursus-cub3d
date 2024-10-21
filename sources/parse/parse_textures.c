@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:28:08 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/18 12:28:44 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/21 15:32:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-bool	fill_textures(t_map *map, char **path, char *str, int index)
+bool	fill_textures(t_p_map *map, char **path, char *str, int index)
 {
 	int	fd;
 
@@ -33,7 +33,7 @@ bool	fill_textures(t_map *map, char **path, char *str, int index)
 	return (true);
 }
 
-bool	check_textures(t_map *map, char *line)
+bool	check_textures(t_p_map *map, char *line)
 {
 	size_t	i;
 
@@ -59,7 +59,7 @@ bool	check_textures(t_map *map, char *line)
 	return (false);
 }
 
-bool	are_textures_valid(t_map *map)
+bool	are_textures_valid(t_p_map *map)
 {
 	int		i;
 	int		fd;

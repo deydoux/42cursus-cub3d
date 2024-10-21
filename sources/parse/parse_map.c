@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 14:49:01 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/18 14:26:16 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/21 15:32:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-char	*_strdup_map(char *s, t_map *map, int h)
+char	*_strdup_map(char *s, t_p_map *map, int h)
 {
 	int		i;
 	int		size;
@@ -47,7 +47,7 @@ bool	validity(char *line)
 	return (false);
 }
 
-int	get_map_height(t_map *map)
+int	get_map_height(t_p_map *map)
 {
 	int		i;
 	int		fd;
@@ -74,7 +74,7 @@ int	get_map_height(t_map *map)
 	return (free(line), close(fd));
 }
 
-int	get_map_width(t_map *map)
+int	get_map_width(t_p_map *map)
 {
 	int		i;
 	int		fd;

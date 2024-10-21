@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_initialise.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:07:33 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/18 14:47:44 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/21 15:32:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	path_nullifing(t_path *path)
 	path->nb_paths = 0;
 }
 
-bool	are_values_initialized(t_map *map, char *path)
+bool	are_values_initialized(t_p_map *map, char *path)
 {
 	int	i;
 

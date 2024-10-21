@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/18 16:30:07 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/21 15:33:29 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,47 @@
 
 # ifndef BONUS
 #  define BONUS		false
+#  undef SPR_MAX
 #  define SPR_MAX	1
 # endif
 
 # define DEG_RAD	0.017453292519943295
 # define ERR		"\e[31mError\e[0m\n"
+
+typedef struct s_p_path
+{
+	char	paths[SPR_MAX];
+	int		nb_paths;
+}	t_p_path;
+
+typedef struct s_p_textures
+{
+	t_p_path	n_path;
+	t_p_path	s_path;
+	t_p_path	w_path;
+	t_p_path	ea_path;
+	char		*c_color;
+	char		*f_color;
+}	t_p_textures;
+
+typedef struct s_player
+{
+	char	spawn; /* initialized value is '.' */
+	int		x	;
+	int		y;
+}	t_player;
+
+typedef struct s_p_map
+{
+	char			**map;
+	char			*path;
+	int				map_h;
+	int				map_w;
+	int				map_start;
+	t_player		player;
+	t_p_textures	txtrs_paths;
+	int				color_count;
+}	t_p_map;
 
 typedef union u_color
 {

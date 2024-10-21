@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:11:49 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/18 15:16:17 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/21 15:32:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-void	check_maze(t_map *map)
+void	check_maze(t_p_map *map)
 {
 	int		x;
 	int		y;
@@ -40,7 +40,7 @@ void	check_maze(t_map *map)
 	}
 }
 
-bool	is_line_empty(t_map *map, char *line, int fd, int index)
+bool	is_line_empty(t_p_map *map, char *line, int fd, int index)
 {
 	if ((size_t)w_isspace(line) != ft_strlen(line) && index >= map->map_h)
 		return (free(line), free_map(map, index, ERR_MAP), false);
@@ -60,7 +60,7 @@ bool	is_line_empty(t_map *map, char *line, int fd, int index)
 	return (true);
 }
 
-void	create_map(t_map *map)
+void	create_map(t_p_map *map)
 {
 	int		i;
 	int		fd;
@@ -89,7 +89,7 @@ void	create_map(t_map *map)
 	}
 }
 
-bool	are_all_textures_valid(t_textures *textures)
+bool	are_all_textures_valid(t_p_textures *textures)
 {
 	if (!is_this_textures_valid(textures->ea_path))
 		return (false);
@@ -104,7 +104,7 @@ bool	are_all_textures_valid(t_textures *textures)
 
 int	main(int ac, char **av)
 {
-	t_map	map;
+	t_p_map	map;
 
 	if (ac != 2)
 		return (err_msg(ERR_NO_INPUT));

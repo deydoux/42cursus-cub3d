@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_doable.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 17:24:05 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/18 14:24:38 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/21 15:32:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	transform(char *c)
 		(*c) = 'd';
 }
 
-bool	can_u_play(t_map *map, int y, int x)
+bool	can_u_play(t_p_map *map, int y, int x)
 {
 	if ((x < 0 || y < 0 || x > map->map_w || y > map->map_h - 1))
 		return (false);
