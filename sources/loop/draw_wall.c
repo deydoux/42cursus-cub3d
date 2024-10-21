@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 17:04:38 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/21 13:56:19 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/21 15:03:51 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,11 @@ static int	init_draw_wall(t_img *spr, t_ray ray, t_cub cub)
 	return (spr->w - (ray.pos.y - (int)ray.pos.y) * spr->w);
 }
 
-void	draw_wall(int frame_x, int wall_h, t_ray ray, t_cub cub)
+void	draw_wall(size_t frame_x, int wall_h, t_ray ray, t_cub cub)
 {
 	int		frame_y;
 	int		img_h;
 	int		img_x;
-	size_t	Y;
 	t_img	spr;
 
 	if (wall_h < 0)
@@ -46,12 +45,12 @@ void	draw_wall(int frame_x, int wall_h, t_ray ray, t_cub cub)
 	img_x = init_draw_wall(&spr, ray, cub);
 	frame_y = (WIN_H - wall_h) / 2;
 	img_h = frame_y * -1 * (frame_y < 0);
-	Y = (frame_y + img_h) * cub.frame.w_size;
+	frame_x += (frame_y + img_h) * cub.frame.w_size;
 	while (img_h < wall_h && frame_y + img_h < WIN_H)
 	{
-		cub.frame.buf[frame_x + Y] =
+		cub.frame.buf[frame_x] =
 			*read_img(spr, img_x, (double)img_h / wall_h * spr.h);
 		img_h++;
-		Y += cub.frame.w_size;
+		frame_x += cub.frame.w_size;
 	}
 }
