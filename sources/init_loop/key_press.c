@@ -6,11 +6,23 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:37:27 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/16 15:30:23 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/21 17:41:47 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init_loop.h"
+
+static void	interact(t_cub cub)
+{
+	char	*c;
+
+	c = &cub.map.buf[(size_t)(cub.pos.y + sin(cub.angle))]
+		[(size_t)(cub.pos.x + cos(cub.angle))];
+	if (ft_isupper(*c))
+		*c = ft_tolower(*c);
+	else
+		*c = ft_toupper(*c);
+}
 
 int	key_press(int key, t_cub *cub)
 {
@@ -28,5 +40,7 @@ int	key_press(int key, t_cub *cub)
 		cub->key.rot_left = true;
 	else if (key == KEY_ROT_RIGHT)
 		cub->key.rot_right = true;
+	else if (key == KEY_INTERACT)
+		interact(*cub);
 	return (EXIT_SUCCESS);
 }
