@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:37:27 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/21 17:41:47 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/21 18:42:23 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,24 @@
 
 static void	interact(t_cub cub)
 {
-	char	*c;
+	char		*c;
+	size_t		x;
+	size_t		y;
+	uint32_t	raw_color;
 
-	c = &cub.map.buf[(size_t)(cub.pos.y + sin(cub.angle))]
-		[(size_t)(cub.pos.x + cos(cub.angle))];
-	if (ft_isupper(*c))
+	x = cub.pos.x + cos(cub.angle);
+	y = cub.pos.y + sin(cub.angle);
+	c = &cub.map.buf[y][x];
+	if (*c != 'D' && *c != 'd')
+		return ;
+	if (*c == 'D')
 		*c = ft_tolower(*c);
 	else
 		*c = ft_toupper(*c);
+	x *= MAP_CUB_SIZE;
+	y *= MAP_CUB_SIZE;
+	raw_color = read_img(cub.map.img, x, y)->raw ^ MASK_COLOR_A;
+	draw_map_square(x, y, raw_color, cub.map.img);
 }
 
 int	key_press(int key, t_cub *cub)

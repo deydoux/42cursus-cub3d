@@ -2,6 +2,7 @@ NAME = cub3D
 
 SOURCES = \
 common/destroy.c \
+common/draw_map_square.c \
 common/read_img.c \
 cub.c \
 init_loop/focus_in.c \

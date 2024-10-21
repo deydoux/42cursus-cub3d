@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:47:29 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/21 17:25:50 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/21 18:39:56 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ void	render_ray(t_ray ray, t_cub cub)
 	pos.x = MAP_W / 2 + ray.vec.dx;
 	pos.y = MAP_W / 2 + ray.vec.dy;
 	color = read_img(cub.minimap, pos.x, pos.y);
-	while (valid_pos(pos, cub.minimap) && color->raw != MAP_COLOR_WALL)
+	while (valid_pos(pos, cub.minimap) && color->raw != MAP_COLOR_WALL
+		&& color->raw != MAP_COLOR_DOOR)
 	{
-		if (color->raw != MAP_COLOR_DOOR)
+		if (color->raw == MAP_COLOR_BG)
 			color->raw = MAP_COLOR_RAY;
 		pos.x += ray.vec.dx;
 		pos.y += ray.vec.dy;
