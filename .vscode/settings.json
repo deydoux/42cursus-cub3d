@@ -5,5 +5,9 @@
 			"binaryPath": "${workspaceFolder}/cub3D",
 			"binaryArgs": []
 		}
-	]
+	],
+	"files.associations": {
+		"parse.h": "c",
+		"stdint.h": "c"
+	}
 }
