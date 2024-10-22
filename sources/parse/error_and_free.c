@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:26:38 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/21 16:24:05 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/22 14:50:26 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	free_textures(t_p_map *map)
 	i = 0;
 	while (i < SPR_MAX)
 	{
-		free_a_texture(&map->txtrs_paths.ea_path.paths[i]);
-		free_a_texture(&map->txtrs_paths.w_path.paths[i]);
-		free_a_texture(&map->txtrs_paths.n_path.paths[i]);
-		free_a_texture(&map->txtrs_paths.s_path.paths[i]);
+		free_a_texture(map->txtrs_paths.ea_path.paths[i]);
+		free_a_texture(map->txtrs_paths.w_path.paths[i]);
+		free_a_texture(map->txtrs_paths.n_path.paths[i]);
+		free_a_texture(map->txtrs_paths.s_path.paths[i]);
 	}
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:11:49 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/21 15:32:17 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/22 15:06:39 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,18 +91,18 @@ void	create_map(t_p_map *map)
 
 bool	are_all_textures_valid(t_p_textures *textures)
 {
-	if (!is_this_textures_valid(textures->ea_path))
+	if (!is_this_texture_valid(&textures->ea_path))
 		return (false);
-	if (!is_this_textures_valid(textures->w_path))
+	if (!is_this_texture_valid(&textures->w_path))
 		return (false);
-	if (!is_this_textures_valid(textures->s_path))
+	if (!is_this_texture_valid(&textures->s_path))
 		return (false);
-	if (!is_this_textures_valid(textures->n_path))
+	if (!is_this_texture_valid(&textures->n_path))
 		return (false);
 	return (true);
 }
 
-int	main(int ac, char **av)
+int	parse(int ac, char **av)
 {
 	t_p_map	map;
 

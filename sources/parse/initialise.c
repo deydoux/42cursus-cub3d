@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_initialise.c                                 :+:      :+:    :+:   */
+/*   initialise.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:07:33 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/22 11:14:05 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/22 14:44:30 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ bool	is_input_valid(char *s)
 
 void	path_nullifing(t_p_path *path)
 {
-/* 	int	i;
+	int	i;
 
 	i = 0;
 	while (i < SPR_MAX)
 	{
 		path->paths[i] = NULL;
 		i++;
-	} */
+	}
 	path->nb_paths = 0;
 }
 

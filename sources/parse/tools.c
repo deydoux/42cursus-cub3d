@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_tools.c                                      :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:54:18 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/21 16:28:10 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/22 14:53:39 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ bool	is_this_texture_valid(t_p_path *txtr)
 	i = 0;
 	if (txtr->nb_paths == 0)
 		return (false);
-	while (i < txtr)
+	while (i < txtr->nb_paths)
 	{
 		if (!txtr->paths[i])
 			return (false);
