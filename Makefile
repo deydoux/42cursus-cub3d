@@ -28,12 +28,12 @@ loop/raycasts.c \
 loop/render_minimap.c \
 loop/render_ray.c \
 parse/error_and_free.c \
-parse/parse_colors.c \
-parse/parse_doable.c \
-parse/parse_initialise.c \
-parse/parse_map.c \
-parse/parse_textures.c \
-parse/parse_tools.c \
+parse/colors.c \
+parse/doable.c \
+parse/initialise.c \
+parse/mapping.c \
+parse/textures.c \
+parse/tools.c \
 parse/parse.c \
 parse/safe_fctn.c \
 
