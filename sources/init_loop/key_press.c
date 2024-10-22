@@ -6,11 +6,33 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:37:27 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/16 15:30:23 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/21 18:42:23 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init_loop.h"
+
+static void	interact(t_cub cub)
+{
+	char		*c;
+	size_t		x;
+	size_t		y;
+	uint32_t	raw_color;
+
+	x = cub.pos.x + cos(cub.angle);
+	y = cub.pos.y + sin(cub.angle);
+	c = &cub.map.buf[y][x];
+	if (*c != 'D' && *c != 'd')
+		return ;
+	if (*c == 'D')
+		*c = ft_tolower(*c);
+	else
+		*c = ft_toupper(*c);
+	x *= MAP_CUB_SIZE;
+	y *= MAP_CUB_SIZE;
+	raw_color = read_img(cub.map.img, x, y)->raw ^ MASK_COLOR_A;
+	draw_map_square(x, y, raw_color, cub.map.img);
+}
 
 int	key_press(int key, t_cub *cub)
 {
@@ -28,5 +50,7 @@ int	key_press(int key, t_cub *cub)
 		cub->key.rot_left = true;
 	else if (key == KEY_ROT_RIGHT)
 		cub->key.rot_right = true;
+	else if (key == KEY_INTERACT)
+		interact(*cub);
 	return (EXIT_SUCCESS);
 }

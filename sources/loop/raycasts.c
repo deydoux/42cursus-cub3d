@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/16 15:23:50 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/21 17:42:59 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ static t_ray	raycast(t_vec vec, t_cub cub)
 	t_ray	ray;
 
 	ray = init_ray(vec, cub);
-	while (cub.map.buf[(int)(ray.pos.y - ray.fix.y)]
-		[(int)(ray.pos.x - ray.fix.x)] != '1')
+	while (!ft_strchr(COLLISION, cub.map.buf[(size_t)(ray.pos.y - ray.fix.y)]
+		[(size_t)(ray.pos.x - ray.fix.x)]))
 	{
 		ray.dx = ray.dx_calc(ray.pos.x, vec.dx);
 		ray.dy = ray.dy_calc(ray.pos.y, vec.dy);

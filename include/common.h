@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/22 12:52:02 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/22 15:19:51 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ typedef struct s_cub
 }	t_cub;
 
 t_color	*read_img(t_img img, size_t x, size_t y);
+void	draw_map_square(size_t x, size_t y, uint32_t raw_color, t_img img);
 void	destroy(t_cub cub);
 
 #endif

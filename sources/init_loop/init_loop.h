@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:39:23 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/15 10:39:38 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/21 18:42:37 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # ifndef HIDE_MOUSE
 #  define HIDE_MOUSE	false
 # endif
+
+# define MASK_COLOR_A	0xff000000
 
 enum e_event
 {
