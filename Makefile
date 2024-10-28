@@ -36,7 +36,8 @@ parse/mapping.c \
 parse/textures.c \
 parse/tools.c \
 parse/parse.c \
-parse/safe_fctn.c \
+parse/custom_fctn.c \
+parse/DELETE.c \
 
 LIBFT_DIR = libft
 MLX_DIR = minilibx-linux
@@ -51,7 +52,7 @@ X11_DIR = /usr/lib
 endif
 
 CC = cc
-CFLAGS = -I$(INCLUDE_DIR) -I$(MLX_DIR) -MD -Wall -Wextra -Werror -g
+CFLAGS = -I$(INCLUDE_DIR) -I$(MLX_DIR) -MD -Wall -Wextra -Werror -g -D BONUS=false
 LFLAGS = -L$(X11_DIR) -lX11 -lXext -lm
 RM = rm -rf
 MKDIR = mkdir -p

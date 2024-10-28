@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:00:13 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/02 15:43:15 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/22 16:17:22 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB_H
 
 # include "common.h"
+# include "parse.h"
 
 bool	init(t_cub *cub);
 void	init_loop(t_cub *cub);

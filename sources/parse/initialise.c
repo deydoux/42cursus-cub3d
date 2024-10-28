@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:07:33 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/22 14:44:30 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/23 15:08:38 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void	path_nullifing(t_p_path *path)
 	i = 0;
 	while (i < SPR_MAX)
 	{
-		path->paths[i] = NULL;
+		path->pths[i] = NULL;
 		i++;
 	}
-	path->nb_paths = 0;
+	path->size = 0;
 }
 
 bool	are_values_initialized(t_p_map *map, char *path)
@@ -48,12 +48,12 @@ bool	are_values_initialized(t_p_map *map, char *path)
 	map->map_w = 0;
 	map->player.spawn = '.';
 	map->color_count = 0;
-	path_nullifing(&map->txtrs_paths.n_path);
-	path_nullifing(&map->txtrs_paths.s_path);
-	path_nullifing(&map->txtrs_paths.w_path);
-	path_nullifing(&map->txtrs_paths.ea_path);
-	map->txtrs_paths.c_color = NULL;
-	map->txtrs_paths.f_color = NULL;
+	path_nullifing(&map->txtrs_pths.n_path);
+	path_nullifing(&map->txtrs_pths.s_path);
+	path_nullifing(&map->txtrs_pths.w_path);
+	path_nullifing(&map->txtrs_pths.ea_path);
+	map->txtrs_pths.c_color = NULL;
+	map->txtrs_pths.f_color = NULL;
 	get_map_height(map);
 	get_map_width(map);
 	if (map->map_h <= 0 || map->map_w <= 0 \

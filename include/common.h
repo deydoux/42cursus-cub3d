@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/22 15:19:51 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/25 13:18:22 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 
 typedef struct s_p_path
 {
-	char	*paths[SPR_MAX];
-	int		nb_paths;
+	char	*pths[SPR_MAX];
+	int		size;
 }	t_p_path;
 
 typedef struct s_p_textures
@@ -61,7 +61,7 @@ typedef struct s_p_map
 	int				map_w;
 	int				map_start;
 	t_player		player;
-	t_p_textures	txtrs_paths;
+	t_p_textures	txtrs_pths;
 	int				color_count;
 }	t_p_map;
 
@@ -134,6 +134,7 @@ typedef struct s_cub
 	t_img	frame;
 	t_img	minimap;
 	t_key	key;
+	t_p_map	parsed_map;
 	t_map	map;
 	t_pos	pos;
 	t_spr	spr;

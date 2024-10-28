@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:17:36 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/22 13:14:45 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/25 11:08:10 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,14 @@
 # define ERR_MAZE_OPEN "Error\nMaze isn't closed\n"
 # define ERR_PLAYER "Error\nNo player's spawning point\n"
 
-/*safe fctns*/
+bool	parse(t_p_map *map, char **av);
+
+/*custom fctns*/
+char	*s_cust_strtrim(t_p_map *map, char const *s1,
+			char const *set, size_t end);
 int		safe_open(char *path, t_p_map *map, int size);
 void	*safe_malloc(size_t size, t_p_map *map, int h);
+char	*custom_strtrim(char const *s1, char const *set, size_t end);
 
 /* parse_init */
 bool	is_input_valid(char *s);
@@ -46,8 +51,6 @@ bool	valid_txtrs_condition(t_p_map *map, char *line, int index,
 			int condition);
 bool	is_this_texture_valid(t_p_path *txtr);
 
-
-/*parse_tools 2*/
 bool	is_maze_open(t_p_map *map, char *line, int y, int x);
 
 /*parse_doable*/
@@ -57,6 +60,7 @@ bool	can_u_play(t_p_map *map, int y, int x);
 /*parse_textures*/
 bool	are_textures_valid(t_p_map *map);
 bool	check_textures(t_p_map *map, char *line);
+char	*custom_strtrim(char const *s1, char const *set, size_t end);
 
 /*parse_colors*/
 bool	check_color(char *color, t_p_map *map, size_t i);
@@ -70,7 +74,7 @@ char	*_strdup_map(char *s, t_p_map *map, int h);
 /*error*/
 int		err_msg(char *msg);
 void	free_map(t_p_map *map, int size, char *msg);
-void	free_all_and_exit(char *msg, t_p_map *map, int size);
+bool	free_all_and_exit(char *msg, t_p_map *map, int size);
 
 //TODELETE
 void	print_map(t_p_map *map);

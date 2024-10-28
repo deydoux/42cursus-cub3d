@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:26:38 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/22 14:50:26 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/25 13:08:14 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,33 @@
 int	err_msg(char *msg)
 {
 	printf("%s", msg);
-	return (EXIT_FAILURE);
+	return (0);
 }
 
-void	free_a_texture(char *textrs)
+void	free_a_texture(t_p_path *textrs)
 {
-	if (textrs)
-		free(textrs);
+	int	i;
+
+	i = 0;
+	while (i < textrs->size)
+	{
+		if (textrs->pths[i])
+			free(textrs->pths[i]);
+		i++;
+	}
 }
 
 void	free_textures(t_p_map *map)
 {
-	size_t	i;
 
-	free_a_texture(map->txtrs_paths.f_color);
-	free_a_texture(map->txtrs_paths.c_color);
-	i = 0;
-	while (i < SPR_MAX)
-	{
-		free_a_texture(map->txtrs_paths.ea_path.paths[i]);
-		free_a_texture(map->txtrs_paths.w_path.paths[i]);
-		free_a_texture(map->txtrs_paths.n_path.paths[i]);
-		free_a_texture(map->txtrs_paths.s_path.paths[i]);
-	}
+	if (map->txtrs_pths.f_color)
+		free(map->txtrs_pths.f_color);
+	if (map->txtrs_pths.f_color)
+		free(map->txtrs_pths.c_color);
+	free_a_texture(&map->txtrs_pths.ea_path);
+	free_a_texture(&map->txtrs_pths.w_path);
+	free_a_texture(&map->txtrs_pths.n_path);
+	free_a_texture(&map->txtrs_pths.s_path);
 }
 
 void	free_map(t_p_map *map, int size, char *msg)
@@ -59,7 +63,7 @@ void	free_map(t_p_map *map, int size, char *msg)
 	}
 }
 
-void	free_all_and_exit(char *msg, t_p_map *map, int size)
+bool	free_all_and_exit(char *msg, t_p_map *map, int size)
 {
 	if (size == -1)
 		size = map->map_h;
@@ -70,4 +74,5 @@ void	free_all_and_exit(char *msg, t_p_map *map, int size)
 		printf("%s", msg);
 		exit(1);
 	}
+	return (false);
 }

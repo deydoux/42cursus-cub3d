@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:54:18 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/22 14:53:39 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/25 11:08:28 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ char	*ft_strdup_range(const char *s, int start, int stop)
 	return (tab);
 }
 
-bool	valid_txtrs_condition(t_p_map *map, char *line, int index, int condition)
+bool	valid_txtrs_condition(t_p_map *map, char *line, \
+	int index, int condition)
 {
 	if (condition == 1 && \
 		line && index < map->map_start \
@@ -81,11 +82,11 @@ bool	is_this_texture_valid(t_p_path *txtr)
 	int	i;
 
 	i = 0;
-	if (txtr->nb_paths == 0)
+	if (txtr->size == 0)
 		return (false);
-	while (i < txtr->nb_paths)
+	while (i < txtr->size)
 	{
-		if (!txtr->paths[i])
+		if (!txtr->pths[i])
 			return (false);
 		i++;
 	}

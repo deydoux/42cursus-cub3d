@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   destroy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:47:56 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/18 16:30:10 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/25 13:18:27 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
+# include "parse.h"
 
 static void	destroy_map_buf(char **buf)
 {
@@ -46,6 +47,7 @@ static void	destroy_spr(t_cub cub)
 
 void	destroy(t_cub cub)
 {
+	free_all_and_exit(NULL, &cub.parsed_map, -1);
 	destroy_map_buf(cub.map.buf);
 	if (!cub.mlx)
 		return ;

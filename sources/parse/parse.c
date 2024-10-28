@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:11:49 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/22 15:06:39 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/25 12:56:10 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,30 +102,22 @@ bool	are_all_textures_valid(t_p_textures *textures)
 	return (true);
 }
 
-int	parse(int ac, char **av)
+bool	parse(t_p_map *map, char **av)
 {
-	t_p_map	map;
-
-	if (ac != 2)
-		return (err_msg(ERR_NO_INPUT));
 	if (!is_input_valid(av[1]))
 		return (err_msg(ERR_INPUT_INVALID));
-	if (!are_values_initialized(&map, av[1]))
-		return (1);//err msg type
-	///*TPRINTF------------------------------------------*/printf("map->map_start = %d\nmap->map_h = %d\nmap->map_w = %d\n", map.map_start, map.map_h, map.map_w);
-	create_map(&map);
-	///*TPRINTF--------------------------------*/print_map(&map);
-	are_textures_valid(&map);
-	///*TPRINTF--------------------------------*/print_textures(&map);
-	if (!map.txtrs_paths.c_color || !map.txtrs_paths.f_color \
-		|| !are_all_textures_valid(&map.txtrs_paths))
-		free_all_and_exit(ERR_M_TEXTURE, &map, -1);
-	check_maze(&map);
-	if (map.player.spawn == '.')
-		free_all_and_exit(ERR_PLAYER, &map, -1);
-	///*TPRINTF--------------------------------*/printf("\nplayer's spawn : %c (%d,%d)\n", map.player.spawn, map.player.y, map.player.x);
-	if (!can_u_play(&map, map.player.y, map.player.x))
-		free_all_and_exit(ERR_MAP, &map, -1);
-	free_all_and_exit(NULL, &map, -1);
-	return (0);
+	if (!are_values_initialized(map, av[1]))
+		return (false);
+	create_map(map);
+	are_textures_valid(map);
+	print_textures(map);
+	if (!map->txtrs_pths.c_color || !map->txtrs_pths.f_color \
+		|| !are_all_textures_valid(&map->txtrs_pths))
+		free_all_and_exit(ERR_M_TEXTURE, map, -1);
+	check_maze(map);
+	if (map->player.spawn == '.')
+		free_all_and_exit(ERR_PLAYER, map, -1);
+	if (!can_u_play(map, map->player.y, map->player.x))
+		free_all_and_exit(ERR_MAP, map, -1);
+	return (true);
 }
