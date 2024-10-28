@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialise.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:07:33 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/23 15:08:38 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/28 16:26:07 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ bool	are_values_initialized(t_p_map *map, char *path)
 	if (map->map_h <= 0 || map->map_w <= 0 \
 		|| map->map_h > 200 || map->map_w > 200)
 		return (printf("%s", ERR_DIMENSION), false);
-	map->map = malloc(sizeof(char *) * map->map_h);
+	map->map = ft_calloc(map->map_h + 1, sizeof(char *));
 	if (!map->map)
 		return (printf("%s", ERR_MALLOC), false);
 	return (true);

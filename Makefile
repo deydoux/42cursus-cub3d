@@ -17,6 +17,7 @@ init/init_map_img.c \
 init/init.c \
 init/new_img.c \
 init/open_img.c \
+init/use_parse.c \
 loop/clear_frame.c \
 loop/copy_img.c \
 loop/copy_minimap.c \
@@ -52,7 +53,7 @@ X11_DIR = /usr/lib
 endif
 
 CC = cc
-CFLAGS = -I$(INCLUDE_DIR) -I$(MLX_DIR) -MD -Wall -Wextra -Werror -g -D BONUS=false
+CFLAGS = -I$(INCLUDE_DIR) -I$(MLX_DIR) -MD -Wall -Wextra -Werror -g
 LFLAGS = -L$(X11_DIR) -lX11 -lXext -lm
 RM = rm -rf
 MKDIR = mkdir -p

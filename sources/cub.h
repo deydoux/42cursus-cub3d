@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:00:13 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/22 16:17:22 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/28 16:17:34 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 # define CUB_H
 
 # include "common.h"
-# include "parse.h"
 
-bool	init(t_cub *cub);
+# define USAGE "%s [map_path.cub]\n"
+
+bool	init(char *map_path, t_cub *cub);
 void	init_loop(t_cub *cub);
 
 #endif

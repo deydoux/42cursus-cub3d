@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:58:12 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/09 16:47:41 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/28 15:21:34 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,8 @@ bool	new_img(int height, int width, void *mlx, t_img *img)
 	img->h = height;
 	img->w = width;
 	img->ptr = mlx_new_image(mlx, width, height);
-	return (init_img(img));
+	if (!img->ptr)
+		return (true);
+	init_img(img);
+	return (false);
 }

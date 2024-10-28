@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:11:49 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/25 12:56:10 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/28 14:25:13 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,11 @@ bool	are_all_textures_valid(t_p_textures *textures)
 	return (true);
 }
 
-bool	parse(t_p_map *map, char **av)
+bool	parse(t_p_map *map, char *path)
 {
-	if (!is_input_valid(av[1]))
+	if (!is_input_valid(path))
 		return (err_msg(ERR_INPUT_INVALID));
-	if (!are_values_initialized(map, av[1]))
+	if (!are_values_initialized(map, path))
 		return (false);
 	create_map(map);
 	are_textures_valid(map);

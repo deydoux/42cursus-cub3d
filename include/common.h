@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   common.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/25 13:18:22 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/28 14:34:47 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,6 @@ typedef struct s_cub
 	t_img	frame;
 	t_img	minimap;
 	t_key	key;
-	t_p_map	parsed_map;
 	t_map	map;
 	t_pos	pos;
 	t_spr	spr;

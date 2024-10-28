@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:09:12 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/25 13:17:55 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/28 16:17:23 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ int	main(int argc, char **argv)
 	t_cub	cub;
 
 	if (argc != 2)
-		return (err_msg(ERR_NO_INPUT));
-	if (!parse(&cub.parsed_map, argv))
+	{
+		ft_dprintf(STDERR_FILENO, USAGE, argv[0]);
 		return (EXIT_FAILURE);
-	status = init(&cub);
+	}
+	status = init(argv[1], &cub);
 	if (!status)
 		init_loop(&cub);
 	destroy(cub);

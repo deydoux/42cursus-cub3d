@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:17:36 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/25 11:08:10 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/28 14:28:11 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <errno.h>
 # include "common.h"
 
-# define ERR_NO_INPUT "Error\nMap path expected\n"
 # define ERR_INPUT_INVALID "Error\nWrong map type\n"
 # define ERR_TEXTURE "Error\nInvalid texture\n"
 # define ERR_MAP "Error\nInvalid map\n"
@@ -30,8 +29,6 @@
 # define ERR_MAZE_INVALID_CHARAC "Error\nInvalid character in maze\n"
 # define ERR_MAZE_OPEN "Error\nMaze isn't closed\n"
 # define ERR_PLAYER "Error\nNo player's spawning point\n"
-
-bool	parse(t_p_map *map, char **av);
 
 /*custom fctns*/
 char	*s_cust_strtrim(t_p_map *map, char const *s1,
