@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:11:49 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/28 14:25:13 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/29 14:33:03 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	check_maze(t_p_map *map)
 				map->player.x = x;
 			}
 			else if (map->map[y][x] != '0' && map->map[y][x] != '1' \
-			&& (BONUS && map->map[y][x] != 'D') && !ft_isspace(map->map[y][x]))
+			&& (!BONUS && map->map[y][x] == 'D') && !ft_isspace(map->map[y][x]))
 				free_all_and_exit(ERR_MAZE_INVALID_CHARAC, map, -1);
 			x++;
 		}
