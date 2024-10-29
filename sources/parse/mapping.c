@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_map.c                                        :+:      :+:    :+:   */
+/*   mapping.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 14:49:01 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/21 15:32:17 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/29 15:52:49 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-char	*_strdup_map(char *s, t_p_map *map, int h)
+char	*_strdup_map(char *s, t_p_map *map, size_t h)
 {
-	int		i;
-	int		size;
+	int	i;
+	size_t	size;
 	char	*dest;
 
 	i = 0;
@@ -42,16 +42,16 @@ bool	validity(char *line)
 	if (ft_strncmp(line, "NO", 2) != 0 && ft_strncmp(line, "SO", 2) != 0 \
 		&& ft_strncmp(line, "WE", 2) != 0 && ft_strncmp(line, "EA", 2) != 0 \
 		&& ft_strncmp(line, "F ", 2) != 0 && ft_strncmp(line, "C ", 2) != 0 \
-		&& (int)ft_strlen(line) != w_isspace(line))
+		&& ft_strlen(line) != w_isspace(line))
 		return (true);
 	return (false);
 }
 
 int	get_map_height(t_p_map *map)
 {
-	int		i;
+	size_t	i;
 	int		fd;
-	int		count;
+	size_t	count;
 	char	*line;
 
 	fd = safe_open(map->path, map, -1);
@@ -78,7 +78,7 @@ int	get_map_width(t_p_map *map)
 {
 	int		i;
 	int		fd;
-	int		tmp;
+	size_t	tmp;
 	char	*line;
 
 	i = -1;
@@ -93,7 +93,7 @@ int	get_map_width(t_p_map *map)
 			line = get_next_line(fd);
 		}
 		tmp = ft_strlen(line);
-		if (tmp > map->map_w)
+		if ((int)tmp > map->map_w)
 			map->map_w = tmp;
 		free(line);
 		line = get_next_line(fd);

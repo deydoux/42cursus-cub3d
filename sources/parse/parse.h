@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:17:36 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/29 14:25:31 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/29 15:51:29 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,14 @@ bool	is_input_valid(char *s);
 bool	are_values_initialized(t_p_map *map, char *path);
 
 /*pase_tools*/
-int		w_isspace(char *s);
+size_t	w_isspace(char *s);
 char	*ft_strdup_range(const char *s, int start, int stop);
-bool	valid_txtrs_condition(t_p_map *map, char *line, int index,
+bool	valid_txtrs_condition(t_p_map *map, char *line, size_t index,
 			int condition);
 bool	is_this_texture_valid(t_p_path *txtr);
-
 bool	is_maze_open(t_p_map *map, char *line, int y, int x);
 
 /*parse_doable*/
-bool	is_it_flooded(t_p_map *map);
 bool	can_u_play(t_p_map *map, int y, int x);
 
 /*parse_textures*/
@@ -68,10 +66,10 @@ char	*get_color_values(t_p_map *map, char **path, char *s);
 void	create_map(t_p_map *map);
 int		get_map_width(t_p_map *map);
 int		get_map_height(t_p_map *map);
-char	*_strdup_map(char *s, t_p_map *map, int h);
+char	*_strdup_map(char *s, t_p_map *map, size_t h);
 /*error*/
 int		err_msg(char *msg);
-void	free_map(t_p_map *map, int size, char *msg);
+void	free_map(t_p_map *map, size_t size, char *msg);
 bool	free_all_and_exit(char *msg, t_p_map *map, int size);
 
 //TODELETE

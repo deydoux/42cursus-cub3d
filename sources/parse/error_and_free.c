@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:26:38 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/29 14:25:15 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/29 15:28:47 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	free_textures(t_p_map *map)
 	free_a_texture(&map->txtrs_pths.s_path);
 }
 
-void	free_map(t_p_map *map, int size, char *msg)
+void	free_map(t_p_map *map, size_t size, char *msg)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < size)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   common.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/29 12:38:32 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/29 15:51:01 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ typedef struct s_p_textures
 typedef struct s_player
 {
 	char	spawn; /* initialized value is '.' */
-	int		x;
-	int		y;
+	int	x;
+	int	y;
 }	t_player;
 
 typedef struct s_p_map

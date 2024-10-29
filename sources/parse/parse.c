@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:11:49 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/29 14:33:03 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/29 15:54:49 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void	check_maze(t_p_map *map)
 	}
 }
 
-bool	is_line_empty(t_p_map *map, char *line, int fd, int index)
+bool	is_line_empty(t_p_map *map, char *line, int fd, size_t index)
 {
-	if ((size_t)w_isspace(line) != ft_strlen(line) && index >= map->map_h)
+	if ((size_t)w_isspace(line) != ft_strlen(line) && (int)index >= map->map_h)
 		return (free(line), free_map(map, index, ERR_MAP), false);
 	if (*line == '\0' || (size_t)w_isspace(line) == ft_strlen(line))
 	{
@@ -62,7 +62,7 @@ bool	is_line_empty(t_p_map *map, char *line, int fd, int index)
 
 void	create_map(t_p_map *map)
 {
-	int		i;
+	size_t	i;
 	int		fd;
 	char	*line;
 	int		start;
@@ -110,7 +110,6 @@ bool	parse(t_p_map *map, char *path)
 		return (false);
 	create_map(map);
 	are_textures_valid(map);
-	print_textures(map);
 	if (!map->txtrs_pths.c_color || !map->txtrs_pths.f_color \
 		|| !are_all_textures_valid(&map->txtrs_pths))
 		free_all_and_exit(ERR_M_TEXTURE, map, -1);

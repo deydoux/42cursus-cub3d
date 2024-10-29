@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:28:08 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/29 14:50:12 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/29 15:46:07 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ bool	last_textures_check(t_p_map *map, t_p_path *txtr, char *str, int i)
 {
 	while ((size_t)i < ft_strlen(str) && ft_isspace(str[i]))
 		i++;
-	if (txtr->size == SPR_MAX && str[i] != '\0')
+	if (txtr->size == SPR_MAX && (size_t)i == ft_strlen(str))
 		return (free(str), free_all_and_exit(ERR_TEXTURE, map, -1));
 	return (true);
 }
 
 bool	fill_texture(t_p_map *map, t_p_path *pths, char *str, int index)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
@@ -46,11 +46,11 @@ bool	fill_texture(t_p_map *map, t_p_path *pths, char *str, int index)
 	return (true);
 }
 
-bool	fill_textures(t_p_map *map, t_p_path *txtr, char *str, int idx)
+bool	fill_textures(t_p_map *map, t_p_path *txtr, char *str, size_t idx)
 {
-	int	i;
-	int	end;
-	int	bgn;
+	size_t	i;
+	size_t	end;
+	size_t	bgn;
 
 	i = idx + 2;
 	end = 0;
@@ -79,9 +79,7 @@ bool	check_textures(t_p_map *map, char *line)
 {
 	size_t	i;
 
-	i = 0;
-	while (ft_isspace(line[i]))
-		i++;
+	i = w_isspace(line);
 	if (ft_strncmp(line + i, "NO", 2) == 0)
 		return (fill_textures(map, &map->txtrs_pths.n_path, line, i));
 	if (ft_strncmp(line + i, "SO", 2) == 0)
@@ -103,14 +101,14 @@ bool	check_textures(t_p_map *map, char *line)
 
 bool	are_textures_valid(t_p_map *map)
 {
-	int		i;
+	size_t	i;
 	int		fd;
 	char	*line;
 
 	i = 0;
 	fd = safe_open(map->path, map, -2);
 	line = get_next_line(fd);
-	while (line && i < map->map_start)
+	while (line && (int)i < map->map_start)
 	{
 		while (valid_txtrs_condition(map, line, i, 1))
 		{
@@ -118,7 +116,7 @@ bool	are_textures_valid(t_p_map *map)
 			line = get_next_line(fd);
 			i++;
 		}
-		if (!line || i >= map->map_start)
+		if (!line || (int)i >= map->map_start)
 			break ;
 		if (valid_txtrs_condition(map, line, i, 2))
 			return (free(line), free_all_and_exit(ERR_TEXTURE, map, -1));

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:27:53 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/29 12:36:30 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/29 15:16:52 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	get_color_valid_arg(char *color)
 {
-	int	i;
-	int	count;
+	size_t	i;
+	size_t	count;
 
 	i = 0;
 	count = 0;
@@ -30,8 +30,8 @@ static int	get_color_valid_arg(char *color)
 
 char	*get_color_values(t_p_map *map, char **path, char *s)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
@@ -56,14 +56,14 @@ char	*get_color_values(t_p_map *map, char **path, char *s)
 
 static bool	precheck(char *color)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (color[ft_strlen(color) - 2] < '0' || color[ft_strlen(color) - 2] > '9')
 		return (false);
 	while (ft_isspace(color[i]))
 		i++;
-	while ((size_t)i < ft_strlen(color) && color[i])
+	while (i < ft_strlen(color) && color[i])
 	{
 		if ((color[i] < '0' && color[i] > '9') && color[i] != ',')
 			return (false);

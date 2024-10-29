@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialise.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:07:33 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/28 16:26:07 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/29 15:19:29 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	is_input_valid(char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = ft_strlen(s);
 	if (i <= 4)
@@ -27,7 +27,7 @@ bool	is_input_valid(char *s)
 
 void	path_nullifing(t_p_path *path)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < SPR_MAX)
@@ -40,9 +40,6 @@ void	path_nullifing(t_p_path *path)
 
 bool	are_values_initialized(t_p_map *map, char *path)
 {
-	int	i;
-
-	i = 0;
 	map->path = path;
 	map->map_h = 0;
 	map->map_w = 0;

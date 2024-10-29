@@ -6,13 +6,13 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:54:18 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/25 11:08:28 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/29 15:47:22 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-int	w_isspace(char *s)
+size_t	w_isspace(char *s)
 {
 	int	i;
 
@@ -44,15 +44,15 @@ char	*ft_strdup_range(const char *s, int start, int stop)
 }
 
 bool	valid_txtrs_condition(t_p_map *map, char *line, \
-	int index, int condition)
+	size_t index, int condition)
 {
 	if (condition == 1 && \
-		line && index < map->map_start \
+		line && (int)index < map->map_start \
 		&& (size_t)w_isspace(line) == ft_strlen(line))
 		return (true);
 	if (condition == 2 && \
 		!check_textures(map, line) && line[0] != '\0' \
-		&& index >= map->map_start)
+		&& (int)index >= map->map_start)
 		return (true);
 	return (false);
 }
