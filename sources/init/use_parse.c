@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:18:16 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/29 12:37:25 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/29 14:44:20 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,18 @@ static void	free_txtrs(t_p_textures txtr)
 	free(txtr.f_color);
 }
 
+static t_color	parse_color(char *str)
+{
+	t_color	color;
+
+	color.r = ft_atoi(str);
+	str = ft_strchr(str, ',') + 1;
+	color.g = ft_atoi(str);
+	str = ft_strchr(str, ',') + 1;
+	color.b = ft_atoi(str);
+	return (color);
+}
+
 bool	use_parse(char *map_path, t_cub *cub)
 {
 	bool	status;
@@ -84,6 +96,8 @@ bool	use_parse(char *map_path, t_cub *cub)
 	cub->map.buf = p_map.map;
 	cub->map.h = p_map.map_h;
 	cub->map.w = p_map.map_w;
+	cub->ceiling = parse_color(p_map.txtrs_pths.c_color);
+	cub->floor = parse_color(p_map.txtrs_pths.f_color);
 	copy_parsed_player(p_map.player, cub);
 	status = open_textures(p_map.txtrs_pths, cub);
 	free_txtrs(p_map.txtrs_pths);
