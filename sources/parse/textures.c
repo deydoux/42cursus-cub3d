@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:28:08 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/29 14:27:52 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/29 14:50:12 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ bool	last_textures_check(t_p_map *map, t_p_path *txtr, char *str, int i)
 	while ((size_t)i < ft_strlen(str) && ft_isspace(str[i]))
 		i++;
 	if (txtr->size == SPR_MAX && str[i] != '\0')
-		return (free_all_and_exit(ERR_TEXTURE, map, -1));
+		return (free(str), free_all_and_exit(ERR_TEXTURE, map, -1));
 	return (true);
 }
 
@@ -38,12 +38,10 @@ bool	fill_texture(t_p_map *map, t_p_path *pths, char *str, int index)
 	}
 	pths->pths[pths->size] = ft_strtrim(str + (index + 2), " \n");
 	if (!pths->pths[pths->size])
-		free_all_and_exit(ERR_MALLOC, map, -1);
+		return (free(str), free_all_and_exit(ERR_MALLOC, map, -1));
 	if ((*pths->pths[pths->size] == '\0' \
 		|| *pths->pths[pths->size] == '\n'))
 		return (free(str), free_all_and_exit(ERR_TEXTURE, map, -1));
-	if (!pths->pths[pths->size])
-		free_all_and_exit(ERR_MALLOC, map, -1);
 	pths->size = 1;
 	return (true);
 }
