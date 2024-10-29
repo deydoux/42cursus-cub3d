@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 17:04:38 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/21 15:03:51 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/29 12:36:14 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	draw_wall(size_t frame_x, int wall_h, t_ray ray, t_cub cub)
 	frame_x += (frame_y + img_h) * cub.frame.w_size;
 	while (img_h < wall_h && frame_y + img_h < WIN_H)
 	{
-		cub.frame.buf[frame_x] =
-			*read_img(spr, img_x, (double)img_h / wall_h * spr.h);
+		cub.frame.buf[frame_x]
+			= *read_img(spr, img_x, (double)img_h / wall_h * spr.h);
 		img_h++;
 		frame_x += cub.frame.w_size;
 	}

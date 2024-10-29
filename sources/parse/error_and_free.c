@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_and_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:26:38 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/25 13:08:14 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/29 12:35:54 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	free_a_texture(t_p_path *textrs)
 
 void	free_textures(t_p_map *map)
 {
-
 	if (map->txtrs_pths.f_color)
 		free(map->txtrs_pths.f_color);
 	if (map->txtrs_pths.f_color)

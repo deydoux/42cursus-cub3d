@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/28 14:34:47 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/29 12:38:32 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_p_textures
 typedef struct s_player
 {
 	char	spawn; /* initialized value is '.' */
-	int		x	;
+	int		x;
 	int		y;
 }	t_player;
 
@@ -130,7 +130,7 @@ typedef struct s_cub
 	double	angle;
 	size_t	i;
 	t_color	ceiling;
-	t_color floor;
+	t_color	floor;
 	t_img	frame;
 	t_img	minimap;
 	t_key	key;

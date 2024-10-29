@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:28:08 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/25 11:40:30 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/29 12:35:32 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ bool	last_textures_check(t_p_map *map, t_p_path *txtr, char *str, int i)
 
 bool	fill_texture(t_p_map *map, t_p_path *pths, char *str, int index)
 {
-
 	pths->pths[pths->size] = ft_strtrim(str + (index + 2), " ");
 	if (!pths->pths[pths->size])
 		free_all_and_exit(ERR_MALLOC, map, -1);

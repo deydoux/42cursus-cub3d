@@ -6,13 +6,13 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:18:16 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/28 16:36:16 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/29 12:37:25 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 
-static void copy_parsed_player(t_player player, t_cub *cub)
+static void	copy_parsed_player(t_player player, t_cub *cub)
 {
 	if (player.spawn == 'N')
 		cub->angle = -M_PI_2;
@@ -37,16 +37,16 @@ static bool	open_textures(t_p_textures txtr, t_cub *cub)
 	while (i < SPR_MAX)
 	{
 		if (i < cub->spr.n_size && open_img(txtr.n_path.pths[i], cub->mlx,
-			&cub->spr.n[i]))
+				&cub->spr.n[i]))
 			return (true);
 		if (i < cub->spr.s_size && open_img(txtr.s_path.pths[i], cub->mlx,
-			&cub->spr.s[i]))
+				&cub->spr.s[i]))
 			return (true);
 		if (i < cub->spr.w_size && open_img(txtr.w_path.pths[i], cub->mlx,
-			&cub->spr.w[i]))
+				&cub->spr.w[i]))
 			return (true);
 		if (i < cub->spr.e_size && open_img(txtr.ea_path.pths[i], cub->mlx,
-			&cub->spr.e[i]))
+				&cub->spr.e[i]))
 			return (true);
 		i++;
 	}
