@@ -6,7 +6,7 @@
 /*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 17:24:05 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/29 15:51:16 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/29 17:04:16 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,15 @@ bool	can_u_play(t_p_map *map, int y, int x)
 {
 	if ((x < 0 || y < 0 || x > map->map_w || y > map->map_h - 1))
 		return (false);
+	if (y == 8)
+		printf("map[y] = %s, x = %d, map[y][x] = %c\n", map->map[y], x, map->map[y][x]);
 	if ((x == 0 || y == 0 || x == map->map_w || y == map->map_h) \
 		&& map->map[y][x] != '1')
 		return (false);
 	if (map->map[y][x] == '.' || (BONUS && map->map[y][x] == 'd'))
 		return (true);
 	if (map->map[y][x] != '1' && map->map[y][x] != map->player.spawn \
-		&& map->map[y][x] != '0' && (!BONUS && map->map[y][x] == 'D'))
+		&& map->map[y][x] != '0' && (!BONUS || map->map[y][x] != 'D'))
 		return (false);
 	if (map->map[y][x] == '0' || map->map[y][x] == map->player.spawn \
 		|| (BONUS && map->map[y][x] == 'D') \
