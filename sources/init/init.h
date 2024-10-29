@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:43:21 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/28 15:23:09 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/28 16:41:54 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define MAX_IMG_DIM	32767
 # define MAX_IMG_PIXEL	536107716
 # define MLX_INIT_ERR	"Failed to initialize MLX\n"
+# define NEW_IMG_ERR	"Failed to init images\n"
 # define OPEN_IMG_ERR	"Failed to open %s image\n"
 # define WIN_INIT_ERR	"Failed to initialize window\n"
 
