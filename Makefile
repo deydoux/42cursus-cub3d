@@ -1,4 +1,5 @@
 NAME = cub3D
+BONUS_NAME = cub3D_bonus
 
 SOURCES = \
 common/destroy.c \
@@ -45,6 +46,7 @@ MLX_DIR = minilibx-linux
 SOURCES_DIR = sources
 INCLUDE_DIR = include
 BUILD_DIR = build
+BONUS_BUILD_DIR = $(BUILD_DIR)/bonus
 
 ifeq ($(shell uname), Darwin)
 X11_DIR = /usr/X11/lib
@@ -54,6 +56,7 @@ endif
 
 CC = cc
 CFLAGS = -I$(INCLUDE_DIR) -I$(MLX_DIR) -MD -Wall -Wextra -Werror -g
+BONUS_CFLAGS = $(CFLAGS) -D BONUS=true
 LFLAGS = -L$(X11_DIR) -lX11 -lXext -lm
 RM = rm -rf
 MKDIR = mkdir -p
@@ -61,9 +64,12 @@ MKDIR = mkdir -p
 LIBFT = $(LIBFT_DIR)/libft.a
 MLX = $(MLX_DIR)/libmlx.a
 OBJECTS = $(addprefix $(BUILD_DIR)/,$(SOURCES:.c=.o))
-DEPENDENCIES = $(OBJECTS:.o=.d)
+BONUS_OBJECTS = $(addprefix $(BONUS_BUILD_DIR)/,$(SOURCES:.c=.o))
+DEPENDENCIES = $(OBJECTS:.o=.d) $(BONUS_OBJECTS:.o=.d)
 
-all: $(NAME)
+all: $(NAME) bonus
+
+bonus: $(BONUS_NAME)
 
 -include $(DEPENDENCIES)
 
@@ -73,12 +79,19 @@ $(LIBFT): FORCE
 $(MLX): FORCE
 	$(MAKE) -C	$(MLX_DIR)
 
+$(BONUS_BUILD_DIR)/%.o: $(SOURCES_DIR)/%.c
+	@$(MKDIR) $(@D)
+	$(CC) $(BONUS_CFLAGS) -o $@ -c	$<
+
 $(BUILD_DIR)/%.o: $(SOURCES_DIR)/%.c
 	@$(MKDIR) $(@D)
 	$(CC) $(CFLAGS) -o $@ -c	$<
 
 $(NAME): $(OBJECTS) $(LIBFT) $(MLX)
 	$(CC) $(CFLAGS) -o $@ $^ $(LFLAGS)
+
+$(BONUS_NAME): $(BONUS_OBJECTS) $(LIBFT) $(MLX)
+	$(CC) $(BONUS_CFLAGS) -o $@ $^ $(LFLAGS)
 
 clean:
 	$(MAKE) -C	$(LIBFT_DIR) $@
@@ -88,13 +101,10 @@ clean:
 fclean:
 	$(MAKE) -C	$(LIBFT_DIR) $@
 	$(MAKE) -C	$(MLX_DIR) clean
-	$(RM) $(BUILD_DIR) $(NAME)
+	$(RM) $(BUILD_DIR) $(NAME) $(BONUS_NAME)
 
 re: fclean all
 
 FORCE:
 
-.PHONY: all clean fclean re FORCE
-
-run: $(NAME)
-	./$^
+.PHONY: all bonus clean fclean re FORCE
