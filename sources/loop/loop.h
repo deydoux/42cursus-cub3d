@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:38:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/21 17:42:49 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/29 14:39:08 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "common.h"
 
-# define COLLISION		"1D"
+# define COLLISION		"1d"
 # define COLOR_MASK_A	0xff000000
 # define EPSILON_DIST	1e8
 # define EPSILON_RAY	1e-8
