@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_and_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:26:38 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/29 12:35:54 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/29 14:25:15 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	err_msg(char *msg)
 {
-	printf("%s", msg);
+	ft_putstr_fd(ERR, STDERR_FILENO);
+	ft_putstr_fd(msg, STDERR_FILENO);
 	return (0);
 }
 
@@ -57,7 +58,8 @@ void	free_map(t_p_map *map, int size, char *msg)
 	free(map->map);
 	if (msg)
 	{
-		printf("%s", msg);
+		ft_putstr_fd(ERR, STDERR_FILENO);
+		ft_putstr_fd(msg, STDERR_FILENO);
 		exit(1);
 	}
 }
@@ -70,7 +72,8 @@ bool	free_all_and_exit(char *msg, t_p_map *map, int size)
 	free_textures(map);
 	if (msg)
 	{
-		printf("%s", msg);
+		ft_putstr_fd(ERR, STDERR_FILENO);
+		ft_putstr_fd(msg, STDERR_FILENO);
 		exit(1);
 	}
 	return (false);

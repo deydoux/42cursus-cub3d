@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:17:36 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/28 14:28:11 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/29 14:25:31 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,19 @@
 # include <errno.h>
 # include "common.h"
 
-# define ERR_INPUT_INVALID "Error\nWrong map type\n"
-# define ERR_TEXTURE "Error\nInvalid texture\n"
-# define ERR_MAP "Error\nInvalid map\n"
-# define ERR_M_TEXTURE "Error\nMissing texture\n"
-# define ERR_DBL_TEXTURE "Error\nDouble in textures\n"
-# define ERR_MALLOC "Error\nMalloc fail\n"
-# define ERR_DIMENSION "Error\nMap dimensions are wrong\n"
-# define ERR_FD "Error\nOpen fail\n"
-# define ERR_FILE "Error\nNo such file exist\n"
-# define ERR_MAZE_INVALID_CHARAC "Error\nInvalid character in maze\n"
-# define ERR_MAZE_OPEN "Error\nMaze isn't closed\n"
-# define ERR_PLAYER "Error\nNo player's spawning point\n"
+# define ERR_INPUT_INVALID "Wrong map type\n"
+# define ERR_TEXTURE "Invalid texture\n"
+# define ERR_MAP "Invalid map\n"
+# define ERR_M_TEXTURE "Missing texture\n"
+# define ERR_DBL_TEXTURE "Double in textures\n"
+# define ERR_MALLOC "Malloc fail\n"
+# define ERR_DIMENSION "Map dimensions are wrong\n"
+# define ERR_FD "Open fail\n"
+# define ERR_FILE "No such file exist\n"
+# define ERR_MAZE_INVALID_CHARAC "Invalid character in maze\n"
+# define ERR_MAZE_OPEN "Maze isn't closed\n"
+# define ERR_PLAYER "No player's spawning point\n"
+# define ERR_NO_BONUS "Only one texture is allowed per direction\n"
 
 /*custom fctns*/
 char	*s_cust_strtrim(t_p_map *map, char const *s1,
