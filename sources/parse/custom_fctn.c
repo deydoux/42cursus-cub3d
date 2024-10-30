@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 12:11:01 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/30 12:37:15 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/30 17:06:31 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*custom_strtrim(char const *s1, char const *set, size_t end)
 	if (!s1 || !set)
 		return (NULL);
 	start = 0;
-	while (ft_strchr(set, s1[start]))
+	while (s1[start] && ft_strchr(set, s1[start]))
 		start++;
 	while (start < end && ft_strchr(set, s1[end]))
 		end--;

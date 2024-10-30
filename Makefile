@@ -15,6 +15,7 @@ init_loop/quit.c \
 init/fill_img.c \
 init/init_img.c \
 init/init_map_img.c \
+init/init_mlx.c \
 init/init.c \
 init/new_img.c \
 init/open_img.c \

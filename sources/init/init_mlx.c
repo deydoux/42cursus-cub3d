@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 09:50:30 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/30 14:53:01 by deydoux          ###   ########.fr       */
+/*   Created: 2024/10/30 16:37:11 by deydoux           #+#    #+#             */
+/*   Updated: 2024/10/30 16:37:31 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "init.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+bool	init_mlx(void **mlx)
 {
-	size_t	start;
-	size_t	end;
-
-	if (!s1 || !set)
-		return (NULL);
-	start = 0;
-	end = ft_strlen(s1) - 1;
-	while (s1[start] && ft_strchr(set, s1[start]))
-		start++;
-	while (start < end && ft_strchr(set, s1[end]))
-		end--;
-	return (ft_substr(s1, start, end - start + 1));
+	*mlx = mlx_init();
+	if (!*mlx)
+	{
+		ft_putstr_fd(ERR MLX_INIT_ERR, STDERR_FILENO);
+		return (true);
+	}
+	return (false);
 }

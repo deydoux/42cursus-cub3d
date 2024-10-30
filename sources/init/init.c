@@ -6,22 +6,11 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:43:04 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/28 16:03:56 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/30 16:37:26 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
-
-static bool	init_mlx(void **mlx)
-{
-	*mlx = mlx_init();
-	if (!*mlx)
-	{
-		ft_putstr_fd(ERR MLX_INIT_ERR, STDERR_FILENO);
-		return (true);
-	}
-	return (false);
-}
 
 static bool	init_win(void *mlx, void **win)
 {
@@ -37,7 +26,7 @@ static bool	init_win(void *mlx, void **win)
 bool	init(char *map_path, t_cub *cub)
 {
 	ft_bzero(cub, sizeof(*cub));
-	if (init_mlx(&cub->mlx) || use_parse(map_path, cub)
+	if (use_parse(map_path, cub)
 		|| new_img(MAP_H, MAP_W, cub->mlx, &cub->minimap))
 		return (true);
 	fill_img(MAP_COLOR_WALL, cub->minimap);

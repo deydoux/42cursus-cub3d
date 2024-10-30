@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:18:16 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/29 14:44:20 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/30 16:32:32 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ bool	use_parse(char *map_path, t_cub *cub)
 	bool	status;
 	t_p_map	p_map;
 
-	if (!parse(&p_map, map_path))
+	if (!parse(&p_map, map_path) || init_mlx(&cub->mlx))
 		return (true);
 	cub->map.buf = p_map.map;
 	cub->map.h = p_map.map_h;

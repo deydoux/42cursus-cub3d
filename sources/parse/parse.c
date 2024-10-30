@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:11:49 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/29 16:53:35 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/30 17:37:04 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	check_maze(t_p_map *map)
 				map->player.x = x;
 			}
 			else if (map->map[y][x] != '0' && map->map[y][x] != '1' \
-			&& (BONUS && map->map[y][x] != 'D') && !ft_isspace(map->map[y][x]))
+			&& !(BONUS && map->map[y][x] == 'D') && !ft_isspace(map->map[y][x]))
 				free_all_and_exit(ERR_MAZE_INVALID_CHARAC, map, -1);
 			x++;
 		}
@@ -104,6 +104,7 @@ bool	are_all_textures_valid(t_p_textures *textures)
 
 bool	parse(t_p_map *map, char *path)
 {
+	ft_bzero(map, sizeof(*map));
 	if (!is_input_valid(path))
 		return (err_msg(ERR_INPUT_INVALID));
 	if (!are_values_initialized(map, path))

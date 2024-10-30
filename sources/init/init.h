@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:43:21 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/28 16:41:54 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/30 16:37:41 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define WIN_INIT_ERR	"Failed to initialize window\n"
 
 bool	init_map_img(t_cub *cub);
+bool	init_mlx(void **mlx);
 bool	new_img(int height, int width, void *mlx, t_img *img);
 bool	open_img(char *path, void *mlx, t_img *img);
 bool	parse(t_p_map *map, char *path);

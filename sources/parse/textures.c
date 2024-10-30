@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:28:08 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/29 15:46:07 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/30 18:06:38 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ bool	fill_texture(t_p_map *map, t_p_path *pths, char *str, int index)
 		return (free(str), free_all_and_exit(ERR_MALLOC, map, -1));
 	if ((*pths->pths[pths->size] == '\0' \
 		|| *pths->pths[pths->size] == '\n'))
-		return (free(str), free_all_and_exit(ERR_TEXTURE, map, -1));
+		return (free(str), free(pths->pths[pths->size]),
+			free_all_and_exit(ERR, map, -1));
 	pths->size = 1;
 	return (true);
 }
@@ -55,7 +56,7 @@ bool	fill_textures(t_p_map *map, t_p_path *txtr, char *str, size_t idx)
 	i = idx + 2;
 	end = 0;
 	if (txtr->size != 0)
-		free_all_and_exit(ERR_DBL_TEXTURE, map, -1);
+		return (free(str), free_all_and_exit(ERR_DBL_TEXTURE, map, -1));
 	if (SPR_MAX == 1)
 		return (fill_texture(map, txtr, str, idx));
 	while ((size_t)i < ft_strlen(str) && SPR_MAX != 1 && txtr->size <= SPR_MAX)
@@ -64,12 +65,11 @@ bool	fill_textures(t_p_map *map, t_p_path *txtr, char *str, size_t idx)
 		while (str[i] && str[i] != '\t' )
 			i++;
 		end = i;
-		txtr->pths[txtr->size] = \
+		txtr->pths[txtr->size++] = \
 		s_cust_strtrim(map, str + bgn, " \t\n", end - bgn);
-		if ((*txtr->pths[txtr->size] == '\0' \
-			|| *txtr->pths[txtr->size] == '\n'))
+		if ((*txtr->pths[txtr->size - 1] == '\0' \
+			|| *txtr->pths[txtr->size - 1] == '\n'))
 			return (free(str), free_all_and_exit(ERR_TEXTURE, map, -1));
-		txtr->size += 1;
 		i++;
 	}
 	return (last_textures_check(map, txtr, str, i));

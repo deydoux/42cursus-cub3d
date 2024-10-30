@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:09:12 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/28 16:17:23 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/30 12:31:39 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	status = init(argv[1], &cub);
-	if (!status)
+	if (false && !status)
 		init_loop(&cub);
 	destroy(cub);
 	return (status);
