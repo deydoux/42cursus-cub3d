@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:37:27 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/21 18:42:23 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/30 12:14:07 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ static void	interact(t_cub cub)
 	x = cub.pos.x + cos(cub.angle);
 	y = cub.pos.y + sin(cub.angle);
 	c = &cub.map.buf[y][x];
-	if (*c != 'D' && *c != 'd')
-		return ;
 	if (*c == 'D')
 		*c = ft_tolower(*c);
-	else
+	else if (*c != 'd')
 		*c = ft_toupper(*c);
+	else
+		return ;
 	x *= MAP_CUB_SIZE;
 	y *= MAP_CUB_SIZE;
 	raw_color = read_img(cub.map.img, x, y)->raw ^ MASK_COLOR_A;
