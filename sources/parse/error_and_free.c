@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:26:38 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/30 17:39:39 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/30 18:46:26 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	free_map(t_p_map *map, size_t size, char *msg)
 {
 	size_t	i;
 
+	safe_close(map->fd);
 	i = 0;
 	while (i < size)
 	{

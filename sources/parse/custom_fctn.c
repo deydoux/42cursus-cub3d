@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 12:11:01 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/30 17:06:31 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/30 18:42:24 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ int	safe_open(char *path, t_p_map *map, int size)
 		return (free_map(map, map->map_h, ERR_FD), 1);
 	}
 	return (fd);
+}
+
+void	safe_close(int fd)
+{
+	if (fd >= 0)
+		close(fd);
 }
 
 char	*custom_strtrim(char const *s1, char const *set, size_t end)

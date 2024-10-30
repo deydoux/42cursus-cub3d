@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:17:36 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/29 15:51:29 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/30 18:42:22 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char	*s_cust_strtrim(t_p_map *map, char const *s1,
 			char const *set, size_t end);
 int		safe_open(char *path, t_p_map *map, int size);
 void	*safe_malloc(size_t size, t_p_map *map, int h);
+void	safe_close(int fd);
 char	*custom_strtrim(char const *s1, char const *set, size_t end);
 
 /* parse_init */

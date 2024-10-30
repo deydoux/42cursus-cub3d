@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/29 15:56:41 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/30 18:40:51 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_p_map
 	t_player		player;
 	t_p_textures	txtrs_pths;
 	int				color_count;
+	int				fd;
 }	t_p_map;
 
 typedef union u_color

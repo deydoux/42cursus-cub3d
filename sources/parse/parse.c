@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:11:49 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/30 17:37:04 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/30 18:42:53 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,28 +63,27 @@ bool	is_line_empty(t_p_map *map, char *line, int fd, size_t index)
 void	create_map(t_p_map *map)
 {
 	size_t	i;
-	int		fd;
 	char	*line;
 	int		start;
 
 	i = 0;
 	start = -1;
-	fd = safe_open(map->path, map, 0);
-	line = get_next_line(fd);
+	map->fd = safe_open(map->path, map, 0);
+	line = get_next_line(map->fd);
 	while (line)
 	{
 		while (line && ++start < map->map_start)
 		{
 			free(line);
-			line = get_next_line(fd);
+			line = get_next_line(map->fd);
 		}
-		if (!is_line_empty(map, line, fd, i))
+		if (!is_line_empty(map, line, map->fd, i))
 			break ;
 		map->map[i] = _strdup_map(line, map, i);
 		if (!map->map[i])
 			return (free(line), free_map(map, i, ERR_MAP));
 		free(line);
-		line = get_next_line(fd);
+		line = get_next_line(map->fd);
 		i++;
 	}
 }
@@ -105,6 +104,7 @@ bool	are_all_textures_valid(t_p_textures *textures)
 bool	parse(t_p_map *map, char *path)
 {
 	ft_bzero(map, sizeof(*map));
+	map->fd = -1;
 	if (!is_input_valid(path))
 		return (err_msg(ERR_INPUT_INVALID));
 	if (!are_values_initialized(map, path))
@@ -119,5 +119,6 @@ bool	parse(t_p_map *map, char *path)
 		free_all_and_exit(ERR_PLAYER, map, -1);
 	if (!can_u_play(map, map->player.y, map->player.x))
 		free_all_and_exit(ERR_MAP, map, -1);
+	safe_close(map->fd);
 	return (true);
 }
