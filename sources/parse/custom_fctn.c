@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   custom_fctn.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 12:11:01 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/25 11:07:18 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/30 12:37:15 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	safe_open(char *path, t_p_map *map, int size)
 	if (fd == -1)
 	{
 		if (size == 0)
-			return (printf("%s", ERR_FD), free(map), exit(1), 1);
+			return (ft_putstr_fd(ERR ERR_FD, 2), free(map), exit(1), 1);
 		if (size == -1)
-			return (printf("%s", ERR_FD), exit(1), 1);
+			return (ft_putstr_fd(ERR ERR_FD, 2), exit(1), 1);
 		return (free_map(map, map->map_h, ERR_FD), 1);
 	}
 	return (fd);

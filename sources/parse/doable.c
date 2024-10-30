@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   doable.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 17:24:05 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/29 17:04:16 by mapale           ###   ########.fr       */
+/*   Updated: 2024/10/30 14:46:13 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ bool	can_u_play(t_p_map *map, int y, int x)
 {
 	if ((x < 0 || y < 0 || x > map->map_w || y > map->map_h - 1))
 		return (false);
-	if (y == 8)
-		printf("map[y] = %s, x = %d, map[y][x] = %c\n", map->map[y], x, map->map[y][x]);
 	if ((x == 0 || y == 0 || x == map->map_w || y == map->map_h) \
 		&& map->map[y][x] != '1')
 		return (false);
