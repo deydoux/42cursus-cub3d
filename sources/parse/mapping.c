@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapping.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 14:49:01 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/29 15:56:23 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/31 14:03:00 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,11 @@ bool	validity(char *line)
 int	get_map_height(t_p_map *map)
 {
 	size_t	i;
-	int		fd;
 	size_t	count;
 	char	*line;
 
-	fd = safe_open(map->path, map, -1);
-	line = get_next_line(fd);
+	map->fd = safe_open(map->path, map, -1);
+	line = get_next_line(map->fd);
 	map->map_start = -1;
 	count = 0;
 	while (line)
@@ -68,35 +67,34 @@ int	get_map_height(t_p_map *map)
 			map->map_h++;
 		}
 		free(line);
-		line = get_next_line(fd);
+		line = get_next_line(map->fd);
 		count++;
 	}
-	return (free(line), close(fd));
+	return (free(line), close(map->fd));
 }
 
 int	get_map_width(t_p_map *map)
 {
 	int		i;
-	int		fd;
 	size_t	tmp;
 	char	*line;
 
 	i = -1;
-	fd = safe_open(map->path, map, -1);
-	line = get_next_line(fd);
+	map->fd = safe_open(map->path, map, -1);
+	line = get_next_line(map->fd);
 	map->map_w = 0;
 	while (line)
 	{
 		while (line && ++i < map->map_start)
 		{
 			free(line);
-			line = get_next_line(fd);
+			line = get_next_line(map->fd);
 		}
 		tmp = ft_strlen(line);
 		if ((int)tmp > map->map_w)
 			map->map_w = tmp;
 		free(line);
-		line = get_next_line(fd);
+		line = get_next_line(map->fd);
 	}
-	return (free(line), close(fd));
+	return (free(line), close(map->fd));
 }

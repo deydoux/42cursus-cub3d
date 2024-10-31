@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:11:49 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/30 18:42:53 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/31 14:01:13 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	create_map(t_p_map *map)
 		line = get_next_line(map->fd);
 		i++;
 	}
+	safe_close(map->fd);
 }
 
 bool	are_all_textures_valid(t_p_textures *textures)

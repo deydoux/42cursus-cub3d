@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_and_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:26:38 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/30 18:46:26 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/10/31 13:55:54 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	free_map(t_p_map *map, size_t size, char *msg)
 
 bool	free_all_and_exit(char *msg, t_p_map *map, int size)
 {
+	safe_close(map->fd);
 	if (size == -1)
 		size = map->map_h;
 	free_map(map, size, NULL);
