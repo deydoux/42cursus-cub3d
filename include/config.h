@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 15:43:48 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/25 12:59:00 by mapale           ###   ########.fr       */
+/*   Updated: 2024/11/03 17:32:30 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define MAP_COLOR_DOOR	0xa8a8a8
 # define MAP_COLOR_RAY	0x212121
 # define MAP_COLOR_WALL	0xffffff
-# define MAP_CUB_SIZE	32
+# define MAP_CUB_SIZE	16
 # define MAP_A			0.75
 # define MAP_H			256
 # define MAP_W			256
