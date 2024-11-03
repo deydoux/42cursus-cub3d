@@ -1,7 +1,7 @@
-NO assets/textures/minecraft/dirt.xpm
-SO assets/textures/minecraft/grass_block_side.xpm
-WE assets/textures/minecraft/stone.xpm
-EA assets/textures/minecraft/cobblestone.xpm
+NO assets/textures/mc/dirt.xpm
+SO assets/textures/mc/grass_block_side.xpm
+WE assets/textures/mc/stone.xpm
+EA assets/textures/mc/cobblestone.xpm
 
 C 120, 167, 255
 F 124, 189, 107

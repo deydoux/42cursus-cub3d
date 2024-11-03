@@ -1,0 +1,22 @@
+NO assets/textures/mc/dirt.xpm
+SO assets/textures/mc/nether_portal/00.xpm	assets/textures/mc/nether_portal/01.xpm	assets/textures/mc/nether_portal/02.xpm	assets/textures/mc/nether_portal/03.xpm	assets/textures/mc/nether_portal/04.xpm	assets/textures/mc/nether_portal/05.xpm	assets/textures/mc/nether_portal/06.xpm	assets/textures/mc/nether_portal/07.xpm	assets/textures/mc/nether_portal/08.xpm	assets/textures/mc/nether_portal/09.xpm	assets/textures/mc/nether_portal/10.xpm	assets/textures/mc/nether_portal/11.xpm	assets/textures/mc/nether_portal/12.xpm	assets/textures/mc/nether_portal/13.xpm	assets/textures/mc/nether_portal/14.xpm	assets/textures/mc/nether_portal/15.xpm	assets/textures/mc/nether_portal/16.xpm	assets/textures/mc/nether_portal/17.xpm	assets/textures/mc/nether_portal/18.xpm	assets/textures/mc/nether_portal/19.xpm	assets/textures/mc/nether_portal/20.xpm	assets/textures/mc/nether_portal/21.xpm	assets/textures/mc/nether_portal/22.xpm	assets/textures/mc/nether_portal/23.xpm	assets/textures/mc/nether_portal/24.xpm	assets/textures/mc/nether_portal/25.xpm	assets/textures/mc/nether_portal/26.xpm	assets/textures/mc/nether_portal/27.xpm	assets/textures/mc/nether_portal/28.xpm	assets/textures/mc/nether_portal/29.xpm	assets/textures/mc/nether_portal/30.xpm	assets/textures/mc/nether_portal/31.xpm
+WE assets/textures/mc/stone.xpm
+EA assets/textures/mc/obsidian.xpm
+
+C 120, 167, 255
+F 124, 189, 107
+
+        1111111111111111111111111
+        1000000000110000000000001
+        1011000001110000000000001
+        1001000000000000000000001
+111111111011000001110000000000001
+100000000011000001110111110111111
+11110111111111011100000010001
+11110111111111011101010010001
+11000000110101011100000010001
+10000000000000001100000010001
+10000000000000001101010010001
+11000001110101011111011110N0111
+11110111 1110101 101111010001
+11111111 1111111 111111111111

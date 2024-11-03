@@ -1,10 +1,10 @@
-NO ./assets/mc/nether_portal/00.xpm
-SO ./assets/mc/nether_portal/00.xpm
-WE ./assets/mc/obsidian.xpm
-EA ./assets/mc/obsidian.xpm
+NO assets/textures/mc/dirt.xpm
+SO assets/textures/mc/grass_block_side.xpm
+WE assets/textures/mc/stone.xpm
+EA assets/textures/mc/cobblestone.xpm
 
-F 220,100,0
-C 225,30,0
+C 120, 167, 255
+F 124, 189, 107
 
         1111111111111111111111111
         1000000000110000000000001
