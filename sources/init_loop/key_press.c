@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:37:27 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/30 12:14:07 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/03 16:00:12 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ static void	interact(t_cub cub)
 	x = cub.pos.x + cos(cub.angle);
 	y = cub.pos.y + sin(cub.angle);
 	c = &cub.map.buf[y][x];
+	printf("%c\n", *c);
 	if (*c == 'D')
 		*c = ft_tolower(*c);
-	else if (*c != 'd')
+	else if (*c == 'd')
 		*c = ft_toupper(*c);
 	else
 		return ;
