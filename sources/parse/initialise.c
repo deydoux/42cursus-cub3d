@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:07:33 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/30 12:35:06 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/03 14:02:34 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ bool	is_input_valid(char *s)
 	i = ft_strlen(s);
 	if (i <= 4)
 		return (false);
-	if (s[i - 1] == 'b' && s[i - 2] == 'u' && s[i - 3] == 'c' \
-	&& s[i - 4] == '.')
+	if (s[i - 1] == 'b' && s[i - 2] == 'u' && s[i - 3] == 'c'
+		&& s[i - 4] == '.')
 		return (true);
 	return (false);
 }
@@ -53,8 +53,8 @@ bool	are_values_initialized(t_p_map *map, char *path)
 	map->txtrs_pths.f_color = NULL;
 	get_map_height(map);
 	get_map_width(map);
-	if (map->map_h <= 0 || map->map_w <= 0 \
-		|| map->map_h > 200 || map->map_w > 200)
+	if (map->map_h <= 0 || map->map_w <= 0 || map->map_h > 200
+		|| map->map_w > 200)
 		return (ft_putstr_fd(ERR ERR_DIMENSION, STDERR_FILENO), false);
 	map->map = ft_calloc(map->map_h + 1, sizeof(char *));
 	if (!map->map)

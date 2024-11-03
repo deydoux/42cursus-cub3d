@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:11:49 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/31 14:01:13 by mapale           ###   ########.fr       */
+/*   Updated: 2024/11/03 14:04:08 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	check_maze(t_p_map *map)
 {
-	int		x;
-	int		y;
+	int	x;
+	int	y;
 
 	y = -1;
 	while (++y < map->map_h)
@@ -25,14 +25,14 @@ void	check_maze(t_p_map *map)
 			free_all_and_exit(ERR_MAZE_OPEN, map, -1);
 		while ((size_t)x < (ft_strlen(map->map[y]) - 1) && map->map[y][x])
 		{
-			if ((map->map[y][x] == 'N' || map->map[y][x] == 'S' || map->map[y] \
+			if ((map->map[y][x] == 'N' || map->map[y][x] == 'S' || map->map[y]
 			[x] == 'W' || map->map[y][x] == 'E') && map->player.spawn == '.')
 			{
 				map->player.spawn = map->map[y][x];
 				map->player.y = y;
 				map->player.x = x;
 			}
-			else if (map->map[y][x] != '0' && map->map[y][x] != '1' \
+			else if (map->map[y][x] != '0' && map->map[y][x] != '1'
 			&& !(BONUS && map->map[y][x] == 'D') && !ft_isspace(map->map[y][x]))
 				free_all_and_exit(ERR_MAZE_INVALID_CHARAC, map, -1);
 			x++;
@@ -42,12 +42,11 @@ void	check_maze(t_p_map *map)
 
 bool	is_line_empty(t_p_map *map, char *line, int fd, size_t index)
 {
-	if ((size_t)w_isspace(line) != ft_strlen(line) && (int)index >= map->map_h)
+	if (w_isspace(line) != ft_strlen(line) && (int)index >= map->map_h)
 		return (free(line), free_map(map, index, ERR_MAP), false);
-	if (*line == '\0' || (size_t)w_isspace(line) == ft_strlen(line))
+	if (*line == '\0' || w_isspace(line) == ft_strlen(line))
 	{
-		while (line && (*line == '\0' \
-			|| (size_t)w_isspace(line) == ft_strlen(line)))
+		while (line && (*line == '\0' || w_isspace(line) == ft_strlen(line)))
 		{
 			free(line);
 			line = get_next_line(fd);
@@ -112,7 +111,7 @@ bool	parse(t_p_map *map, char *path)
 		return (false);
 	create_map(map);
 	are_textures_valid(map);
-	if (!map->txtrs_pths.c_color || !map->txtrs_pths.f_color \
+	if (!map->txtrs_pths.c_color || !map->txtrs_pths.f_color
 		|| !are_all_textures_valid(&map->txtrs_pths))
 		free_all_and_exit(ERR_M_TEXTURE, map, -1);
 	check_maze(map);

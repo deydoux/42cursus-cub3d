@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:27:53 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/29 15:16:52 by mapale           ###   ########.fr       */
+/*   Updated: 2024/11/03 13:50:05 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,17 @@ char	*get_color_values(t_p_map *map, char **path, char *s)
 	size_t	i;
 	size_t	j;
 
-	i = 0;
-	j = 0;
 	if (*path)
 		free_all_and_exit(ERR_DBL_TEXTURE, map, -1);
 	*path = malloc(sizeof(char) * (get_color_valid_arg(s) + 1));
 	if (!*path)
 		free_all_and_exit(ERR_MALLOC, map, -1);
 	i = 0;
+	j = 0;
 	while (s[i])
 	{
 		if (!ft_isspace(s[i]))
-		{
-			(*path)[j] = s[i];
-			j++;
-		}
+			(*path)[j++] = s[i];
 		i++;
 	}
 	(*path)[j] = '\0';
@@ -56,20 +52,7 @@ char	*get_color_values(t_p_map *map, char **path, char *s)
 
 static bool	precheck(char *color)
 {
-	size_t	i;
-
-	i = 0;
-	if (color[ft_strlen(color) - 2] < '0' || color[ft_strlen(color) - 2] > '9')
-		return (false);
-	while (ft_isspace(color[i]))
-		i++;
-	while (i < ft_strlen(color) && color[i])
-	{
-		if ((color[i] < '0' && color[i] > '9') && color[i] != ',')
-			return (false);
-		i++;
-	}
-	return (true);
+	return (ft_isdigit(color[ft_strlen(color) - 2]));
 }
 
 bool	check_color(char *color, t_p_map *map, size_t i)
@@ -78,8 +61,6 @@ bool	check_color(char *color, t_p_map *map, size_t i)
 	int		tmp;
 	char	*nbr;
 
-	start = 0;
-	tmp = 0;
 	if (!precheck(color))
 		return (false);
 	if (i >= ft_strlen(color))

@@ -40,7 +40,6 @@ parse/textures.c \
 parse/tools.c \
 parse/parse.c \
 parse/custom_fctn.c \
-parse/DELETE.c \
 
 LIBFT_DIR = libft
 MLX_DIR = minilibx-linux

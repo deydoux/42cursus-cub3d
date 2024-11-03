@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 17:24:05 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/30 14:46:13 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/03 14:02:09 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,16 @@ bool	can_u_play(t_p_map *map, int y, int x)
 {
 	if ((x < 0 || y < 0 || x > map->map_w || y > map->map_h - 1))
 		return (false);
-	if ((x == 0 || y == 0 || x == map->map_w || y == map->map_h) \
+	if ((x == 0 || y == 0 || x == map->map_w || y == map->map_h)
 		&& map->map[y][x] != '1')
 		return (false);
 	if (map->map[y][x] == '.' || (BONUS && map->map[y][x] == 'd'))
 		return (true);
-	if (map->map[y][x] != '1' && map->map[y][x] != map->player.spawn \
+	if (map->map[y][x] != '1' && map->map[y][x] != map->player.spawn
 		&& map->map[y][x] != '0' && (!BONUS || map->map[y][x] != 'D'))
 		return (false);
-	if (map->map[y][x] == '0' || map->map[y][x] == map->player.spawn \
-		|| (BONUS && map->map[y][x] == 'D') \
-	)
+	if (map->map[y][x] == '0' || map->map[y][x] == map->player.spawn
+		|| (BONUS && map->map[y][x] == 'D'))
 	{
 		transform(&map->map[y][x]);
 		if (!can_u_play(map, y + 1, x))

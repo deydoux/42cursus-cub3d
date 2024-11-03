@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:54:18 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/31 13:57:37 by mapale           ###   ########.fr       */
+/*   Updated: 2024/11/03 14:06:44 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,13 @@ char	*ft_strdup_range(const char *s, int start, int stop)
 	return (tab);
 }
 
-bool	valid_txtrs_condition(t_p_map *map, char *line, \
-	size_t index, int condition)
+bool	valid_txtrs_condition(t_p_map *map, char *line, size_t index,
+	int condition)
 {
-	if (condition == 1 && \
-		line && (int)index < map->map_start \
-		&& (size_t)w_isspace(line) == ft_strlen(line))
+	if (condition == 1 && line && (int)index < map->map_start
+		&& w_isspace(line) == ft_strlen(line))
 		return (true);
-	if (condition == 2 && \
-		!check_textures(map, line) && line[0] != '\0' \
+	if (condition == 2 && !check_textures(map, line) && line[0] != '\0'
 		&& (int)index >= map->map_start)
 		return (true);
 	return (false);
@@ -70,8 +68,8 @@ bool	is_maze_open(t_p_map *map, char *line, int y, int x)
 	}
 	else
 	{
-		if (map->map[y][x] != '1' \
-		&& map->map[y][ft_strlen(map->map[y]) - 1] != '1')
+		if (map->map[y][x] != '1'
+			&& map->map[y][ft_strlen(map->map[y]) - 1] != '1')
 			return (false);
 	}
 	return (true);

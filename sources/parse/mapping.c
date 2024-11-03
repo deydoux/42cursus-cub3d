@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapping.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 14:49:01 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/31 14:03:00 by mapale           ###   ########.fr       */
+/*   Updated: 2024/11/03 14:02:46 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ char	*_strdup_map(char *s, t_p_map *map, size_t h)
 
 bool	validity(char *line)
 {
-	if (ft_strncmp(line, "NO", 2) != 0 && ft_strncmp(line, "SO", 2) != 0 \
-		&& ft_strncmp(line, "WE", 2) != 0 && ft_strncmp(line, "EA", 2) != 0 \
-		&& ft_strncmp(line, "F ", 2) != 0 && ft_strncmp(line, "C ", 2) != 0 \
+	if (ft_strncmp(line, "NO", 2) != 0 && ft_strncmp(line, "SO", 2) != 0
+		&& ft_strncmp(line, "WE", 2) != 0 && ft_strncmp(line, "EA", 2) != 0
+		&& ft_strncmp(line, "F ", 2) != 0 && ft_strncmp(line, "C ", 2) != 0
 		&& ft_strlen(line) != w_isspace(line))
 		return (true);
 	return (false);
