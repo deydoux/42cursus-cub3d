@@ -1,0 +1,21 @@
+NO assets/textures/cat/brainrot/00.xpm	assets/textures/cat/brainrot/01.xpm	assets/textures/cat/brainrot/02.xpm	assets/textures/cat/brainrot/03.xpm	assets/textures/cat/brainrot/04.xpm	assets/textures/cat/brainrot/05.xpm	assets/textures/cat/brainrot/06.xpm	assets/textures/cat/brainrot/07.xpm	assets/textures/cat/brainrot/08.xpm	assets/textures/cat/brainrot/09.xpm	assets/textures/cat/brainrot/10.xpm	assets/textures/cat/brainrot/11.xpm	assets/textures/cat/brainrot/12.xpm	assets/textures/cat/brainrot/13.xpm	assets/textures/cat/brainrot/14.xpm	assets/textures/cat/brainrot/15.xpm	assets/textures/cat/brainrot/16.xpm	assets/textures/cat/brainrot/17.xpm	assets/textures/cat/brainrot/18.xpm	assets/textures/cat/brainrot/19.xpm	assets/textures/cat/brainrot/20.xpm	assets/textures/cat/brainrot/21.xpm	assets/textures/cat/brainrot/22.xpm	assets/textures/cat/brainrot/23.xpm	assets/textures/cat/brainrot/24.xpm	assets/textures/cat/brainrot/25.xpm	assets/textures/cat/brainrot/26.xpm	assets/textures/cat/brainrot/27.xpm	assets/textures/cat/brainrot/28.xpm	assets/textures/cat/brainrot/29.xpm	assets/textures/cat/brainrot/30.xpm	assets/textures/cat/brainrot/31.xpm
+SO assets/textures/cat/maxwell/00.xpm	assets/textures/cat/maxwell/01.xpm	assets/textures/cat/maxwell/02.xpm	assets/textures/cat/maxwell/03.xpm	assets/textures/cat/maxwell/04.xpm	assets/textures/cat/maxwell/05.xpm	assets/textures/cat/maxwell/06.xpm	assets/textures/cat/maxwell/07.xpm	assets/textures/cat/maxwell/08.xpm	assets/textures/cat/maxwell/09.xpm	assets/textures/cat/maxwell/10.xpm	assets/textures/cat/maxwell/11.xpm	assets/textures/cat/maxwell/12.xpm	assets/textures/cat/maxwell/13.xpm	assets/textures/cat/maxwell/14.xpm	assets/textures/cat/maxwell/15.xpm	assets/textures/cat/maxwell/16.xpm	assets/textures/cat/maxwell/17.xpm	assets/textures/cat/maxwell/18.xpm	assets/textures/cat/maxwell/19.xpm	assets/textures/cat/maxwell/20.xpm	assets/textures/cat/maxwell/21.xpm	assets/textures/cat/maxwell/22.xpm	assets/textures/cat/maxwell/23.xpm	assets/textures/cat/maxwell/24.xpm	assets/textures/cat/maxwell/25.xpm	assets/textures/cat/maxwell/26.xpm	assets/textures/cat/maxwell/27.xpm	assets/textures/cat/maxwell/28.xpm	assets/textures/cat/maxwell/29.xpm	assets/textures/cat/maxwell/30.xpm	assets/textures/cat/maxwell/31.xpm
+WE assets/textures/cat/kiss/00.xpm	assets/textures/cat/kiss/01.xpm	assets/textures/cat/kiss/02.xpm	assets/textures/cat/kiss/03.xpm	assets/textures/cat/kiss/04.xpm	assets/textures/cat/kiss/05.xpm	assets/textures/cat/kiss/06.xpm	assets/textures/cat/kiss/07.xpm	assets/textures/cat/kiss/08.xpm	assets/textures/cat/kiss/09.xpm	assets/textures/cat/kiss/10.xpm	assets/textures/cat/kiss/11.xpm	assets/textures/cat/kiss/12.xpm	assets/textures/cat/kiss/13.xpm	assets/textures/cat/kiss/14.xpm	assets/textures/cat/kiss/15.xpm	assets/textures/cat/kiss/16.xpm	assets/textures/cat/kiss/17.xpm	assets/textures/cat/kiss/18.xpm	assets/textures/cat/kiss/19.xpm	assets/textures/cat/kiss/20.xpm	assets/textures/cat/kiss/21.xpm	assets/textures/cat/kiss/22.xpm	assets/textures/cat/kiss/23.xpm	assets/textures/cat/kiss/24.xpm	assets/textures/cat/kiss/25.xpm	assets/textures/cat/kiss/26.xpm	assets/textures/cat/kiss/27.xpm	assets/textures/cat/kiss/28.xpm	assets/textures/cat/kiss/29.xpm	assets/textures/cat/kiss/30.xpm	assets/textures/cat/kiss/31.xpm
+EA assets/textures/cat/bomb.xpm
+
+C 120, 167, 255
+F 124, 189, 107
+
+    1             1
+   101           101
+  10001         10001
+ 1001001       1001001
+10000000111111100000001
+10000000000000000000001
+10000001000000010000001
+10000001000S00010000001
+ 100000000000000000001
+  1000001000001000001
+   10000011111000001
+    100000000000001
+     1111111111111
