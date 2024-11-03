@@ -1,0 +1,30 @@
+/* XPM */
+static char *redstone_lamp_png[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 8 1 ",
+"  c #AF693B",
+". c #A06036",
+"X c #935831",
+"o c #90552D",
+"O c #864E29",
+"+ c #5F3315",
+"@ c #462C1B",
+"# c #311A11",
+/* pixels */
+"################",
+"#@#+OO+##+. +#@#",
+"##+OXXO@#OOOo+##",
+"#@O.o.+##+oOOO@#",
+"#+.  +#+o#+.OO+#",
+"#Xo +#oX.o#+O  #",
+"#+O+#o.OXOO#+.+#",
+"##@#+.OOOOo+#@##",
+"####OXOOX  o####",
+"#.+@#o.O. o#@O+#",
+"#XO.@#+XO+#@OOO#",
+"#OOXO@#++#@OOXO#",
+"#+o.OO@##@OO o+#",
+"##+  O+@#XOo +##",
+"#@#@+XO##+O+@#@#",
+"################"
+};
