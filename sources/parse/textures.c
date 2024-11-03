@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
+/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:28:08 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/31 13:58:49 by mapale           ###   ########.fr       */
+/*   Updated: 2024/11/03 13:07:20 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ bool	fill_textures(t_p_map *map, t_p_path *txtr, char *str, size_t idx)
 		return (free(str), free_all_and_exit(ERR_DBL_TEXTURE, map, -1));
 	if (SPR_MAX == 1)
 		return (fill_texture(map, txtr, str, idx));
-	while ((size_t)i < ft_strlen(str) && SPR_MAX != 1 && txtr->size <= SPR_MAX)
+	while ((size_t)i < ft_strlen(str) && SPR_MAX != 1 && txtr->size < SPR_MAX)
 	{
 		bgn = i;
 		while (str[i] && str[i] != '\t' )
