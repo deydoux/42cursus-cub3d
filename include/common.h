@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/30 18:40:51 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/04 10:51:39 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
 #  define SPR_MAX	1
 # endif
 
-# define DEG_RAD	0.017453292519943295
 # define ERR		"\e[31mError\e[0m\n"
 
 typedef struct s_p_path
