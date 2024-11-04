@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 14:49:01 by mapale            #+#    #+#             */
-/*   Updated: 2024/11/03 14:02:46 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/04 15:59:31 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ char	*_strdup_map(char *s, t_p_map *map, size_t h)
 	while (s[i] && s[i] != '\n')
 	{
 		if (s[i] == '\t')
-			free_all_and_exit(ERR_MAP, map, i);
+		{
+			free(s);
+			free(dest);
+			free_all_and_exit(ERR_MAP, map, map->map_h);
+		}
 		dest[i] = s[i];
 		i++;
 	}
