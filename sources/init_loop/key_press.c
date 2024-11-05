@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:37:27 by deydoux           #+#    #+#             */
-/*   Updated: 2024/11/03 16:00:58 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/05 15:26:37 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static void	interact(t_cub cub)
 	size_t		y;
 	uint32_t	raw_color;
 
-	x = cub.pos.x + cos(cub.angle);
-	y = cub.pos.y + sin(cub.angle);
+	x = cub.pos.x + cos(cub.angle) * (1 + VELOCITY * 2);
+	y = cub.pos.y + sin(cub.angle) * (1 + VELOCITY * 2);
 	c = &cub.map.buf[y][x];
 	if (*c == 'D')
 		*c = ft_tolower(*c);
