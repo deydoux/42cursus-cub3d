@@ -6,14 +6,14 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 15:43:48 by deydoux           #+#    #+#             */
-/*   Updated: 2024/11/03 17:32:30 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/06 11:46:25 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONFIG_H
 # define CONFIG_H
 
-# define FOV			1.0471975511965976313177861811709590256214141845703125
+# define FOV			1.5533430342749532382384813899989239871501922607421875
 # define KEY_UP			'w'
 # define KEY_LEFT		'a'
 # define KEY_DOWN		's'
