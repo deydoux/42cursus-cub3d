@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:04:59 by deydoux           #+#    #+#             */
-/*   Updated: 2024/11/06 11:39:07 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/08 15:28:28 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	raycasts(t_cub cub)
 	while (x < WIN_W)
 	{
 		angle = cub.angle + atan((2.0 * (double)x / (double)WIN_W - 1.0)
-			* tan(FOV / 2));
+				* tan(FOV / 2));
 		ray = raycast(pol_vec(angle), cub);
 		render_ray(ray, cub);
 		dist = round(sqrt(pow(cub.pos.x - ray.pos.x, 2)
