@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:17:36 by mapale            #+#    #+#             */
-/*   Updated: 2024/10/30 18:42:22 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/08 15:29:14 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*custom_strtrim(char const *s1, char const *set, size_t end);
 
 /*parse_colors*/
 bool	check_color(char *color, t_p_map *map, size_t i);
-char	*get_color_values(t_p_map *map, char **path, char *s);
+char	*get_color_values(t_p_map *map, char **path, char *s, char *line);
 
 /*parse_map*/
 void	create_map(t_p_map *map);

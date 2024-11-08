@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:27:53 by mapale            #+#    #+#             */
-/*   Updated: 2024/11/03 13:50:05 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/08 15:27:59 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,16 @@ static int	get_color_valid_arg(char *color)
 	return (count);
 }
 
-char	*get_color_values(t_p_map *map, char **path, char *s)
+char	*get_color_values(t_p_map *map, char **path, char *s, char *line)
 {
 	size_t	i;
 	size_t	j;
 
 	if (*path)
+	{
+		free(line);
 		free_all_and_exit(ERR_DBL_TEXTURE, map, -1);
+	}
 	*path = malloc(sizeof(char) * (get_color_valid_arg(s) + 1));
 	if (!*path)
 		free_all_and_exit(ERR_MALLOC, map, -1);

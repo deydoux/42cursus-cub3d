@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:28:08 by mapale            #+#    #+#             */
-/*   Updated: 2024/11/03 15:50:18 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/08 15:29:26 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,11 @@ bool	check_textures(t_p_map *map, char *line)
 	if (ft_strncmp(line + i, "F ", 2) == 0)
 		if (check_color(line + (i + 2), map, 0) && map->color_count == 3)
 			return (map->color_count = 0, get_color_values(map,
-					&map->txtrs_pths.f_color, line + (i + 2)));
+					&map->txtrs_pths.f_color, line + (i + 2), line));
 	if (ft_strncmp(line + i, "C ", 2) == 0)
 		if (check_color(line + (i + 2), map, 0) && map->color_count == 3)
 			return (map->color_count = 0, get_color_values(map,
-					&map->txtrs_pths.c_color, line + (i + 2)));
+					&map->txtrs_pths.c_color, line + (i + 2), line));
 	return (false);
 }
 
