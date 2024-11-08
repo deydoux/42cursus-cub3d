@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 17:04:38 by deydoux           #+#    #+#             */
-/*   Updated: 2024/10/29 12:36:14 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/08 15:25:53 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ static int	init_draw_wall(t_img *spr, t_ray ray, t_cub cub)
 	}
 	if (ray.vec.dx > 0)
 	{
-		*spr = cub.spr.e[cub.i / SPR_STEP % cub.spr.e_size];
+		*spr = cub.spr.w[cub.i / SPR_STEP % cub.spr.w_size];
 		return ((ray.pos.y - (int)ray.pos.y) * spr->w);
 	}
-	*spr = cub.spr.w[cub.i / SPR_STEP % cub.spr.w_size];
+	*spr = cub.spr.e[cub.i / SPR_STEP % cub.spr.e_size];
 	return (spr->w - (ray.pos.y - (int)ray.pos.y) * spr->w);
 }
 
