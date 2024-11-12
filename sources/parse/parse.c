@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:11:49 by mapale            #+#    #+#             */
-/*   Updated: 2024/11/03 14:04:08 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/12 11:54:22 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	check_maze(t_p_map *map)
 	while (++y < map->map_h)
 	{
 		x = w_isspace(map->map[y]);
-		if (!is_maze_open(map, map->map[y], y, x))
-			free_all_and_exit(ERR_MAZE_OPEN, map, -1);
 		while ((size_t)x < (ft_strlen(map->map[y]) - 1) && map->map[y][x])
 		{
 			if ((map->map[y][x] == 'N' || map->map[y][x] == 'S' || map->map[y]
@@ -118,7 +116,7 @@ bool	parse(t_p_map *map, char *path)
 	if (map->player.spawn == '.')
 		free_all_and_exit(ERR_PLAYER, map, -1);
 	if (!can_u_play(map, map->player.y, map->player.x))
-		free_all_and_exit(ERR_MAP, map, -1);
+		free_all_and_exit(ERR_MAZE_OPEN, map, -1);
 	safe_close(map->fd);
 	return (true);
 }

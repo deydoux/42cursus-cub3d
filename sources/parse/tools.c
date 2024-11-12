@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:54:18 by mapale            #+#    #+#             */
-/*   Updated: 2024/11/03 14:06:44 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/12 11:54:35 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,26 +53,6 @@ bool	valid_txtrs_condition(t_p_map *map, char *line, size_t index,
 		&& (int)index >= map->map_start)
 		return (true);
 	return (false);
-}
-
-bool	is_maze_open(t_p_map *map, char *line, int y, int x)
-{
-	if (y == map->map_h - 1 || y == 0)
-	{
-		while (line[x] && (y == map->map_h - 1 || line[x] != '\n' ))
-		{
-			if (line[x] != '1' && line[x] != ' ')
-				return (false);
-			x++;
-		}
-	}
-	else
-	{
-		if (map->map[y][x] != '1'
-			&& map->map[y][ft_strlen(map->map[y]) - 1] != '1')
-			return (false);
-	}
-	return (true);
 }
 
 bool	is_this_texture_valid(t_p_path *txtr)

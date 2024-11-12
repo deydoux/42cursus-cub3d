@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: mapale <mapale@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:17:36 by mapale            #+#    #+#             */
-/*   Updated: 2024/11/08 15:29:14 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/12 11:54:40 by mapale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ char	*ft_strdup_range(const char *s, int start, int stop);
 bool	valid_txtrs_condition(t_p_map *map, char *line, size_t index,
 			int condition);
 bool	is_this_texture_valid(t_p_path *txtr);
-bool	is_maze_open(t_p_map *map, char *line, int y, int x);
 
 /*parse_doable*/
 bool	can_u_play(t_p_map *map, int y, int x);
