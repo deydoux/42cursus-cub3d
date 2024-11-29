@@ -5,6 +5,7 @@ SOURCES = \
 common/destroy.c \
 common/draw_map_square.c \
 common/read_img.c \
+common/update_fov.c \
 cub.c \
 init_loop/focus_in.c \
 init_loop/focus_out.c \

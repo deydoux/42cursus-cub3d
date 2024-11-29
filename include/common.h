@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/11/04 10:51:39 by deydoux          ###   ########.fr       */
+/*   Updated: 2024/11/29 18:32:17 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,13 @@ typedef struct s_img
 	void	*ptr;
 }	t_img;
 
+typedef struct s_fov
+{
+	double	ray_angle;
+	double	draw_wall;
+	int		deg;
+}	t_fov;
+
 typedef struct s_key
 {
 	bool	up;
@@ -133,6 +140,7 @@ typedef struct s_cub
 	t_color	floor;
 	t_img	frame;
 	t_img	minimap;
+	t_fov	fov;
 	t_key	key;
 	t_map	map;
 	t_pos	pos;
@@ -144,5 +152,6 @@ typedef struct s_cub
 t_color	*read_img(t_img img, size_t x, size_t y);
 void	draw_map_square(size_t x, size_t y, uint32_t raw_color, t_img img);
 void	destroy(t_cub cub);
+void	update_fov(int deg, t_fov *fov);
 
 #endif
