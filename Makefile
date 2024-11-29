@@ -7,6 +7,7 @@ common/draw_map_square.c \
 common/read_img.c \
 common/update_fov.c \
 cub.c \
+init_loop/button_press.c \
 init_loop/focus_in.c \
 init_loop/focus_out.c \
 init_loop/init_loop.c \
@@ -56,7 +57,7 @@ X11_DIR = /usr/lib
 endif
 
 CC = cc
-CFLAGS = -I$(INCLUDE_DIR) -I$(MLX_DIR) -MD -Wall -Wextra -Werror
+CFLAGS = -I$(INCLUDE_DIR) -I$(MLX_DIR) -MD -Wall -Wextra -Werror -g
 BONUS_CFLAGS = $(CFLAGS) -D BONUS=true
 LFLAGS = -L$(X11_DIR) -lX11 -lXext -lm
 RM = rm -rf
