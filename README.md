@@ -57,9 +57,9 @@ reboot
 ### Build and run
 ```bash
 make
-./cub3d_bonus assets/maps/cat_bonus.cub
+./cub3d_bonus assets/maps/mc_subject_bonus.cub
 ```
-*You can replace `assets/maps/cat_bonus.cub` by any `.cub` file.*
+*You can replace `assets/maps/mc_subject_bonus.cub` by any `.cub` file.*
 
 ## Credits
 <img align="right" src="https://github.com/user-attachments/assets/099e6b70-35e1-49e3-9ac4-dc3194232eb8">

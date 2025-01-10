@@ -1,0 +1,30 @@
+/* XPM */
+static const char *crying_obsidian[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 8 1 ",
+"  c #06030B",
+". c #000001",
+"X c #2B0178",
+"o c #100C1C",
+"O c #3B2754",
+"+ c #271E3D",
+"@ c #6006AB",
+"# c #8308E4",
+/* pixels */
+" ...X o .O+  +O+",
+" . o.XX.Oo @+Oo ",
+"..OO+. ++oo#o+. ",
+"XO+oo+@o o#. @X.",
+".+XoXX@@##.   @ ",
+"oo#@.o   @O+  X.",
+"@# o+OOX .+.@..X",
+" .oOoo#@X..@.O+.",
+"..O+X#o++X@.+ooo",
+"Xo@.o#@+o @o o@X",
+"oXX@#  X  ..o@.+",
+".o Xo@ o OO+ooXX",
+" OOo.Xoo+O@ oXo ",
+"++o @ .ooo@XX.+ ",
+".+ @o +  @o.X.. ",
+"o .@. o+oX   X  "
+};
