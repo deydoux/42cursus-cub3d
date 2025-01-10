@@ -18,7 +18,9 @@ This project is part of the 42 curriculum and focuses on creating a 3D maze game
 - The game must use raycasting for 3D rendering
 - Player must be able to move through the maze with WASD keys
 - Player must be able to rotate the camera with arrow keys
-- Different wall textures based on orientation (North, South, East, West)
+- Configuration file must specify:
+  - `NO`/`SO`/`WE`/`EA` Texture for walls
+  - `F`/`C` Floor and ceiling colors
 - Map must be constructed with these components:
   - `1` Walls
   - `0` Empty spaces
