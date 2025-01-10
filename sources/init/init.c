@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:43:04 by deydoux           #+#    #+#             */
-/*   Updated: 2024/11/29 18:33:03 by deydoux          ###   ########.fr       */
+/*   Updated: 2025/01/10 18:52:21 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static bool	init_win(void *mlx, void **win)
 {
-	*win = mlx_new_window(mlx, WIN_W, WIN_H, "placeholder: map file");
+	*win = mlx_new_window(mlx, WIN_W, WIN_H, "cub3D");
 	if (!*win)
 	{
 		ft_putstr_fd(ERR WIN_INIT_ERR, STDERR_FILENO);
