@@ -1,0 +1,30 @@
+/* XPM */
+static const char *prismarine_bricks[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 8 1 ",
+"  c #95CFC7",
+". c #82C5BC",
+"X c #6EB9AE",
+"o c #5AAFA4",
+"O c #61A59A",
+"+ c #529983",
+"@ c #468974",
+"# c #41816A",
+/* pixels */
+"X      X.    .X@",
+" oXXXXo# XXoXXo@",
+" oXXoXX+ XXOooX#",
+"XoXoOOo+.XXoXoO#",
+"XXo.XoO#.XXXooO@",
+" XoXXoo#+XoXoX.@",
+".ooXXO#.#XoooOX@",
+"XOooX+.Xo#OoOOO@",
+".OXo+ XXXo#OOoX@",
+" OX+ XooXXo+.XX@",
+".Oo+ oXoXoO+ XO#",
+".OO+.XoOoo++ Oo#",
+"XoO+ oOOOOo# Oo@",
+"Xoo+.OOOooo+.oo#",
+"o+O#ooOO++O#OO+@",
+"@@##@@##@#@@##@@"
+};
