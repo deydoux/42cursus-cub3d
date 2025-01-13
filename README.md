@@ -45,7 +45,7 @@ This project is part of the 42 curriculum and focuses on creating a 3D maze game
 
 ## Getting started
 ### Requirements
-**For Linux**
+**For Ubuntu/Debian**
 ```bash
 sudo apt-get install gcc libbsd-dev libxext-dev make xorg
 ```
@@ -56,9 +56,13 @@ brew install xquartz
 reboot
 ```
 
-### Build and run
+### Build
 ```bash
 make
+```
+
+### Run
+```bash
 ./cub3d_bonus assets/maps/mc_subject_bonus.cub
 ./cub3d_bonus assets/maps/mc_subject_bonus.cub -k zqsd # AZERTY layout
 ```
