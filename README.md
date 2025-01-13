@@ -60,6 +60,7 @@ reboot
 ```bash
 make
 ./cub3d_bonus assets/maps/mc_subject_bonus.cub
+./cub3d_bonus assets/maps/mc_subject_bonus.cub -k zqsd # AZERTY layout
 ```
 *You can replace `assets/maps/mc_subject_bonus.cub` by any `.cub` file.*
 

@@ -15,6 +15,7 @@ init_loop/key_press.c \
 init_loop/key_release.c \
 init_loop/quit.c \
 init/fill_img.c \
+init/handle_args.c \
 init/init_img.c \
 init/init_map_img.c \
 init/init_mlx.c \
@@ -33,15 +34,15 @@ loop/pol_vec.c \
 loop/raycasts.c \
 loop/render_minimap.c \
 loop/render_ray.c \
-parse/error_and_free.c \
 parse/colors.c \
+parse/custom_fctn.c \
 parse/doable.c \
+parse/error_and_free.c \
 parse/initialise.c \
 parse/mapping.c \
+parse/parse.c \
 parse/textures.c \
 parse/tools.c \
-parse/parse.c \
-parse/custom_fctn.c \
 
 LIBFT_DIR = libft
 MLX_DIR = minilibx-linux

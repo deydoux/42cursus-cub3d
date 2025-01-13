@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:09:12 by deydoux           #+#    #+#             */
-/*   Updated: 2024/11/03 12:32:24 by deydoux          ###   ########.fr       */
+/*   Updated: 2025/01/13 14:23:09 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,7 @@ int	main(int argc, char **argv)
 	bool	status;
 	t_cub	cub;
 
-	if (argc != 2)
-	{
-		ft_dprintf(STDERR_FILENO, ERR USAGE, argv[0]);
-		return (EXIT_FAILURE);
-	}
-	status = init(argv[1], &cub);
+	status = init(argc, argv, &cub);
 	if (!status)
 		init_loop(&cub);
 	destroy(cub);

@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:00:13 by deydoux           #+#    #+#             */
-/*   Updated: 2024/11/03 12:21:04 by deydoux          ###   ########.fr       */
+/*   Updated: 2025/01/13 14:26:35 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 
 # include "common.h"
 
-# define USAGE "Usage: %s [map_path.cub]\n"
-
-bool	init(char *map_path, t_cub *cub);
+bool	init(int argc, char **argv, t_cub *cub);
 void	init_loop(t_cub *cub);
 
 #endif

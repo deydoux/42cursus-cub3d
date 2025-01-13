@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:08:43 by deydoux           #+#    #+#             */
-/*   Updated: 2024/11/29 18:32:17 by deydoux          ###   ########.fr       */
+/*   Updated: 2025/01/13 14:29:39 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ typedef struct s_fov
 
 typedef struct s_key
 {
+	char	bind[4];
 	bool	up;
 	bool	left;
 	bool	down;
