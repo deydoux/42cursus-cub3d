@@ -14,7 +14,7 @@ This project is part of the 42 curriculum and focuses on creating a 3D maze game
 - Processing keyboard inputs for smooth controls
 - Understanding 3D graphics fundamentals
 
-[Gameplay.webm](https://github.com/user-attachments/assets/2a1af88c-94ea-4566-a29e-98f4d4d9e9b2)
+[Gameplay.webm](https://github.com/user-attachments/assets/42d25357-b975-4157-ba4f-74d7162b00ea)
 
 ### Key Requirements
 - The game must use raycasting for 3D rendering
