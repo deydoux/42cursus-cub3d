@@ -68,7 +68,7 @@ make
 ```
 *You can replace `assets/maps/mc_subject_bonus.cub` by any `.cub` file.*
 
-## Credits
+## References
 <img align="right" src="https://github.com/user-attachments/assets/099e6b70-35e1-49e3-9ac4-dc3194232eb8">
 
 - [42](https://42.fr/)
