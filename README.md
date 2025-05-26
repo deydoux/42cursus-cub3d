@@ -1,5 +1,5 @@
 <div align="center">
-  <img height="128" width="128" src="https://github.com/user-attachments/assets/ecc23eb7-63d1-4dca-b4ae-922dfa8f33e1">
+  <img height="128" src="https://github.com/user-attachments/assets/edfecd85-5813-4eae-a625-a53fb129eaf2">
   <h1>cub3d</h1>
 </div>
 
