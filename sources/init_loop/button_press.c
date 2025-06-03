@@ -6,7 +6,7 @@
 /*   By: deydoux <deydoux@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 18:49:26 by deydoux           #+#    #+#             */
-/*   Updated: 2024/11/29 19:05:19 by deydoux          ###   ########.fr       */
+/*   Updated: 2025/06/03 16:39:41 by deydoux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static void	interact(t_cub cub)
 
 	x = cub.pos.x + cos(cub.angle) * (1 + VELOCITY * 2);
 	y = cub.pos.y + sin(cub.angle) * (1 + VELOCITY * 2);
+	if (x >= cub.map.w || y >= cub.map.h)
+		return ;
 	c = &cub.map.buf[y][x];
 	if (*c == 'D')
 		*c = ft_tolower(*c);
